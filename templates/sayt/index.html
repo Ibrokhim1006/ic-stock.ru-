@@ -1,0 +1,246 @@
+{% extends  'sayt/base.html' %}
+{% load static %}
+{% block title %} <title>ic-stock.ru</title> {% endblock %}
+
+{% block content %}
+
+<div class="hero">
+    <div class="hero-slide">
+      <div
+        class="img overlay"
+        style="background-image: url('../../static/sayt/images/img_slayd.jpg')"
+      ></div>
+      <div
+        class="img overlay"
+        style="background-image: url('../../static/sayt/images/8.jpg')"
+      ></div>
+      <div
+        class="img overlay"
+        style="background-image: url('../../static/sayt/images/10.jpg')"
+      ></div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-9 text-center">
+          <h1 class="heading" data-aos="fade-up">
+            Поиск по номеру изделия в мировых складах
+          </h1>
+          <form
+            action="#"
+            class="narrow-w form-search d-flex align-items-stretch mb-3"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <input
+              type="text"
+              class="form-control px-4"
+              placeholder="Поиск"
+            />
+            <button type="submit" class="btn btn-primary">Поиск</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="row mb-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="font-weight-bold text-primary heading">
+            Популярные категории
+          </h2>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <p>
+            <a
+              href="#"
+              target="_blank"
+              class="btn btn-primary text-white py-3 px-4"
+              >Подобрать компоненты</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="property-slider-wrap">
+            <div class="property-slider">
+              <div class="property-item">
+                <a href="property-single.html" class="img">
+                  <img src="{% static 'sayt/photo/26.jpg' %}" alt="Image" class="img-fluid" />
+                </a>
+
+                <div class="property-content">
+                  <div class="price mb-2"><span>Микросхемы Управления Питанием</span></div>
+                  <div>
+
+                    <a
+                      href="property-single.html"
+                      class="btn btn-primary py-2 px-3 mt-3"
+                      >Подробнее</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- .item -->
+
+              <div class="property-item">
+                <a href="property-single.html" class="img">
+                  <img src="./photo/11.jpg" alt="Image" class="img-fluid" />
+                </a>
+
+                <div class="property-content">
+                  <div class="price mb-2"><span>Кабели, Провода И Сборки</span></div>
+                  <div>
+                    <a
+                      href="property-single.html"
+                      class="btn btn-primary py-2 px-3 mt-3"
+                      >Подробнее</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- .item -->
+
+              <div class="property-item">
+                <a href="property-single.html" class="img">
+                  <img src="./photo/12.jpg" alt="Image" class="img-fluid" />
+                </a>
+
+                <div class="property-content">
+                  <div class="price mb-2"><span>Оптоэлектроника И Дисплеи</span></div>
+                  <div>
+
+                    <a
+                      href="property-single.html"
+                      class="btn btn-primary py-2 px-3"
+                      >Подробнее</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- .item -->
+
+
+              <div class="property-item">
+                <a href="property-single.html" class="img">
+                  <img src="./photo/18.jpg" alt="Image" class="img-fluid" />
+                </a>
+
+                <div class="property-content">
+                  <div class="price mb-2"><span>Микросхемы Управления Питанием</span></div>
+                  <div>
+
+                    <a
+                      href="property-single.html"
+                      class="btn btn-primary py-2 px-3 mt-3"
+                      >Подробнее</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- .item -->
+            </div>
+
+            <div
+              id="property-nav"
+              class="controls"
+              tabindex="0"
+              aria-label="Carousel Navigation"
+            >
+              <span
+                class="prev"
+                data-controls="prev"
+                aria-controls="property"
+                tabindex="-1"
+                >Назад</span
+              >
+              <span
+                class="next"
+                data-controls="next"
+                aria-controls="property"
+                tabindex="-1"
+                >Вперед</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section sec-testimonials">
+    <div class="container">
+      <div class="row mb-5 align-items-center">
+        <div class="col-md-6">
+          <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
+            Доставка
+          </h2>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div id="testimonial-nav">
+            <span class="prev" data-controls="prev">Назад</span>
+
+            <span class="next" data-controls="next">Вперед</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4"></div>
+      </div>
+      <div class="testimonial-slider-wrap">
+        <div class="testimonial-slider">
+          <div class="item">
+            <div class="testimonial">
+              <img
+                src="./images/Majorex.png"
+                alt="Image"
+                class="img-fluid  w-50 mb-4"
+              />
+
+              <h3 class="h5 text-primary mb-4">Major</h3>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="testimonial">
+              <img
+                src="./images/dpd.png"
+                alt="Image"
+                class="img-fluid  w-50 mb-4"
+              />
+              <h3 class="h5 text-primary mb-4">DPD</h3>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="testimonial">
+              <img
+                src="./images/cdek.png"
+                alt="Image"
+                class="img-fluid w-50 mb-4"
+              />
+              <h3 class="h5 text-primary mb-4">CDEK</h3>
+
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="testimonial">
+              <img
+                src="./images/DHL.png"
+                alt="Image"
+                class="img-fluid w-50 mb-4"
+              />
+              <h3 class="h5 text-primary mb-4">DHL</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

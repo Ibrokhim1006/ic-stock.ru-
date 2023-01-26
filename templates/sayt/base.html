@@ -1,0 +1,200 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="{% static 'sayt/images/IC-Stock-Trade.jpg' %}" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'sayt/fonts/icomoon/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'sayt/fonts/flaticon/font/flaticon.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'sayt/css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'sayt/css/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'sayt/css/style.css' %}" />
+
+    {% block title %} {% endblock %}
+  </head>
+  <body>
+   
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="" class="logo m-0 float-start">
+              <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;" alt="">
+            </a>
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li class="active"><a href="">Главная страница</a></li>
+              <li class="has-children">
+                <a href="">Каталог</a>
+                <ul class="dropdown">
+                  <li><a href="#">Menus</a></li>
+                  <li><a href="#">Sell Property</a></li>
+                  <li class="has-children">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown">
+                      <li><a href="#">Sub Menu One</a></li>
+                      <li><a href="#">Sub Menu Two</a></li>
+                      <li><a href="#">Sub Menu Three</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="">Линии поставок</a></li>
+              <li><a href="">Качество</a></li>
+              <li><a href="">Доставка</a></li>
+              <li><a href="">Контакты</a></li>
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Контакты</h3>
+              <address>Санкт-Петербург, Гаванская ул, дом 12</address>
+              <ul class="list-unstyled links">
+                <li><a href="tel://11234567890">+998(91)449-56-44</a></li>
+                <li><a href="tel://11234567890">+998(99)543-12-50</a></li>
+                <li>
+                  <a href="mailto:info@mydomain.com">Ibroxim.2001@mail.ru</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Источники</h3>
+              <ul class="list-unstyled float-start links">
+                <li><a href="./index.html">Главная страница</a></li>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Линии поставок</a></li>
+                <li><a href="#">Качество</a></li>
+                <li><a href="./dostavka.html">Доставка</a></li>
+                <li><a href="./contact.html">Контакты</a></li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Социальные сети</h3>
+             
+
+              <ul class="list-unstyled social">
+                <li>
+                  <a href="#"><span class="icon-instagram"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-linkedin"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-pinterest"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-dribbble"></span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <!-- 
+              **==========
+              NOTE: 
+              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+              **==========
+            -->
+
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              . Все права защищены. &mdash; разработан
+              <a href="https://kwork.ru/user/ibrokhim1006">Ibrokhim1006</a>
+              <!-- License information: https://untree.co/license/ -->
+            </p>
+            <div>
+              распространяется
+              <a href="https://themewagon.com/" target="_blank">themewagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.site-footer -->
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <script src="{% static 'sayt/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'sayt/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'sayt/js/aos.js' %}"></script>
+    <script src="{% static 'sayt/js/navbar.js' %}"></script>
+    <script src="{% static 'sayt/js/counter.js' %}"></script>
+    <script src="{% static 'sayt/js/custom.js' %}"></script>
+  </body>
+</html>
