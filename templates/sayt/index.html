@@ -49,7 +49,7 @@
       <div class="row mb-5 align-items-center">
         <div class="col-lg-6">
           <h2 class="font-weight-bold text-primary heading">
-            Популярные категории
+            Новые продукты
           </h2>
         </div>
         <div class="col-lg-6 text-lg-end">
@@ -171,12 +171,67 @@
     </div>
   </div>
 
+<!-- Advends -->
+  <div class="section bg-light">
+    <h3 class="text-center">Преимущества</h3>
+    <div class="container mt-5">
+      <div class="row">
+        {% for item in objects_advend %}
+        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="box-feature mb-4">
+            <img src="{{item.img.url}}" class="flaticon-house mb-4 d-block text-center" style="width: 20%;" alt="">
+            <p><a href="#" class="learn-more" style="font-size: 20px;">{{item.title}}</a></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- End Advends -->
+
+
+  <!-- About categoriya -->
+  <div class="section">
+    <div class="container">
+      <div class="row text-left mb-5">
+        <div class="col-12">
+          <h2 class="font-weight-bold heading text-primary mb-4">О НАС</h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section pt-0">
+    
+    <div class="container">
+      <div class="row justify-content-between mb-5">
+        <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
+          <div class="img-about dots">
+            <img src="{% static 'sayt/images/hero_bg_3.jpg' %}" alt="Image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <p class="text-black-50">
+            Мы считаем, что уход за собой – лучший подарок.
+Наш салон красоты – это место, где вы сможете побаловать себя, а так же отдохнуть в приятной расслабляющей обстановке. Пока вы будете отдыхать наши мастера будут работать над вашим индивидуальным образом.
+Мы с радостью помогаем осуществлять мечты.
+Сделайте счастливее себя и приходите к нам, даже просто выпить чашечку кофе. И вы насладитесь главным — атмосферой тепла, внимания и доброты наполняющей пространство салона СИЯЙ
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end about -->
+
+
+  <!-- Brneds -->
   <div class="section sec-testimonials">
     <div class="container">
       <div class="row mb-5 align-items-center">
         <div class="col-md-6">
           <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
-            Доставка
+            Бренд
           </h2>
         </div>
         <div class="col-md-6 text-md-end">
@@ -193,54 +248,18 @@
       </div>
       <div class="testimonial-slider-wrap">
         <div class="testimonial-slider">
+          {% for brend in objects_brend %}
           <div class="item">
             <div class="testimonial">
-              <img
-                src="./images/Majorex.png"
-                alt="Image"
-                class="img-fluid  w-50 mb-4"
-              />
-
-              <h3 class="h5 text-primary mb-4">Major</h3>
+              <img src="{{brend.img_brend.url}}" alt="{{brend.name}}" class="img-fluid mb-4" style="width: 30% !important;height: 10%;" />
+              <h3 class="h5 text-primary mb-4">{{brend.name}}</h3>
             </div>
           </div>
+          {% endfor %}
 
-          <div class="item">
-            <div class="testimonial">
-              <img
-                src="./images/dpd.png"
-                alt="Image"
-                class="img-fluid  w-50 mb-4"
-              />
-              <h3 class="h5 text-primary mb-4">DPD</h3>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="testimonial">
-              <img
-                src="./images/cdek.png"
-                alt="Image"
-                class="img-fluid w-50 mb-4"
-              />
-              <h3 class="h5 text-primary mb-4">CDEK</h3>
-
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="testimonial">
-              <img
-                src="./images/DHL.png"
-                alt="Image"
-                class="img-fluid w-50 mb-4"
-              />
-              <h3 class="h5 text-primary mb-4">DHL</h3>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
-
+<!-- end brends -->
 {% endblock %}

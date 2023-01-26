@@ -1,3 +1,6 @@
 from django.contrib import admin
+from A_admin_panel.models import *
 
-# Register your models here.
+admin.site.register(Advantages)
+admin.site.register(Brand)
+admin.site.register(Categoriya)
