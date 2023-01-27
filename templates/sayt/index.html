@@ -67,81 +67,22 @@
         <div class="col-12">
           <div class="property-slider-wrap">
             <div class="property-slider">
+              {% for item in objects_product %}
               <div class="property-item">
-                <a href="property-single.html" class="img">
-                  <img src="{% static 'sayt/photo/26.jpg' %}" alt="Image" class="img-fluid" />
+                <a href="{% url 'in_product' item.id %}" class="img">
+                  <img src="{{item.img.url}}" alt="{{item.name}}" class="img-fluid" />
                 </a>
 
                 <div class="property-content">
-                  <div class="price mb-2"><span>Микросхемы Управления Питанием</span></div>
+                  <div class="price mb-2"><span>{{item.name}}</span></div>
                   <div>
-
-                    <a
-                      href="property-single.html"
-                      class="btn btn-primary py-2 px-3 mt-3"
-                      >Подробнее</a
-                    >
+                    <a href="{% url 'in_product' item.id %}" class="btn btn-primary py-2 px-3 mt-3">Подробнее</a>
                   </div>
                 </div>
               </div>
+              {% endfor %}
               <!-- .item -->
 
-              <div class="property-item">
-                <a href="property-single.html" class="img">
-                  <img src="./photo/11.jpg" alt="Image" class="img-fluid" />
-                </a>
-
-                <div class="property-content">
-                  <div class="price mb-2"><span>Кабели, Провода И Сборки</span></div>
-                  <div>
-                    <a
-                      href="property-single.html"
-                      class="btn btn-primary py-2 px-3 mt-3"
-                      >Подробнее</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- .item -->
-
-              <div class="property-item">
-                <a href="property-single.html" class="img">
-                  <img src="./photo/12.jpg" alt="Image" class="img-fluid" />
-                </a>
-
-                <div class="property-content">
-                  <div class="price mb-2"><span>Оптоэлектроника И Дисплеи</span></div>
-                  <div>
-
-                    <a
-                      href="property-single.html"
-                      class="btn btn-primary py-2 px-3"
-                      >Подробнее</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- .item -->
-
-
-              <div class="property-item">
-                <a href="property-single.html" class="img">
-                  <img src="./photo/18.jpg" alt="Image" class="img-fluid" />
-                </a>
-
-                <div class="property-content">
-                  <div class="price mb-2"><span>Микросхемы Управления Питанием</span></div>
-                  <div>
-
-                    <a
-                      href="property-single.html"
-                      class="btn btn-primary py-2 px-3 mt-3"
-                      >Подробнее</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- .item -->
             </div>
 
             <div

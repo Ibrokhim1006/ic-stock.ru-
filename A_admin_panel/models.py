@@ -22,3 +22,17 @@ class Categoriya(models.Model):
 
     def __str__(self):
         return self.name
+
+class Product(models.Model):
+    name = models.CharField(max_length=250)
+    img = models.ImageField(upload_to="product/")
+    price = models.CharField(max_length=250)
+    categorsiya_id = models.ForeignKey(Categoriya,on_delete=models.CASCADE)
+    atrikul = models.CharField(max_length=250)
+    manufacturer = models.CharField(max_length=250)
+    description = models.TextField()
+    amunt = models.CharField(max_length=250)
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

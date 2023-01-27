@@ -1,0 +1,82 @@
+{% extends  'sayt/base.html' %}
+{% load static %}
+{% block title %} <title>{{categor.name}} ic-stock.ru</title> {% endblock %}
+
+{% block content %}
+
+<div
+class="hero page-inner overlay"
+style="background-image: url('../../static/sayt/images/10.jpg')"
+>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-9 text-center mt-5">
+      <h1 class="heading" data-aos="fade-up">{{categor.name}}</h1>
+
+      <nav
+        aria-label="breadcrumb"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <ol class="breadcrumb text-center justify-content-center">
+          <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'all_category' %}">Каталоги</a></li>
+          <li
+            class="breadcrumb-item active text-white-50"
+            aria-current="page"
+          >
+          {{categor.name}}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6">
+              <h2 class="font-weight-bold text-primary heading">
+                {{categor.name}} продукты
+              </h2>
+            </div>
+          </div>
+        <div class="row">
+            {% for item in objects_product %}
+            <div class="col-lg-4" style="margin-top: 10px;">
+                <div class="property-item" style="box-shadow: 5px 5px 5px 5px grey;">
+                    <a href="{% url 'in_product' item.id %}" class="img">
+                      <img src="{{item.img.url}}" alt="{{item.name}}" class="img-fluid" />
+                    </a>
+  
+                    <div class="property-content">
+                      <div class="price mb-2"><span>{{item.price}}</span></div>
+                      <div>
+                        <span class="d-block mb-2 text-black-50">{{item.atrikul}}</span>
+                        <span class="city d-block mb-3">{{item.name}}</span>
+  
+                        <div class="specs d-flex mb-4">
+                          <span class="d-block d-flex align-items-center me-3">
+                            <span class="icon-bed me-2"></span>
+                            <span class="caption">{{item.amunt}} шт</span>
+                          </span>
+                        </div>
+                        <a href="{% url 'in_product' item.id %}" class="btn btn-primary py-2 px-3">Читать болшье</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

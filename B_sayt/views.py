@@ -5,6 +5,7 @@ def index(request):
     context = {}
     context['objects_advend'] = Advantages.objects.all()
     context['objects_brend'] = Brand.objects.all()
+    context['objects_product'] = Product.objects.all().order_by('-id')[:6]
     return render(request,'sayt/index.html',context)
 
 def delivery(request):
@@ -13,3 +14,20 @@ def delivery(request):
 
 def contact(request):
     return render(request,'sayt/contact.html')
+
+def all_category(request):
+    context = {}
+    context['objects_brend'] = Brand.objects.all()
+    context['objects_all'] = Categoriya.objects.all()
+    return render(request,'sayt/all_category.html',context)
+
+def in_categor_product(request,id):
+    context = {}
+    context['categor'] = Categoriya.objects.get(id=id)
+    context['objects_product'] = Product.objects.filter(categorsiya_id=id).order_by('-id')
+    return render(request,'sayt/in_categor_product.html',context)
+
+def in_product(request,id):
+    context = {}
+    context['objects'] = Product.objects.get(id=id)
+    return render(request,'sayt/in_product.html',context)

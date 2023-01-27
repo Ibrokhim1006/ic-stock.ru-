@@ -1,0 +1,81 @@
+{% extends  'sayt/base.html' %}
+{% load static %}
+{% block title %} <title>{{objects.name}} ic-stock.ru</title> {% endblock %}
+
+{% block content %}
+
+<div class="hero page-inner overlay" style="background-image: url('../../static/sayt/images/10.jpg')">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">{{objects.name}}</h1>
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'all_category' %}">{{objects.categorsiya_id}}</a></li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">{{objects.name}}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="card mb-3" style="max-width: 100%;">
+            <div class="row g-0">
+              <div class="col-md-4 p-4">
+                <img src="{{objects.img.url}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text">{{objects.manufacturer}}</p>
+                    <h5 class="card-title">{{objects.atrikul}}</h5>
+                    <p class="card-text">{{objects.name}}</p>
+                    <p class="card-text"><small class="text-muted">{{objects.amunt}} шт</small></p>
+                    <p class="card-text">{{objects.description}}</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <h3>Технические характеристики продукта</h3>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 50%;">ЕС RoHS</th>
+                <th scope="col" style="width: 50%;">EAR99</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">ECCN (US)</th>
+                <td>активный</td>
+              </tr>
+              <tr>
+                <th scope="row">Статус части</th>
+                <td>8536.90.40.00</td>
+              </tr>
+              <tr>
+                <th scope="row">SVHC</th>
+                <td colspan="2">да</td>
+              </tr>
+              <tr>
+                <th scope="row">SVHC превысил порог</th>
+                <td>да</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

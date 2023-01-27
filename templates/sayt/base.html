@@ -54,7 +54,7 @@
                 <a href="">Каталог</a>
                 <ul class="dropdown">
                   {% for item in request.get_catgor %}
-                    <li><a href="#">{{item.name}}</a></li>
+                    <li><a href="{% url 'in_categor_product' item.id %}">{{item.name}}</a></li>
                   {% endfor %}
                   <!-- <li class="has-children">
                     <a href="#">Dropdown</a>
@@ -112,7 +112,7 @@
               <h3>Источники</h3>
               <ul class="list-unstyled float-start links">
                 <li><a href="{% url 'index' %}">Главная страница</a></li>
-                <li><a href="#">Каталог</a></li>
+                <li><a href="{% url 'all_category' %}">Каталог</a></li>
                 <li><a href="#">Линии поставок</a></li>
                 <li><a href="#">Качество</a></li>
                 <li><a href="{% url 'delivery' %}">Доставка</a></li>
