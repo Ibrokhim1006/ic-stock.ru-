@@ -1,4 +1,10 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import generics
+from rest_framework import filters
+from B_sayt.serializers import *
 from A_admin_panel.models import *
 
 def index(request):
@@ -35,3 +41,10 @@ def in_product(request,id):
     context = {}
     context['objects'] = Product.objects.get(id=id)
     return render(request,'sayt/in_product.html',context)
+
+
+class AllProductSearchView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = AllSearchProduct
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'

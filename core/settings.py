@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     # bootstrapp
     "crispy_forms",
     "crispy_bootstrap5",
+    # Django DRF
+    'rest_framework',
+    'django_filters',
     # my createapp
     'A_admin_panel',
     'B_sayt'
@@ -156,3 +159,34 @@ LOGIN_URL = 'login_admin'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Rest fremwork settings
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+        
+    # )
+
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.FileUploadParser'
+
+        
+    )
+}
+
+# cors
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:8080",
+    "http://192.168.137.78",
+    "http://localhost:8080",
+    "https://3e84-185-250-206-164.eu.ngrok.io",
+    "http://192.168.137.22:8080",
+    'http://34.73.83.172',
+    "http://176.96.243.117:9000"
+]
