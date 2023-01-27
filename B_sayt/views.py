@@ -6,6 +6,10 @@ def index(request):
     context['objects_advend'] = Advantages.objects.all()
     context['objects_brend'] = Brand.objects.all()
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
+    if request.method=='POST':
+        search = request.POST.get('search')
+        context['reault_search'] = Product.objects.filter(name=search)
+        
     return render(request,'sayt/index.html',context)
 
 def delivery(request):

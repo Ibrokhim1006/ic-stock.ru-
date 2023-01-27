@@ -26,23 +26,16 @@
           <h1 class="heading" data-aos="fade-up">
             Поиск по номеру изделия в мировых складах
           </h1>
-          <form
-            action="#"
-            class="narrow-w form-search d-flex align-items-stretch mb-3"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <input
-              type="text"
-              class="form-control px-4"
-              placeholder="Поиск"
-            />
+          <form  method="post" class="narrow-w form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            {% csrf_token %}
+            <input type="search" class="form-control px-4" placeholder="Поиск" name="search"/>
             <button type="submit" class="btn btn-primary">Поиск</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
 
   <div class="section">
     <div class="container">
