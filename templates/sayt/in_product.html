@@ -31,12 +31,44 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                    <p class="card-text" style="font-weight: bold;">{{objects.manufacturer}}</p>
-                    <h5 class="card-title" style="font-weight: bold;">{{objects.atrikul}}</h5>
-                    <p class="card-text" style="font-weight: bold;">{{objects.name}}</p>
-                    <p class="card-text" style="font-weight: bold;">{{objects.categorsiya_id}}</p>
-                    <p class="card-text" style="font-weight: bold;"><small class="text-muted">{{objects.amunt}} </small></p>
-                    <p class="card-text">{{objects.description}}</p>
+                    <p class="card-title">
+                        <span style="font-weight: bold;font-size: 18px;">
+                            Артикул: 
+                        </span > 
+                        <span style="font-weight: 650;font-size: 16px;">
+                            <a href="#">{{objects.atrikul}}</a>
+                        </span>
+                    </p>
+                    <p class="card-text">
+                        <span style="font-weight: bold;font-size: 18px;">Наименование: </span> 
+                        <span style="font-weight: 650;font-size: 16px;">
+                            <a href="#">{{objects.name}}</a>
+                        </span>
+                    </p>
+                    <p class="card-text">
+                        <span style="font-weight: bold;font-size: 18px;">Тип: </span> 
+                        <span style="font-weight: 650;font-size: 16px;">
+                            <a href="#">{{objects.categorsiya_id}}</a>
+                        </span>
+                    </p>
+                    <p class="card-text">
+                        <span style="font-weight: bold;font-size: 18px;">Производитель: </span > 
+                            <span style="font-weight: 650;font-size: 16px;">
+                                <a href="#">{{objects.manufacturer}}</a>
+                            </span>
+                        </p>
+                    <p class="card-text" style="font-weight: bold;">{{objects.description}}</p>
+                    <p class="card-text">
+                        <span style="font-weight: bold;font-size: 18px;">Доступное количество: </span> 
+                        <span style="font-weight: 650;font-size: 16px;">
+                            <a href="#">{{objects.amunt}}</a>
+                        </span>
+                    </p>
+                    <p class="card-text"><span style="font-weight: bold;font-size: 18px;">Доставка: </span> 
+                        <span style="font-weight: 650;font-size: 16px;">
+                            <a href="{% url 'client_post' objects.id %}" style="color: red;">цена по запросу</a>
+                        </span>
+                    </p>
                 </div>
               </div>
             </div>

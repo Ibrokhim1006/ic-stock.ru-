@@ -42,6 +42,21 @@ def in_product(request,id):
     context['objects'] = Product.objects.get(id=id)
     return render(request,'sayt/in_product.html',context)
 
+def client_post(request,id):
+    context = {}
+    context['object'] = Product.objects.get(id=id)
+    if request.method=="POST":
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        if full_name=='' or email=='' or phone=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/client_post.html',context)
+        post_client = ClientPost(full_name=full_name,pochta=email,phone=phone,product_id=context['object'])
+        post_client.save()
+        context['error'] = "s"
+        return render(request,'sayt/client_post.html',context)
+    return render(request,'sayt/client_post.html',context)
 
 class AllProductSearchView(generics.ListAPIView):
     queryset = Product.objects.all()

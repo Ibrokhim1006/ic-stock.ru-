@@ -38,3 +38,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class ClientPost(models.Model):
+    full_name = models.CharField(max_length=250)
+    pochta = models.EmailField()
+    phone = models.CharField(max_length=250)
+    product_id = models.ForeignKey(Product,on_delete=models.CASCADE)
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name

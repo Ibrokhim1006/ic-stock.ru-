@@ -1,0 +1,44 @@
+{% extends  'admin_panel/base.html' %}
+{% load static %}
+{% block title %} <title>Заказы</title> {% endblock %}
+
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Заказы</h4>
+            </div>
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered  dt-responsive nowrap w-100">
+                    <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 5%;">№</th>
+                        <th style="width: 20%;">Ф.И.О</th>
+                        <th style="width: 20%;">E-mail</th>
+                        <th style="width: 20%;">Телефон </th>
+                        <th style="width: 20%;">Продукт </th>
+                        <th style="width: 20%;">Дата заказа</th>
+
+                    </tr>
+                    </thead>
+                    {% for item in objects_list %}
+                    <tr>
+                        <td class="text-center">{{forloop.counter}}</td>
+                        <td class="text-center">{{item.full_name}}</td>
+                        <td class="text-center">{{item.pochta}}</td>
+                        <td class="text-center">{{item.phone}}</td>
+                        <td class="text-center">{{item.product_id}}</td>
+                        <td class="text-center">{{item.create_date|date:'Y-m-d'}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <!-- end cardaa -->
+    </div> <!-- end col -->
+</div>
+
+
+{% endblock %}

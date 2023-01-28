@@ -44,30 +44,30 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
             </div>
           </div>
         <div class="row">
-            {% for item in objects_product %}
-            <div class="col-lg-4" style="margin-top: 10px;">
-                <div class="property-item" style="box-shadow: 5px 5px 5px 5px grey;">
-                    <a href="{% url 'in_product' item.id %}" class="img">
-                      <img src="{{item.img.url}}" alt="{{item.name}}" class="img-fluid" />
-                    </a>
-  
-                    <div class="property-content">
-                      <!-- <div class="price mb-2"><span>{{item.price}}</span></div> -->
-                      <div>
-                        <span class="d-block mb-2 text-black-50" style="font-weight: bold;">{{item.atrikul}}</span>
-                        <span class="city d-block mb-3">{{item.name}}</span>
-  
-                        <div class="specs d-flex mb-4">
-                          <span class="d-block d-flex align-items-center me-3">
-                            <span class="caption mb-2" style="font-size: 15px;font-weight: bold;">{{item.amunt}}</span>
-                          </span>
-                        </div>
-                        <a href="{% url 'in_product' item.id %}" class="btn btn-primary py-2 px-3">Читать болшье</a>
-                      </div>
-                    </div>
-                  </div>
+             {% for item in objects_product %}
+        <div class="col-lg-4 mt-2">
+          <div class="card" style="width: 100%;">
+            <img src="{{item.img.url}}" class="card-img-top" alt="{{item.name}}">
+            <div class="card-body">
+              <p class="card-title">
+                <span style="font-weight: bold;font-size: 18px;">Артикул:</span > 
+                <span style="font-weight: 650;font-size: 16px;">
+                  <a href="{% url 'in_product' item.id %}">{{item.atrikul}}</a>
+                </span>
+              </p>
+              <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
+              <p>
+                <a href="#" style="font-weight: bold;">Доступно к заказу от 500 шт</a>
+              </p>
+              <p class="card-title" >
+                <span style="font-weight: bold;font-size: 16px;">доставка :</span > 
+                  <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;">цена по запросу</a>
+                </p>
+              <a href="{% url 'in_product' item.id %}" class="btn btn-primary">Подробнее</a>
             </div>
-            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
         </div>
     </div>
 </div>

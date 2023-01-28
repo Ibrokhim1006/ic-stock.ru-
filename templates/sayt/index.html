@@ -45,7 +45,7 @@
             Новые продукты
           </h2>
         </div>
-        <div class="col-lg-6 text-lg-end">
+        <!-- <div class="col-lg-6 text-lg-end">
           <p>
             <a
               href="#"
@@ -54,53 +54,33 @@
               >Подобрать компоненты</a
             >
           </p>
-        </div>
+        </div> -->
       </div>
       <div class="row">
-        <div class="col-12">
-          <div class="property-slider-wrap">
-            <div class="property-slider">
-              {% for item in objects_product %}
-              <div class="property-item">
-                <a href="{% url 'in_product' item.id %}" class="img">
-                  <img src="{{item.img.url}}" alt="{{item.name}}" class="img-fluid" />
-                </a>
-
-                <div class="property-content">
-                  <div class="price mb-2"><span>{{item.name}}</span></div>
-                  <div>
-                    <a href="{% url 'in_product' item.id %}" class="btn btn-primary py-2 px-3 mt-3">Подробнее</a>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-              <!-- .item -->
-
-            </div>
-
-            <div
-              id="property-nav"
-              class="controls"
-              tabindex="0"
-              aria-label="Carousel Navigation"
-            >
-              <span
-                class="prev"
-                data-controls="prev"
-                aria-controls="property"
-                tabindex="-1"
-                >Назад</span
-              >
-              <span
-                class="next"
-                data-controls="next"
-                aria-controls="property"
-                tabindex="-1"
-                >Вперед</span
-              >
+        {% for item in objects_product %}
+        <div class="col-lg-4 mt-2">
+          <div class="card" style="width: 100%;">
+            <img src="{{item.img.url}}" class="card-img-top" alt="{{item.name}}">
+            <div class="card-body">
+              <p class="card-title" >
+                <span style="font-weight: bold;font-size: 18px;">Артикул:</span > 
+                  <span style="font-weight: 650;font-size: 16px;">
+                    <a href="{% url 'in_product' item.id %}">{{item.atrikul}}</a>
+                  </span>
+                </p>
+              <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
+              <p>
+                <a href="#" style="font-weight: bold;">Доступно к заказу от 500 шт</a>
+              </p>
+              <p class="card-title" >
+                <span style="font-weight: bold;font-size: 16px;">доставка :</span > 
+                  <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;">цена по запросу</a>
+                </p>
+              <a href="{% url 'in_product' item.id %}" class="btn btn-primary">Подробнее</a>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>

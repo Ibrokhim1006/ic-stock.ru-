@@ -1,0 +1,60 @@
+{% extends  'sayt/base.html' %}
+{% load static %}
+{% block title %} <title>Контакты ic-stock.ru</title> {% endblock %}
+
+{% block content %}
+
+<div
+class="hero page-inner overlay"
+style="background-image: url('../../static/sayt/photo/27.jpg')"
+>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-9 text-center mt-5">
+      <h1 class="heading" data-aos="fade-up">ФОРМА ЗАПРОСА НА ПОСТАВКУ КОПЛЕКТУЮЩИХ</h1>
+
+      <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+        <ol class="breadcrumb text-center justify-content-center">
+          <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
+          <li class="breadcrumb-item active text-white-50" aria-current="page">
+            ФОРМА ЗАПРОСА НА ПОСТАВКУ КОПЛЕКТУЮЩИХ
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+</div>
+
+<h1 class="text-center mt-5">ФОРМА ЗАПРОСА НА ПОСТАВКУ КОПЛЕКТУЮЩИХ</h1>
+{{error}}
+<div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+          <form action="" method="post">
+            {% csrf_token %} 
+            <div class="row">
+              <div class="col-6 mb-3">
+                <input type="text" class="form-control" name="full_name" placeholder="Ф.И.О" required/>
+              </div>
+              <div class="col-6 mb-3">
+                <input type="email" name="email" class="form-control" placeholder="E-mail"required/>
+              </div>
+              <div class="col-12 mb-3">
+                <input type="phone" name="phone" class="form-control" placeholder="Телефон " required/>
+              </div>
+              <div class="col-12 mb-3">
+                <textarea name="product" cols="30" rows="7" class="form-control" placeholder="Продукт" required>{{object.name}}</textarea>
+              </div>
+    
+              <div class="col-12">
+                <input type="submit" value="Отправить сообщение" class="btn btn-primary"/>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock %}

@@ -9,4 +9,5 @@ urlpatterns = [
     path('in_categor_product/<int:id>/',in_categor_product,name='in_categor_product'),
     path('in_product/<int:id>/',in_product,name='in_product'),
     path('all_product_search_view/',AllProductSearchView.as_view()),
+    path('client_post/<int:id>/',client_post,name='client_post'),
 ]

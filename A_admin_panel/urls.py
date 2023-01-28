@@ -27,4 +27,6 @@ urlpatterns = [
     path('create_brands_admin/',CreateBrandsAdmin.as_view(),name='create_brands_admin'),
     path('update_brands_admin<int:pk>/',UpdateBrandssAdmin.as_view(),name='update_brands_admin'),
     path('delete_brands_admin/<int:pk>/',DeleteABrandsAdmin.as_view(),name='delete_brands_admin'),
+
+    path('orders/',orders,name='orders'),
 ]

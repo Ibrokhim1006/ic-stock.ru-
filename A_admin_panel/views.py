@@ -138,3 +138,10 @@ class DeleteABrandsAdmin(DeleteView):
     model = Brand
     template_name = 'admin_panel/brand/delete.html'
     success_url = reverse_lazy('all_brands_admin')
+
+
+@login_required
+def orders(request):
+    context = {}
+    context['objects_list'] = ClientPost.objects.all().order_by('-id')
+    return render(request,'admin_panel/orders.html',context)
