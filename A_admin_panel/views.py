@@ -100,3 +100,41 @@ def info_product_admin(request,pk):
     context = {}
     context['objects'] = Product.objects.get(id=pk)
     return render(request,'admin_panel/product/info.html',context)
+
+# Advantags CRUD
+class AllAdvantagsAdmin(ListView):
+    model = Advantages
+    template_name = 'admin_panel/advantages/all_list.html'
+class CreateAdvantagsAdmin(CreateView):
+    model = Advantages
+    form_class = AdvantagsForms
+    template_name = 'admin_panel/advantages/create.html'
+    success_url = reverse_lazy('all_advantags_admin')
+class UpdateAdvantagsAdmin(UpdateView):
+    model = Advantages
+    form_class = AdvantagsForms
+    template_name = 'admin_panel/advantages/update.html'
+    success_url = reverse_lazy('all_advantags_admin')
+class DeleteAdvantagsAdmin(DeleteView):
+    model = Advantages
+    template_name = 'admin_panel/advantages/delete.html'
+    success_url = reverse_lazy('all_advantags_admin')
+
+# Brand CRUD
+class AllBrandsAdmin(ListView):
+    model = Brand
+    template_name = 'admin_panel/brand/all_list.html'
+class CreateBrandsAdmin(CreateView):
+    model = Brand
+    form_class = BrandForms
+    template_name = 'admin_panel/brand/create.html'
+    success_url = reverse_lazy('all_brands_admin')
+class UpdateBrandssAdmin(UpdateView):
+    model = Brand
+    form_class = BrandForms
+    template_name = 'admin_panel/brand/update.html'
+    success_url = reverse_lazy('all_brands_admin')
+class DeleteABrandsAdmin(DeleteView):
+    model = Brand
+    template_name = 'admin_panel/brand/delete.html'
+    success_url = reverse_lazy('all_brands_admin')

@@ -36,3 +36,31 @@ class ProductsForms(forms.ModelForm):
             'img': 'Изображение продукта',
             'description': 'Описание'
         }
+
+class AdvantagsForms(forms.ModelForm):
+    class Meta:
+        model = Advantages
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control'}),
+            'img': forms.FileInput(attrs={'class':'form-control'})
+        }
+
+        labels = {
+            'title': 'Преимущества',
+            'img': 'Значок преимущества'
+        }
+
+class BrandForms(forms.ModelForm):
+    class Meta:
+        model = Brand
+        fields = '__all__'
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control'}),
+            'img_brend': forms.FileInput(attrs={'class':'form-control'})
+        }
+
+        labels = {
+            'name': 'Имя бренда',
+            'img_brend': 'Фирменное изображение'
+        }

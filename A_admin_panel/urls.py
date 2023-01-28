@@ -15,6 +15,16 @@ urlpatterns = [
     path('create_product_admin/',create_product_admin,name='create_product_admin'),
     path('update_product_admin/<int:pk>/',UpdateProductAdmin.as_view(),name='update_product_admin'),
     path('delete_product_admin/<int:pk>/',DeleteProductAdmin.as_view(),name='delete_product_admin'),
-    path('info_product_admin/<int:pk>/',info_product_admin,name='info_product_admin')
+    path('info_product_admin/<int:pk>/',info_product_admin,name='info_product_admin'),
+    # Advantags CRUD
+    path('all_advantags_admin/',AllAdvantagsAdmin.as_view(),name='all_advantags_admin'),
+    path('create_advantags_admin/',CreateAdvantagsAdmin.as_view(),name='create_advantags_admin'),
+    path('update_advantags_admin<int:pk>/',UpdateAdvantagsAdmin.as_view(),name='update_advantags_admin'),
+    path('delete_advantags_admin/<int:pk>/',DeleteAdvantagsAdmin.as_view(),name='delete_advantags_admin'),
 
+    # Brands CRUD
+    path('all_brands_admin/',AllBrandsAdmin.as_view(),name='all_brands_admin'),
+    path('create_brands_admin/',CreateBrandsAdmin.as_view(),name='create_brands_admin'),
+    path('update_brands_admin<int:pk>/',UpdateBrandssAdmin.as_view(),name='update_brands_admin'),
+    path('delete_brands_admin/<int:pk>/',DeleteABrandsAdmin.as_view(),name='delete_brands_admin'),
 ]

@@ -1,0 +1,48 @@
+{% extends  'admin_panel/base.html' %}
+{% load static %}
+{% block title %} <title>Преимущества</title> {% endblock %}
+
+{% block content %}
+<a href="{% url 'create_advantags_admin' %}" class="btn btn-primary">Добавить преимущества</a>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Каталог</h4>
+            </div>
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered  dt-responsive nowrap w-100">
+                    <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 5%;">№</th>
+                        <th style="width: 35%;">Преимущества</th>
+                        <th style="width: 50%;">Значок преимущества</th>
+                        <th style="width: 10%;">Действия</th>
+                    </tr>
+                    </thead>
+                    {% for item in object_list %}
+                    <tr>
+                        <td class="text-center">{{forloop.counter}}</td>
+                        <td class="text-center">{{item.title}}</td>
+                        <td class="text-center">
+                            {% if item.img %}
+                                <img src="{{item.img.url}}" width="50" alt="{{item.title}}">
+                            {% else %}
+                                <p class="text-danger">Значок не добавлен</p>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'update_advantags_admin' item.id %}" class="btn btn-soft-success waves-effect waves-light"><i class="bx bx-edit font-size-16 align-middle"></i></a>
+                            <a href="{% url 'delete_advantags_admin' item.id %}" class="btn btn-soft-danger waves-effect waves-light"><i class="bx bx-trash font-size-16 align-middle"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <!-- end cardaa -->
+    </div> <!-- end col -->
+</div>
+
+
+{% endblock %}
