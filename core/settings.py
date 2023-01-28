@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-_ao4*&u@jzp%uxgh6c!^%0lv1r9c#@nr3!%=y34kj1j@89&f@7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://ic-stock.ru/','https://wwwic-stock.ru/','*']
 
 
 # Application definition
@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-rus'
 
 TIME_ZONE = 'UTC'
 
@@ -152,8 +152,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'login_admin'
-LOGIN_URL = 'login_admin'
+LOGIN_REDIRECT_URL = 'admin_panel'
+LOGIN_URL = 'admin_panel'
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

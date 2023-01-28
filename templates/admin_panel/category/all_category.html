@@ -1,0 +1,48 @@
+{% extends  'admin_panel/base.html' %}
+{% load static %}
+{% block title %} <title>Каталог</title> {% endblock %}
+
+{% block content %}
+<a href="{% url 'create_category_admin' %}" class="btn btn-primary">Добавить каталог</a>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Каталог</h4>
+            </div>
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered  dt-responsive nowrap w-100">
+                    <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 5%;">№</th>
+                        <th style="width: 35%;">Имя каталога</th>
+                        <th style="width: 50%;">Значок каталога</th>
+                        <th style="width: 10%;">Действия</th>
+                    </tr>
+                    </thead>
+                    {% for item in objects_list %}
+                    <tr>
+                        <td class="text-center">{{forloop.counter}}</td>
+                        <td class="text-center">{{item.name}}</td>
+                        <td class="text-center">
+                            {% if item.img_categoriya %}
+                                <img src="{{item.img_categoriya.url}}" width="50" alt="{{item.title}}">
+                            {% else %}
+                                <p class="text-danger">Значок не добавлен</p>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'update_category_admin' item.id %}" class="btn btn-soft-success waves-effect waves-light"><i class="bx bx-edit font-size-16 align-middle"></i></a>
+                            <a href="{% url 'delete_category_admin' item.id %}" class="btn btn-soft-danger waves-effect waves-light"><i class="bx bx-trash font-size-16 align-middle"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <!-- end cardaa -->
+    </div> <!-- end col -->
+</div>
+
+
+{% endblock %}

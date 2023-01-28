@@ -1,0 +1,51 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} <title>Изменить продукт</title> {% endblock %}
+{% block content %}
+
+
+<div class="row mt-4">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Изменить продукт</h4>
+                <p class="card-title-desc text-danger">{{error}}</p>
+            </div>
+            <div class="card-body">
+                <form class="needs-validation" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6 mt-3">
+                            {{ form.name.label_tag }} <br> {{ form.name }} 
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            {{ form.manufacturer.label_tag }} <br> {{ form.manufacturer }} 
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            {{ form.name.categorsiya_id }} <br> {{ form.categorsiya_id }} 
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            {{ form.price.label_tag }} <br> {{ form.price }} 
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            {{ form.amunt.label_tag }} <br> {{ form.amunt }} 
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            {{ form.img.label_tag }} <br> {{ form.img }} 
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            {{ form.description.label_tag }} <br> {{ form.description }} 
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="submit">Изменить</button>
+                </form>
+            </div>
+        </div>
+        <!-- end card -->
+    </div> <!-- end col -->
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends  'admin_panel/base.html' %}
+{% load static %}
+{% block title %} <title>Все продукты</title> {% endblock %}
+
+{% block content %}
+<a href="{% url 'create_product_admin' %}" class="btn btn-primary">Добавить продукт</a>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Все продукты</h4>
+            </div>
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered  dt-responsive nowrap w-100">
+                    <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 5%;">№</th>
+                        <th style="width: 35%;">Наименование/Артикул</th>
+                        <th style="width: 15%;">Каталог</th>
+                        <th style="width: 30;">Изображение продукта</th>
+                        <th style="width: 15%;">Действия</th>
+                    </tr>
+                    </thead>
+                    {% for item in objects_list %}
+                    <tr>
+                        <td class="text-center">{{forloop.counter}}</td>
+                        <td class="text-center">
+                            {{item.name}}/<br>{{item.atrikul}}
+                        </td>
+                        <td class="text-center">
+                            {{item.categorsiya_id}}
+                        </td>
+                        <td class="text-center">
+                            {% if item.img %}
+                                <img src="{{item.img.url}}" width="50" alt="{{item.title}}">
+                            {% else %}
+                                <p class="text-danger">К товару не прикреплено изображение</p>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'info_product_admin' item.id %}" class="btn btn-soft-primary waves-effect waves-light"><i class="bx bx-show-alt font-size-16 align-middle"></i></a>
+                            <a href="{% url 'update_product_admin' item.id %}" class="btn btn-soft-success waves-effect waves-light"><i class="bx bx-edit font-size-16 align-middle"></i></a>
+                            <a href="{% url  'delete_product_admin' item.id %}" class="btn btn-soft-danger waves-effect waves-light"><i class="bx bx-trash font-size-16 align-middle"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <!-- end cardaa -->
+    </div> <!-- end col -->
+</div>
+
+
+{% endblock %}

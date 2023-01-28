@@ -1,0 +1,62 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} <title>Добавить новый продукт</title> {% endblock %}
+{% block content %}
+
+
+<div class="row mt-4">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Добавить новый продукт</h4>
+                <p class="card-title-desc text-danger">{{error}}</p>
+            </div>
+            <div class="card-body">
+                <form class="needs-validation" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6 mt-3">
+                            <label for="name" class="form-label">Наименование</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Наименование">
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            <label for="manufacter" class="form-label">Производитель</label>
+                            <input type="text" class="form-control" name="manufacter" id="manufacter" placeholder="Производитель">
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            <label for="categorsiya_id" class="form-label">Каталог товаров</label>
+                            <select class="form-select" aria-label="Default select example" name="categorsiya_id" id="categorsiya_id">
+                                {% for item in object_list %}
+                                    <option value="{{item.id}}">{{item.name}}</option>
+                                {% endfor %}
+                              </select> 
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            <label for="price" class="form-label">Стоимость</label>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="Стоимость">
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            <label for="amunt" class="form-label">Доступное количество (не менее</label>
+                            <input type="text" class="form-control" id="amunt" name="amunt" placeholder="Доступное количество (не менее">
+                        </div>
+                        <div class="col-lg-6 mt-3">
+                            <label for="img" class="form-label">Изображение продукта</label>
+                            <input type="file" class="form-control" id="img" name="img" placeholder="Наименование">
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            <label for="description" class="form-label">Описание</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="submit">Добавлять</button>
+                </form>
+            </div>
+        </div>
+        <!-- end card -->
+    </div> <!-- end col -->
+
+</div>
+
+
+{% endblock %}

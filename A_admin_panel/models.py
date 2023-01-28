@@ -1,4 +1,6 @@
 from django.db import models
+import random
+
 
 class Advantages(models.Model):
     title = models.CharField(max_length=250,verbose_name="Преимущества")
@@ -17,7 +19,7 @@ class Brand(models.Model):
 
 class Categoriya(models.Model):
     name = models.CharField(max_length=250,verbose_name="Название категории")
-    img_categoriya = models.ImageField(upload_to="catgeoriya/",null=True,blank=True,verbose_name="Изображение категории")
+    img_categoriya = models.FileField(upload_to="catgeoriya/",null=True,blank=True,verbose_name="Изображение категории")
     create_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -28,7 +30,7 @@ class Product(models.Model):
     img = models.ImageField(upload_to="product/")
     price = models.CharField(max_length=250)
     categorsiya_id = models.ForeignKey(Categoriya,on_delete=models.CASCADE)
-    atrikul = models.CharField(max_length=250)
+    atrikul = models.CharField(max_length=250,blank=True)    
     manufacturer = models.CharField(max_length=250)
     description = models.TextField()
     amunt = models.CharField(max_length=250)

@@ -1,0 +1,29 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block title %} <title>{{objects.name}}</title> {% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title" style="font-size: 16px;">{{objects.name}}</h4>
+        <h6 class="card-subtitle text-muted" style="font-size: 16px;">{{objects.atrikul}}</h6>
+    </div>
+    <img class="img-fluid" src="{{objects.img.url}}" style="height: 300px;object-fit: cover;" alt="{{objects.name}}">
+    <div class="card-body">
+        <p class="card-text" style="font-size: 17px;">
+            {{objects.description}}
+        </p>
+        <a href="javascript: void(0);" class="card-link" style="font-size: 16px;"><i class="bx bx-dollar-circle"></i> {{objects.price}}</a>
+        <a href="javascript: void(0);" class="card-link" style="font-size: 16px;"><i class="bx bxs-layer"></i> {{objects.categorsiya_id}}</a>
+        <a href="javascript: void(0);" class="card-link" style="font-size: 16px;"><i class="bx bxs-city"></i> {{objects.manufacturer}}</a>
+        <a href="javascript: void(0);" class="card-link" style="font-size: 16px;"><i class="bx bx-list-ul"></i> {{objects.amunt}}</a>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
