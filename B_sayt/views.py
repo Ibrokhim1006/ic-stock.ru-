@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -6,6 +6,15 @@ from rest_framework import generics
 from rest_framework import filters
 from B_sayt.serializers import *
 from A_admin_panel.models import *
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+        print(ip)
+    return redirect('index')
 
 def index(request):
     context = {}
