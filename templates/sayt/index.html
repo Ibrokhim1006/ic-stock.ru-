@@ -209,9 +209,14 @@
       </div>
       <div class="row">
         {% for item in objects_product %}
-        <div class="col-lg-4 mt-2">
+        <div class="col-lg-4 mt-4">
           <div class="card" style="width: 100%;">
+            {% if item.img %}
             <img src="{{item.img.url}}" class="card-img-top" alt="{{item.name}}">
+            {% else %}
+            <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
+
+            {% endif %}
             <div class="card-body">
               <p class="card-title" >
                 <span style="font-weight: bold;font-size: 18px;">Артикул:</span > 

@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import filters
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from B_sayt.serializers import *
 from A_admin_panel.models import *
 
@@ -44,6 +45,20 @@ def in_categor_product(request,id):
     context = {}
     context['categor'] = Categoriya.objects.get(id=id)
     context['objects_product'] = Product.objects.filter(categorsiya_id=id).order_by('-id')
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(context['objects_product'], 6) # 6 employees per page
+
+
+    try:
+        context['page_obj'] = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        context['page_obj'] = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        context['page_obj'] = paginator.page(paginator.num_pages)
+
     return render(request,'sayt/in_categor_product.html',context)
 
 def in_product(request,id):

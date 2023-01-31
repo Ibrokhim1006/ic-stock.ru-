@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     # Django DRF
     'rest_framework',
+    
     'django_filters',
     # my createapp
     'A_admin_panel',

@@ -6,6 +6,8 @@ from django.views.generic import ListView,DeleteView,DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
 import random
+import pandas as pd
+from django.core.files.storage import FileSystemStorage
 from A_admin_panel.models import *
 from A_admin_panel.forms import *
 
@@ -145,3 +147,16 @@ def orders(request):
     context = {}
     context['objects_list'] = ClientPost.objects.all().order_by('-id')
     return render(request,'admin_panel/orders.html',context)
+
+@login_required
+def create_prodcut_with_excel(request):
+    if request.method == 'POST' and request.FILES['myfile']:      
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)              
+        empexceldata = pd.read_excel(filename)        
+        dbframe = empexceldata
+        for dbframe in dbframe.itertuples():
+            print(dbframe)
+    return render(request,'admin_panel/create.html')

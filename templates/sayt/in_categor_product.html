@@ -44,10 +44,15 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
             </div>
           </div>
         <div class="row">
-             {% for item in objects_product %}
-        <div class="col-lg-4 mt-2">
+             {% for item in page_obj %}
+        <div class="col-lg-4 mt-4">
           <div class="card" style="width: 100%;">
+            {% if item.img %}
             <img src="{{item.img.url}}" class="card-img-top" alt="{{item.name}}">
+            {% else %}
+            <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
+
+            {% endif %}
             <div class="card-body">
               <p class="card-title">
                 <span style="font-weight: bold;font-size: 18px;">Артикул:</span > 
@@ -72,6 +77,44 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
     </div>
 </div>
 
+<nav aria-label="...">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+    <li class="page-item disabled">
+      <a href="?page={{ page_obj.previous_page_number }}" class="page-link">« Previous page</a>
+    </li>
+  
+
+  {% if page_obj.number > 3 %}
+    <li class="page-item active"><a class="page-link" href="?page=1">1</a></li>
+    {% if page_obj.number > 4 %}
+      <span>...</span>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+  {% if page_obj.number == num %}
+    <a href="?page={{ num }}">{{ num }}</a>
+  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+    <a href="?page={{ num }}">{{ num }}</a>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+    <span>...</span>
+    <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+  {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+  <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+  {% endif %}
+  <li class="page-item">
+    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+  </li>
+{% endif %}
+
+  </ul>
+</nav>
 
 
 

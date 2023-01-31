@@ -27,7 +27,11 @@
         <div class="card mb-3" style="max-width: 100%;">
             <div class="row g-0">
               <div class="col-md-4 p-4">
+                {% if objects.img  %}
                 <img src="{{objects.img.url}}" class="img-fluid rounded-start" alt="...">
+                {% else %}
+                <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
+                {% endif %}
               </div>
               <div class="col-md-8">
                 <div class="card-body">

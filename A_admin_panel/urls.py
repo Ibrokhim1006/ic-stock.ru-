@@ -29,4 +29,5 @@ urlpatterns = [
     path('delete_brands_admin/<int:pk>/',DeleteABrandsAdmin.as_view(),name='delete_brands_admin'),
 
     path('orders/',orders,name='orders'),
+    path('create_prodcut_with_excel/',create_prodcut_with_excel,name='create_prodcut_with_excel')
 ]
