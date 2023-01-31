@@ -63,6 +63,18 @@ class DeleteCategoryAdmin(DeleteView):
 def all_product_admin(request):
     context = {}
     context['objects_list'] = Product.objects.all().order_by('-id')
+    page_num = request.GET.get('page', 1)
+    paginator = Paginator(context['objects_list'], 30) # 6 employees per page
+
+
+    try:
+        context['page_obj'] = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        context['page_obj'] = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        context['page_obj'] = paginator.page(paginator.num_pages)
     return render(request,'admin_panel/product/all_product.html',context)
 @login_required
 def create_product_admin(request):

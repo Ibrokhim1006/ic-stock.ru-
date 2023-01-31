@@ -16,6 +16,7 @@
                     <tr class="text-center">
                         <th style="width: 5%;">№</th>
                         <th style="width: 35%;">Имя бренда</th>
+                        <th style="width: 35%;">Сайт бренда</th>
                         <th style="width: 50%;">Фирменное изображение</th>
                         <th style="width: 10%;">Действия</th>
                     </tr>
@@ -24,6 +25,13 @@
                     <tr>
                         <td class="text-center">{{forloop.counter}}</td>
                         <td class="text-center">{{item.name}}</td>
+                        <td class="text-center">
+                            {% if item.urls %}
+                                <a href="{{item.urls}}" target="_blank">{{item.name}}</a>
+                            {% else %}
+                                <a href="{% url 'all_brands_admin' %}">{{item.name}}</a>
+                            {% endif %}
+                        </td>
                         <td class="text-center">
                             {% if item.img_brend %}
                                 <img src="{{item.img_brend.url}}" width="50" alt="{{item.title}}">

@@ -57,10 +57,12 @@ class BrandForms(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),
+            'urls': forms.URLInput(attrs={'class':'form-control'}),
             'img_brend': forms.FileInput(attrs={'class':'form-control'})
         }
 
         labels = {
             'name': 'Имя бренда',
+            'urls': 'Сайт бренда',
             'img_brend': 'Фирменное изображение'
         }

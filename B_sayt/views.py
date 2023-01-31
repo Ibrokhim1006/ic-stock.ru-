@@ -47,7 +47,7 @@ def in_categor_product(request,id):
     context['objects_product'] = Product.objects.filter(categorsiya_id=id).order_by('-id')
     page_num = request.GET.get('page', 1)
 
-    paginator = Paginator(context['objects_product'], 6) # 6 employees per page
+    paginator = Paginator(context['objects_product'], 30) # 6 employees per page
 
 
     try:

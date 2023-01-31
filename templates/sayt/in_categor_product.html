@@ -3,6 +3,47 @@
 {% block title %} <title>{{categor.name}} ic-stock.ru</title> {% endblock %}
 
 {% block content %}
+<style>
+  .pagi{
+    width: auto;
+    padding: 5px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagi ul{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pagi ul li{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    background-color: #0176BD;
+  }
+  .pagi ul .first{
+    width: 100px;
+  }
+  .pagi ul .last{
+    width: 150px;
+  }
+  .pagi ul li a{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+</style>
 
 <div
 class="hero page-inner overlay"
@@ -73,50 +114,53 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
           </div>
         </div>
         {% endfor %}
+        
         </div>
     </div>
 </div>
 
-<nav aria-label="...">
-  <ul class="pagination">
+
+
+
+<nav aria-label="Page navigation example text-center">
+  <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
-    <li class="page-item disabled">
-      <a href="?page={{ page_obj.previous_page_number }}" class="page-link">« Previous page</a>
+    <li class="page-item">
+      <!-- <span aria-hidden="true">&raquo;</span> -->
+      <a href="?page={{ page_obj.previous_page_number }}"  class="page-link">« Назад</a>
     </li>
   
 
   {% if page_obj.number > 3 %}
-    <li class="page-item active"><a class="page-link" href="?page=1">1</a></li>
+    <li class="page-item"><a href="?page=1" class="page-link ">1</a></li>
     {% if page_obj.number > 4 %}
-      <span>...</span>
+      <li class="page-item"><span class="page-link">...</span></li>
     {% endif %}
   {% endif %}
 {% endif %}
 
 {% for num in page_obj.paginator.page_range %}
   {% if page_obj.number == num %}
-    <a href="?page={{ num }}">{{ num }}</a>
+    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
   {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-    <a href="?page={{ num }}">{{ num }}</a>
+    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
   {% endif %}
 {% endfor %}
 
 {% if page_obj.has_next %}
   {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
-    <span>...</span>
-    <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+    <li class="page-item"><span class="page-link">...</span></li>
+    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
   {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
   <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
   {% endif %}
-  <li class="page-item">
-    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-  </li>
+    <li class="page-item">
+      <a  href="?page={{ page_obj.next_page_number }}" class="page-link">Следующий</a>
+    </li>
 {% endif %}
 
   </ul>
 </nav>
-
-
 
 
 
