@@ -3,170 +3,11 @@
 {% block title %} <title>ic-stock.ru</title> {% endblock %}
 
 {% block content %}
-<style>
-  .search_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search_wrapper {
-    width: 500px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.search_input {
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border: 1px solid lightgray;
-    padding-right: 15px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.search_input:focus {
-    outline: none;
-}
-
-.submitBtn {
-    padding: 8px;
-    border: none;
-    background-color: #2272f2;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all ease-in .15s;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.submitBtn:hover {
-    background-color: #2272f2d5;
-}
-
-.closeIcon {
-    position: absolute;
-    right: 65px;
-    top: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.list_container {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 16px;
-    border: 1px solid lightgray;
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: 0;
-    max-height: 300px;
-    overflow-y: scroll;
-    border-radius: 5px;
-}
-
-.list_item {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    border-bottom: 1px solid lightgray;
-}
-
-.list_item_left {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.list_item_right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.list_item_img {
-    width: 50px;
-    height: 100%;
-    border-radius: 5px;
-}
-
-.list_item_title {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: left;
-    font-size: 14px;
-}
-
-.list_item_title_top {
-    color: green;
-    margin: 0;
-}
-
-.list_item_title_bottom {
-    color: crimson;
-    margin: 0;
-}
-
-.list_item_price {
-    color: silver;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.list_item_quantity {
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    padding: 5px;
-    width: 50px;
-    font-size: 12px;
-    border-radius: 5px;
-}
-
-.list_item_quantity:focus {
-    outline: none;
-}
-
-/* scroll */
-::-webkit-scrollbar {
-    width: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: silver;
-}
-
-
-@media (max-width:576px) {
-    .search_wrapper {
-        width: 100%;
-    }
-}
-</style>
 <div class="hero">
     <div class="hero-slide">
-      <div
-        class="img overlay"
-        style="background-image: url('../../static/sayt/images/img_slayd.jpg')"
-      ></div>
-      <div
-        class="img overlay"
-        style="background-image: url('../../static/sayt/images/8.jpg')"
-      ></div>
-      <div
-        class="img overlay"
-        style="background-image: url('../../static/sayt/images/10.jpg')"
-      ></div>
+      <div class="img overlay" style="background-image: url('../../static/sayt/12.webp')"></div>
+      <div class="img overlay" style="background-image: url('../../static/sayt/123.webp')"></div>
+      <div class="img overlay"  style="background-image: url('../../static/sayt/images/10.jpg')"></div>
     </div>
 
     <div class="container">
@@ -185,7 +26,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 
   <div class="section">
@@ -276,22 +117,36 @@
     
     <div class="container">
       <div class="row justify-content-between mb-5">
-        <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
+        <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
           <div class="img-about dots">
-            <img src="{% static 'sayt/images/hero_bg_3.jpg' %}" alt="Image" class="img-fluid" />
+            <img src="{% static 'sayt/photo/img1.png' %}" alt="Image" style="width: 100%;" class="img-fluid" />
           </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5" style="font-weight: bold;">
           <p class="text-black-50">
-            Мы считаем, что уход за собой – лучший подарок.
-Наш салон красоты – это место, где вы сможете побаловать себя, а так же отдохнуть в приятной расслабляющей обстановке. Пока вы будете отдыхать наши мастера будут работать над вашим индивидуальным образом.
-Мы с радостью помогаем осуществлять мечты.
-Сделайте счастливее себя и приходите к нам, даже просто выпить чашечку кофе. И вы насладитесь главным — атмосферой тепла, внимания и доброты наполняющей пространство салона СИЯЙ
+            Наша компания, предлагает необходимые электронные компоненты для обеспечения деятельности многих предприятий где есть электроника, автоматика, электротехника и есть специалисты ее обслуживающие. Широкий ассортимент дает клиентам возможность выбора элементной базы, не только для создания оригинальных инновационных проектов, но и для комплектации серийного производства. Часть продукции поставляется на эксклюзивной основе.
           </p>
+          <p class="text-black-50">
+            Главное богатство компании — сплоченная команда профессионалов. Высокая квалификация, правильная мотивация и слаженная работа наших сотрудников позволяет удовлетворить любые потребности клиента в поставке компонентов. 
+          </p>
+          <p class="text-black-50">
+            Нашими партнерами могут стать все - от опытных мастеров и оптовых торговцев до новичков. Всем нашим клиентам мы готовы предоставить свои знания, опыт, поддержку на начальной стадии становления бизнеса. Мы ценим своих заказчиков и всегда готовы предложить им решения, которыми они останутся довольны. Мы не даём нереальные обещания и берёмся за выполнение только тех задач, которые способны решить. Мы всегда готовы выслушать Ваши пожелания в адрес нашей компании.
+          </p>
+          <p class="text-black-50">
+            Доверие наших клиентов для нас превыше всего!
+            Поставка электронных компонентов и продукции для обслуживания производства.
+            Выбор среди миллионов товаров, а также возможность закупки всех необходимых компонентов у одного поставщика.
+          </p>
+          <p class="text-black-50">
+            Инновационные инструменты
+            В среднем до 80% времени тратится на мелкие заказы, которые составляют 20% объема закупок.
+            Наши инструменты позволяют сократить время на поиск компонентов для обслуживания разовых и нерегулярных потребностей как минимум на 50%.
+            Доверие наших клиентов для нас превыше всего!</p>
         </div>
       </div>
     </div>
   </div>
+
   <!-- end about -->
 
 
@@ -304,34 +159,58 @@
             Бренд
           </h2>
         </div>
-        <div class="col-md-6 text-md-end">
-          <div id="testimonial-nav">
-            <span class="prev" data-controls="prev">Назад</span>
-
-            <span class="next" data-controls="next">Вперед</span>
-          </div>
-        </div>
       </div>
 
       <div class="row">
-        <div class="col-lg-4"></div>
+        {% for item in objects_brend %}
+        <div class="col-lg-3">
+          <a href="">
+            <div class="card text-bg-dark" >
+              <img src="{{item.img_brend.url}}" class="card-img" alt="...">
+            </div>
+          </a>
+        </div>
+        {% endfor %}
       </div>
-      <div class="testimonial-slider-wrap">
-        <div class="testimonial-slider">
-          {% for brend in objects_brend %}
-          <div class="item">
-            <div class="testimonial">
-              <img src="{{brend.img_brend.url}}" alt="{{brend.name}}" class="img-fluid mb-4" style="width: 30% !important;height: 10%;" />
-              <h3 class="h5 text-primary mb-4">{{brend.name}}</h3>
+    </div>
+  </div>
+<!-- end brends -->
+
+
+<div class="hero">
+  <div class="hero-slide">
+    <div class="img overlay" style="background-image: url('../../static/sayt/manager.jpg')"></div>
+  </div>
+
+  <div class="container">
+    <div class="row  align-items-center">
+      <div class="col-lg-6 text-center">
+        <h1 class="heading" data-aos="fade-up">
+          У вас остались вопросы?
+        </h1>
+        <p style="font-size: 20px;font-weight: bold;color: #fff;"> Оставьте своё имя и номер телефона <br> и наш менеджер свяжется с вами в течение 15 минут
+        </p>
+        <div class="narrow-w form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+          {% csrf_token %}
+          <div class="row p-3">
+            <div class="col-lg-12 m-1">
+              <input type="text" class="form-control px-4" placeholder="Имя" name="name"/>
+            </div>
+            <div class="col-lg-12 m-1">
+              <input type="phone" class="form-control px-4" placeholder="Телефон" name="phone"/>
+            </div>
+            <div class="col-lg-12 m-1">
+              <button type="submit" class="btn btn-primary">Отправить запрос</button>
             </div>
           </div>
-          {% endfor %}
+          
+          <div class="list"></div>
 
         </div>
       </div>
     </div>
   </div>
-<!-- end brends -->
+</div>
 
 
 <script>

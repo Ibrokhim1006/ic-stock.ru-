@@ -3,66 +3,200 @@
 {% block title %} <title>Доставка ic-stock.ru</title> {% endblock %}
 
 {% block content %}
-
-<div
-class="hero page-inner overlay"
-style="background-image: url('../../static/sayt/images/10.jpg')"
->
-<div class="container">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-lg-9 text-center mt-5">
-      <h1 class="heading" data-aos="fade-up">Доставка</h1>
-
-      <nav
-        aria-label="breadcrumb"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <ol class="breadcrumb text-center justify-content-center">
-          <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
-          <li
-            class="breadcrumb-item active text-white-50"
-            aria-current="page"
-          >
-          Доставка
-          </li>
-        </ol>
-      </nav>
+<style>
+  @media only screen and (max-width: 991px) {
+  .box-feature {
+    text-align: center;
+    object-fit: cover;
+  }
+}
+</style>
+<!-- section 1 -->
+<div class="hero page-inner overlay" style="background-image: url('../../static/sayt/images/10.jpg')">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-9 text-center mt-5">
+        <h1 class="heading" data-aos="fade-up">Доставка</h1>
+        <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+          <ol class="breadcrumb text-center justify-content-center">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
+            <li class="breadcrumb-item active text-white-50" aria-current="page">
+               Доставка
+            </li>
+          </ol>
+        </nav>
+      </div>
     </div>
   </div>
 </div>
-</div>
+<!-- end section 1 -->
 
+
+<!-- section 2 -->
 <div class="section">
-<div class="container">
-  <div class="row text-left mb-5">
-    <div class="col-12">
-      <h2 class="font-weight-bold heading text-primary mb-4">Доставка</h2>
+  <div class="container">
+    <div class="row text-left mb-5">
+      <div class="col-12">
+        <h2 class="font-weight-bold heading text-primary mb-4">Доставка</h2>
+      </div>
+      <div class="col-lg-3 col-lg-3" data-aos="fade-up" data-aos-delay="300" >
+        <div class="box-feature mb-4" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <span class="mb-4 d-block">
+            <img src="{% static 'sayt/icons/map.png' %}" style="width: 50%;height: 100px;object-fit: cover;" alt="">
+          </span>
+          <h3 class="text-black mb-3 font-weight-bold" style="font-size: 20px;font-weight: bold;">
+            Самовывоз <br> бесплатно
+          </h3>
+          <p class="text-black-50" style="font-size: 16px;font-weight: bold;">
+            СПб, Брестский <br> бульвар, дом 8
+          </p>
+        </div>
+      </div>
+  
+      <div class="col-lg-3 col-lg-3" data-aos="fade-up" data-aos-delay="300" >
+        <div class="box-feature mb-4" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <span class="mb-4 d-block">
+            <img src="{% static 'sayt/icons/ebook.png' %}" style="width: 50%;height: 100px;object-fit: cover;" alt="">
+          </span>
+          <h3 class="text-black mb-3 font-weight-bold" style="font-size: 20px;font-weight: bold;">
+            Бесплатная <br> доставка
+          </h3>
+          <p class="text-black-50" style="font-size: 16px;font-weight: bold;" >
+            До Деловых линий в Санкт-Петербурге
+          </p>
+        </div>
+      </div>
+  
+      <div class="col-lg-3 col-lg-3" data-aos="fade-up" data-aos-delay="300" >
+        <div class="box-feature mb-4" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <span class="mb-4 d-block">
+            <img src="{% static 'sayt/icons/gift.png' %}" style="width: 50%;height: 100px;object-fit: cover;" alt="">
+          </span>
+          <h3 class="text-black mb-3 font-weight-bold" style="font-size: 20px;font-weight: bold;">
+            Экспресс <br> доставка от 1 дня
+          </h3>
+          <p class="text-black-50" style="font-size: 16px;font-weight: bold;">
+            Возможность срочной доставки
+          </p>
+        </div>
+      </div>
+  
+      <div class="col-lg-3 col-lg-3" data-aos="fade-up" data-aos-delay="300" >
+        <div class="box-feature mb-4" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <span class="mb-4 d-block">
+            <img src="{% static 'sayt/icons/book.png' %}" style="width: 50%;height: 100px;object-fit: cover;" alt="">
+          </span>
+          <h3 class="text-black mb-3 font-weight-bold" style="font-size: 20px;font-weight: bold;">
+            Доставка <br> по городу
+          </h3>
+          <p class="text-black-50" style="font-size: 16px;font-weight: bold;">
+            Санкт-Петербург — <br> от 500 рублей
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-6">
-      <p class="text-black-50">
-          Мы рады предложить Вам следующие варианты доставки и самовывоза товара:
+  </div>
+  </div>
+<!-- end section 2 -->
 
-         
-          
-          
-      </p>
-      <p class="text-black-50">
-          1. Самовывоз товара своими силами / транспортной компанией.
-          
-          Получение товара со склада в г. Санкт-Петербурге. 
-          График работы склада с 10.00 до 17.00.  
-          Адрес склада: Санкт-Петербург, Гаванская ул., дом 12, корпус 2, пом. 1-Н.
-          Телефон склада +7 (812) 401-44-13
-      </p>
-      <p class="text-black-50">
-          2. Доставка до двери, т/к: Major Express, СДЭК, Деловые Линии.
-      </p>
+
+<!-- section 3 -->
+<div class="section pt-0">
+    
+  <div class="container">
+    <div class="row justify-content-between mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
+        <div class="img-about dots">
+          <img src="{% static 'sayt/icons/1.png' %}" alt="Image" style="width: 100%;height: 350px;object-fit: cover;" class="img-fluid" />
+        </div>
+      </div>
+      <div class="col-lg-5" style="font-weight: bold;">
+        <h1 style="color: #000 !important;font-weight: bold;" >
+          До терминала
+        </h1>
+        <br>
+        <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+          Компания ООО «ПРОАВТОМАТИКА»  доставляет оборудование по всей России и СНГ.
+        </p>
+        <br>
+        <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+          ООО «ПРОАВТОМАТИКА»  может предоставить доставку до терминала вашего города транспортной компанией. Это наиболее распространённый вариант доставки в связи с сокращением расходов на логистические услуги.
+        </p>
+        <br>
+        <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+          Вы сможете получить Товар с терминала в любое удобное для Вас время.
+        </p>
+      </div>
     </div>
   </div>
 </div>
-</div>
+<!-- end section 3 -->
 
+<!-- section 4 -->
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-between mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="img-about dots">
+          <img src="{% static 'sayt/icons/2.png' %}" alt="Image" style="width: 100%;height: 350px;object-fit: cover;" class="img-fluid" />
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="d-flex feature-h">
+          <div class="feature-text">
+            <h1 style="color: #000;font-weight: bold;">
+              Самовывоз со склада
+            </h1>
+            <br>
+            <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+              Самовывоз со склада в Санкт-Петербурге оформляется бесплатно и предполагает кратчайший срок поставки - менее часа.
+            </p>
+            <br>
+            <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+              Пожалуйста, не забывайте предоставлять доверенность компании, являющейся Покупателем или Грузополучателем товара. Она дает право получения Товара и подписания соответствующего комплекта отгрузочных документов.
+            </p>
+            <br>
+            <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+              Отгрузка товара со склада из наличия осуществляется на следующий день после 13:00.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section 4 -->
+
+<!-- section 5 -->
+<div class="section pt-0">
+    
+  <div class="container">
+    <div class="row justify-content-between mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
+        <div class="img-about dots">
+          <img src="{% static 'sayt/icons/3.png' %}" alt="Image" style="width: 100%;height: 350px;object-fit: cover;" class="img-fluid" />
+        </div>
+      </div>
+      <div class="col-lg-5" style="font-weight: bold;">
+        <h1 style="color: #000 !important;font-weight: bold;" >
+          До двери
+        </h1>
+        <br>
+        <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+          Мы рекомендуем оформлять именно ее при наличии срочности поставки заказа Покупателю или при возникновении трудностей с получением заказа через терминал.
+        </p>
+        <br>
+        <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
+          Такой тип доставки возможен для городов в любой точке Росии.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section 5 -->
+
+<!-- section 6 -->
 <p style="font-size: 20px;" class="text-center">*Доставка клиентам в регионы от 1-2 дней. При заказе от суммы 50 000 Рублей, доставка осуществляется за счет Поставщика.</p>
 <div class="section sec-testimonials">
   <div class="container">
@@ -135,5 +269,6 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
     </div>
   </div>
 </div>
+<!-- end section 6 -->
 
 {% endblock %}
