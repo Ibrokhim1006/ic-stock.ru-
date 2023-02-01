@@ -13,3 +13,7 @@ class ProductEx(ImportExportModelAdmin):
     pass
 admin.site.register(Product, ProductEx)
 admin.site.register(ClientPost)
+admin.site.register(SupplyLine)
+admin.site.register(Contact)
+admin.site.register(Questions)
+admin.site.register(Delivery)

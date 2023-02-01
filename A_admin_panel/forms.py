@@ -66,3 +66,17 @@ class BrandForms(forms.ModelForm):
             'urls': 'Сайт бренда',
             'img_brend': 'Фирменное изображение'
         }
+
+class PochtaForms(forms.ModelForm):
+    class Meta:
+        model = Delivery
+        fields = '__all__'
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control'}),
+            'img': forms.FileInput(attrs={'class':'form-control'})
+        }
+
+        labels = {
+            'name': 'Имя Почта',
+            'img': 'Значок Почта'
+        }

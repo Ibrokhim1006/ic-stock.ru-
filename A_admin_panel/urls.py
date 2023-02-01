@@ -29,5 +29,11 @@ urlpatterns = [
     path('delete_brands_admin/<int:pk>/',DeleteABrandsAdmin.as_view(),name='delete_brands_admin'),
 
     path('orders/',orders,name='orders'),
-    path('create_prodcut_with_excel/',create_prodcut_with_excel,name='create_prodcut_with_excel')
+    path('create_prodcut_with_excel/',create_prodcut_with_excel,name='create_prodcut_with_excel'),
+
+    # Pochta CRUD
+    path('all_pochta_admin/',AllPochtaAdmin.as_view(),name='all_pochta_admin'),
+    path('create_pochta_admin/',CreatePochtaAdmin.as_view(),name='create_pochta_admin'),
+    path('update_pochta_admin<int:pk>/',UpdatePochtaAdmin.as_view(),name='update_pochta_admin'),
+    path('delete_pochta_admin/<int:pk>/',DeletePochtaAdmin.as_view(),name='delete_pochta_admin'),
 ]

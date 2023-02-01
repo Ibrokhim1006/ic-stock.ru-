@@ -197,7 +197,6 @@
 <!-- end section 5 -->
 
 <!-- section 6 -->
-<p style="font-size: 20px;" class="text-center">*Доставка клиентам в регионы от 1-2 дней. При заказе от суммы 50 000 Рублей, доставка осуществляется за счет Поставщика.</p>
 <div class="section sec-testimonials">
   <div class="container">
     <div class="row mb-5 align-items-center">
@@ -220,51 +219,14 @@
     </div>
     <div class="testimonial-slider-wrap">
       <div class="testimonial-slider">
-        <div class="item">
-          <div class="testimonial">
-            <img
-              src="{% static 'sayt/images/Majorex.png' %}"
-              alt="Image"
-              class="img-fluid  w-50 mb-4"
-            />
-
-            <h3 class="h5 text-primary mb-4">Major</h3>
+        {% for item in objects_all %}
+          <div class="item">
+            <div class="testimonial d-flex justify-content-center align-items-center flex-column">
+              <img  src="{{item.img.url}}"  alt="{{item.name}}" class="img-fluid  w-50 mb-4"/>
+              <h3 class="h5 text-primary mb-4">{{item.name}}</h3>
+            </div>
           </div>
-        </div>
-
-        <div class="item">
-          <div class="testimonial">
-            <img
-              src="{% static 'sayt/images/dpd.png' %}"
-              alt="Image"
-              class="img-fluid  w-50 mb-4"
-            />
-            <h3 class="h5 text-primary mb-4">DPD</h3>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="testimonial">
-            <img
-              src="{% static 'sayt/images/cdek.png' %}"
-              alt="Image"
-              class="img-fluid w-50 mb-4"
-            />
-            <h3 class="h5 text-primary mb-4">CDEK</h3>
-
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="testimonial">
-            <img
-              src="{% static 'sayt/images/DHL.png' %}"
-              alt="Image"
-              class="img-fluid w-50 mb-4"
-            />
-            <h3 class="h5 text-primary mb-4">DHL</h3>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

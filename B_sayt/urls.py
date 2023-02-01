@@ -10,5 +10,7 @@ urlpatterns = [
     path('in_product/<int:id>/',in_product,name='in_product'),
     path('all_product_search_view/',AllProductSearchView.as_view()),
     path('client_post/<int:id>/',client_post,name='client_post'),
-    path('',get_client_ip,name='get_client_ip')
+    path('',get_client_ip,name='get_client_ip'),
+
+    path('supply_line/',supply_line,name='supply_line')
 ]

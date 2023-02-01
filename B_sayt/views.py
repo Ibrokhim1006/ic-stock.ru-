@@ -23,17 +23,35 @@ def index(request):
     context['objects_brend'] = Brand.objects.all()[:7]
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
     if request.method=='POST':
-        search = request.POST.get('search')
-        context['reault_search'] = Product.objects.filter(name=search)
-        
+        full_name = request.POST.get('full_name')
+        phone = request.POST.get('phone')
+        if full_name=='' or phone=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/index.html',context)
+        ques = Questions(full_name=full_name,phone=phone)
+        ques.save()
+        return redirect('index')
     return render(request,'sayt/index.html',context)
 
 def delivery(request):
-
-    return render(request,'sayt/delivery.html')
+    context = {}
+    context['objects_all'] = Delivery.objects.all()
+    return render(request,'sayt/delivery.html',context)
 
 def contact(request):
-    return render(request,'sayt/contact.html')
+    context = {}
+    if request.method=='POST':
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        predmets = request.POST.get('predmets')
+        content = request.POST.get('content')
+        if full_name=='' or email=='' or predmets=='' or content=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/contact.html',context)
+        con = Contact(full_name=full_name,email=email,predmets=predmets,content=content)
+        con.save()
+        return redirect('contact')
+    return render(request,'sayt/contact.html',context)
 
 def all_category(request):
     context = {}
@@ -87,3 +105,20 @@ class AllProductSearchView(generics.ListAPIView):
     serializer_class = AllSearchProduct
     filter_backends = [filters.OrderingFilter]
     ordering_fields = '__all__'
+
+def supply_line(request):
+    context = {}
+    context['objects_brend'] = Brand.objects.all()
+    if request.method=='POST':
+        full_name = request.POST.get('full_name')
+        company = request.POST.get('company')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        content = request.POST.get('content')
+        if full_name=='' or company=='' or email=='' or phone=='' or content=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/supply_line.html',context)
+        supply_lines = SupplyLine(full_name=full_name,company=company,email=email,phone=phone,content=content)
+        supply_lines.save()
+        return redirect('supply_line')
+    return render(request,'sayt/supply_line.html',context)

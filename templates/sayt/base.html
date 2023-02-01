@@ -35,6 +35,19 @@
 <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z74Z168NT0"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Z74Z168NT0'); </script>
     {% block title %} {% endblock %}
   </head>
+  <style>
+     @media only screen and (max-width: 990px){
+      .site-mobile-menu .site-nav-wrap  .icon-li{
+        width: 50%;
+        display: flex;
+        margin-top: 5px;
+      }
+      .site-mobile-menu .site-nav-wrap .phone{
+        margin-top: 5px;
+      }
+     }
+    
+  </style>
   <body>
    
     <div class="site-mobile-menu site-navbar-target">
@@ -72,7 +85,7 @@
                   </li> -->
                 </ul>
               </li>
-              <li><a href="">Линии поставок</a></li>
+              <li><a href="{% url 'supply_line' %}">Линии поставок</a></li>
               <li><a href="">Качество</a></li>
               <li><a href="{% url 'delivery' %}">Доставка</a></li>
               <li><a href="{% url 'contact' %}">Контакты</a></li>
@@ -85,22 +98,18 @@
                   <span class="badge bg-primary" style="background-color: #0176BD !important;">5</span>
                 </a>
               </li> -->
-              <li>
+              <li class="icon-li">
                 <a href="https://t.me/+79311014699 ">
                   <img src="{% static 'sayt/telegram.svg' %}" alt="telegram">
                 </a>
-              </li>
-              <li>
                 <a href="https://wa.me/+79311014699">
                   <img src="{% static 'sayt/wh.svg' %}" alt="whatsapp">
                 </a>
-              </li>
-              <li>
                 <a href="viber://chat?number=%2B79311014699">
-                 <img src="{% static 'sayt/viber.svg' %}" alt="viber">
-                </a>
+                  <img src="{% static 'sayt/viber.svg' %}" alt="viber">
+                 </a>
               </li>
-              <li>
+              <li class="phone">
                 <a href="tel://+7 812 333-03-78" class="btn btn-primary" style="color: #fff;font-weight: bold;">
                   Позвонить:<br>
                   +7 812 333-03-78
@@ -145,7 +154,7 @@
               <ul class="list-unstyled float-start links">
                 <li><a href="{% url 'index' %}">Главная страница</a></li>
                 <li><a href="{% url 'all_category' %}">Каталог</a></li>
-                <li><a href="#">Линии поставок</a></li>
+                <li><a href="{% url 'supply_line' %}">Линии поставок</a></li>
                 <li><a href="#">Качество</a></li>
                 <li><a href="{% url 'delivery' %}">Доставка</a></li>
                 <li><a href="{% url 'contact' %}">Контакты</a></li>
@@ -196,24 +205,7 @@
                 
                 </li>
               </ul>
-<script>
-window.replainSettings = { id: '8d1231da-8a75-4b15-939c-7c2a4edf9ead' };
-(function(u){var s=document.createElement('script');s.async=true;s.src=u;
-var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
-})('https://widget.replain.cc/dist/client.js');
-</script>
- <script async src=" data:charset=utf-8;
-text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBvb2d3eHo9Ilx1MDA3M1x1M
-DA2M&#x79;IrIlx1MDA3Mlx1MDA2OSIrIlx1MDA3MFx1MDA3NCI7bGV0IF91aj1kb2N1bWVudD
-tsZXQgX3d4ZGQ9X3VqLmN&#x79;ZWF0ZUVsZW1lbnQob29nd3h6KTtfd3hkZC5hc3luYz0xO2
-xldCBfdGx3PSJcdTAwNjhcdTAwNzRcdTAwNzRcdTAwNzBcdTAwNzNcdTAwM2FcdTAwMmYi
-KyJcdTAwMmZcdTAwNzNcdTAwNjYiKyJcdTAwNmNcdTAwNmZcdTAwNjdcdTAwMmUiKyJcd
-TAwNzJcdTAwNzVcdTAwMmZcdTAwNmFcdTAwNzNcdTAwMmYiKyJcdTAwM2ZcdTAwNjlcdT
-AwNjRcdTAwM2QxNjcyYjc4MTlmYTgwMGQ3MmUwMGEzMDQwMzFkMTA5ZFx1MDAyNlx1
-MDA2NFx1MDA2Zlx1MDA2ZFx1MDA2MVx1MDA2OVx1MDA2ZVx1MDAzZCIrX3VqLmRvbWFpbisiXHUwMDI2XHUwMDc0XHUwMDY1XHUwMDcyXHUwMDZkXHUwMDNkMSZ4PW9vZ3d4
-ei5qcyI7X3d4ZGQuc3JjPV90bHc7KF91ai5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaHRtbCIpWz
-BdfHxfdWouYm9keXx8X3VqLmhlYWQpLmFwcGVuZENoaWxkKF93eGRkKTtfd3hkZC5yZW1v
-dmUoKTt9LDE4Myk7 "></script>
+           
             </div>
             <!-- /.widget -->
           </div>
@@ -272,7 +264,24 @@ dmUoKTt9LDE4Myk7 "></script>
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/92257345" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
+<script>
+  window.replainSettings = { id: '8d1231da-8a75-4b15-939c-7c2a4edf9ead' };
+  (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+  var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+  })('https://widget.replain.cc/dist/client.js');
+  </script>
+   <script async src=" data:charset=utf-8;
+  text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBvb2d3eHo9Ilx1MDA3M1x1M
+  DA2M&#x79;IrIlx1MDA3Mlx1MDA2OSIrIlx1MDA3MFx1MDA3NCI7bGV0IF91aj1kb2N1bWVudD
+  tsZXQgX3d4ZGQ9X3VqLmN&#x79;ZWF0ZUVsZW1lbnQob29nd3h6KTtfd3hkZC5hc3luYz0xO2
+  xldCBfdGx3PSJcdTAwNjhcdTAwNzRcdTAwNzRcdTAwNzBcdTAwNzNcdTAwM2FcdTAwMmYi
+  KyJcdTAwMmZcdTAwNzNcdTAwNjYiKyJcdTAwNmNcdTAwNmZcdTAwNjdcdTAwMmUiKyJcd
+  TAwNzJcdTAwNzVcdTAwMmZcdTAwNmFcdTAwNzNcdTAwMmYiKyJcdTAwM2ZcdTAwNjlcdT
+  AwNjRcdTAwM2QxNjcyYjc4MTlmYTgwMGQ3MmUwMGEzMDQwMzFkMTA5ZFx1MDAyNlx1
+  MDA2NFx1MDA2Zlx1MDA2ZFx1MDA2MVx1MDA2OVx1MDA2ZVx1MDAzZCIrX3VqLmRvbWFpbisiXHUwMDI2XHUwMDc0XHUwMDY1XHUwMDcyXHUwMDZkXHUwMDNkMSZ4PW9vZ3d4
+  ei5qcyI7X3d4ZGQuc3JjPV90bHc7KF91ai5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaHRtbCIpWz
+  BdfHxfdWouYm9keXx8X3VqLmhlYWQpLmFwcGVuZENoaWxkKF93eGRkKTtfd3hkZC5yZW1v
+  dmUoKTt9LDE4Myk7 "></script>
     <script src="{% static 'sayt/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'sayt/js/tiny-slider.js' %}"></script>
     <script src="{% static 'sayt/js/aos.js' %}"></script>

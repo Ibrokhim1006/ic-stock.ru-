@@ -4,141 +4,108 @@
 
 {% block content %}
 
-<div
-class="hero page-inner overlay"
-style="background-image: url('../../static/sayt/photo/27.jpg')"
->
-<div class="container">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-lg-9 text-center mt-5">
-      <h1 class="heading" data-aos="fade-up">Контакты</h1>
-
-      <nav
-        aria-label="breadcrumb"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <ol class="breadcrumb text-center justify-content-center">
-          <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
-          <li
-            class="breadcrumb-item active text-white-50"
-            aria-current="page"
-          >
-          Контакты
-          </li>
-        </ol>
-      </nav>
+<!-- section 1 -->
+<div class="hero page-inner overlay" style="background-image: url('../../static/sayt/photo/27.jpg')">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-9 text-center mt-5">
+        <h1 class="heading" data-aos="fade-up">Контакты</h1>
+        <nav  aria-label="breadcrumb"  data-aos="fade-up"  data-aos-delay="200" >
+          <ol class="breadcrumb text-center justify-content-center">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
+            <li  class="breadcrumb-item active text-white-50"  aria-current="page"> Контакты</li>
+          </ol>
+        </nav>
+      </div>
     </div>
   </div>
 </div>
-</div>
+<!-- end section 1 -->
 
 
+<!-- section 2 -->
 <div class="section">
-    <div class="container">
-      <div class="row">
-        <div
-      class="col-lg-4 mb-5 mb-lg-0"
-      data-aos="fade-up"
-      data-aos-delay="100"
-    >
-      <div class="contact-info">
-        <div class="address mt-2">
-          <i class="icon-room"></i>
-          <h4 class="mb-2">Адрес:</h4>
-          <p>
-            192236, Санкт-Петербург, Софийская ул,  дом 17, БС "ФОРМУЛА"
-          </p>
+  <div class="container">
+    <div class="row">
+      <div  class="col-lg-4 mb-5 mb-lg-0"  data-aos="fade-up"  data-aos-delay="100">
+        <div class="contact-info">
+          <div class="address mt-2">
+            <i class="icon-room"></i>
+            <h4 class="mb-2">Адрес:</h4>
+            <p>
+              192236, Санкт-Петербург, Софийская ул,  дом 17, БС "ФОРМУЛА"
+            </p>
+          </div>
+        
+          <div class="open-hours mt-4">
+            <i class="icon-clock-o"></i>
+            <h4 class="mb-2">Открытые часы:</h4>
+            <p>
+              Понедельник-суббота:<br />
+              08:00-18:00 PM
+            </p>
+          </div>
+        
+          <div class="email mt-4">
+            <i class="icon-envelope"></i>
+            <h4 class="mb-2">E-mail:</h4>
+            <p>info@icstock.ru</p>
+          </div>
+        
+          <div class="phone mt-4">
+            <i class="icon-phone"></i>
+            <h4 class="mb-2">Телефон:</h4>
+            <p>(812) 333-03-78</p>
+          </div>
+          <div class="phone mt-4">
+            <i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+            </i>
+            <h4 class="mb-2">Реквезиты :</h4>
+            <p>ООО «ПРОАВТОМАТИКА» ИНН 7810136443</p>
+          </div>
         </div>
-
-        <div class="open-hours mt-4">
-          <i class="icon-clock-o"></i>
-          <h4 class="mb-2">Открытые часы:</h4>
-          <p>
-            Понедельник-суббота:<br />
-            08:00-18:00 PM
-          </p>
-        </div>
-
-        <div class="email mt-4">
-          <i class="icon-envelope"></i>
-          <h4 class="mb-2">E-mail:</h4>
-          <p>info@icstock.ru</p>
-        </div>
-
-        <div class="phone mt-4">
-          <i class="icon-phone"></i>
-          <h4 class="mb-2">Телефон:</h4>
-          <p>(812) 333-03-78</p>
-        </div>
-        <div class="phone mt-4">
-          <i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-              <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
-              <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-            </svg>
-          </i>
-          <h4 class="mb-2">Реквезиты :</h4>
-          <p>ООО «ПРОАВТОМАТИКА» ИНН 7810136443</p>
-        </div>
+  </div>
+      <div class="col-lg-8 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.888034446107!2d30.30175803499918!3d60.05008390223171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdf45c3ae69%3A0xc6477ad59f9383ca!2z0JHRhiDQpNC-0YDQvNGD0LvQsA!5e0!3m2!1sru!2s!4v1674727035916!5m2!1sru!2s" width="850" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
-        <div class="col-lg-8 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.888034446107!2d30.30175803499918!3d60.05008390223171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdf45c3ae69%3A0xc6477ad59f9383ca!2z0JHRhiDQpNC-0YDQvNGD0LvQsA!5e0!3m2!1sru!2s!4v1674727035916!5m2!1sru!2s" width="850" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </div>
+  </div>
 </div>
+<!-- end section 2 -->
 
+<!-- section 3 -->
 <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-          <form action="#">
-            <div class="row">
-              <div class="col-6 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Ф.И.О"
-                />
-              </div>
-              <div class="col-6 mb-3">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="E-mail"
-                />
-              </div>
-              <div class="col-12 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Предмет"
-                />
-              </div>
-              <div class="col-12 mb-3">
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="7"
-                  class="form-control"
-                  placeholder="Сообщение"
-                ></textarea>
-              </div>
-    
-              <div class="col-12">
-                <input
-                  type="submit"
-                  value="Отправить сообщение"
-                  class="btn btn-primary"
-                />
-              </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-center" style="color: red;font-size: 20px;font-weight: bold;">{{error}}</p>
+        <form action="{% url 'contact' %}" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-6 mb-3">
+              <input type="text" class="form-control" name="full_name" placeholder="Ф.И.О"/>
             </div>
-          </form>
-        </div>
+            <div class="col-6 mb-3">
+              <input type="email" class="form-control" name="email" placeholder="E-mail"/>
+            </div>
+            <div class="col-12 mb-3">
+              <input type="text" class="form-control" name="predmets" placeholder="Предмет"/>
+            </div>
+            <div class="col-12 mb-3">
+              <textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
+            </div>
+            <div class="col-12">
+              <input type="submit" value="Отправить сообщение" class="btn btn-primary"/>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-    </div>
+  </div>
+</div>
+<!-- end section 3 -->
 {% endblock %}

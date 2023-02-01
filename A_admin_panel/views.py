@@ -65,8 +65,6 @@ def all_product_admin(request):
     context['objects_list'] = Product.objects.all().order_by('-id')
     page_num = request.GET.get('page', 1)
     paginator = Paginator(context['objects_list'], 30) # 6 employees per page
-
-
     try:
         context['page_obj'] = paginator.page(page_num)
     except PageNotAnInteger:
@@ -172,3 +170,23 @@ def create_prodcut_with_excel(request):
         for dbframe in dbframe.itertuples():
             print(dbframe)
     return render(request,'admin_panel/create.html')
+
+
+# Pochta CRUD
+class AllPochtaAdmin(ListView):
+    model = Delivery
+    template_name = 'admin_panel/pochta/all_list.html'
+class CreatePochtaAdmin(CreateView):
+    model = Delivery
+    form_class = PochtaForms
+    template_name = 'admin_panel/pochta/create.html'
+    success_url = reverse_lazy('all_pochta_admin')
+class UpdatePochtaAdmin(UpdateView):
+    model = Delivery
+    form_class = PochtaForms
+    template_name = 'admin_panel/pochta/update.html'
+    success_url = reverse_lazy('all_pochta_admin')
+class DeletePochtaAdmin(DeleteView):
+    model = Delivery
+    template_name = 'admin_panel/pochta/delete.html'
+    success_url = reverse_lazy('all_pochta_admin')

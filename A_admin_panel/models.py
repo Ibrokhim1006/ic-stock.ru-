@@ -50,3 +50,38 @@ class ClientPost(models.Model):
 
     def __str__(self):
         return self.full_name
+
+class SupplyLine(models.Model):
+    full_name = models.CharField(max_length=250)
+    company = models.CharField(max_length=250)
+    email = models.CharField(max_length=250)
+    phone = models.CharField(max_length=250)
+    content = models.TextField()
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name
+
+class Contact(models.Model):
+    full_name = models.CharField(max_length=250)
+    email = models.CharField(max_length=250)
+    predmets = models.CharField(max_length=250)
+    content = models.TextField()
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name
+
+class Questions(models.Model):
+    full_name = models.CharField(max_length=250)
+    phone = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.full_name
+
+class Delivery(models.Model):
+    name = models.CharField(max_length=250)
+    img = models.ImageField(upload_to='delivery/')
+
+    def __str__(self):
+        return self.name
