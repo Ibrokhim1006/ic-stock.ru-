@@ -159,18 +159,30 @@
             Бренд
           </h2>
         </div>
+        <div class="col-md-6 text-md-end">
+          <div id="testimonial-nav">
+            <span class="prev" data-controls="prev">Prev</span>
+
+            <span class="next" data-controls="next">Next</span>
+          </div>
+        </div>
       </div>
 
       <div class="row">
-        {% for item in objects_brend %}
         <div class="col-lg-3">
-          <a href="">
-            <div class="card text-bg-dark" >
-              <img src="{{item.img_brend.url}}" class="card-img" alt="...">
-            </div>
-          </a>
         </div>
-        {% endfor %}
+      </div>
+      <div class="testimonial-slider-wrap">
+        <div class="testimonial-slider">
+          {% for item in objects_brend  %}
+            <div class="item">
+              <div class="testimonial">
+                <img src="{{item.img_brend.url}}" alt="Image" class="img-fluid  mb-4" style="width: 50%;"/>
+                <h3 class="h5 text-primary mb-4">{{item.name}}</h3>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -213,79 +225,5 @@
 </div>
 
 
-<script>
-  let searchInput = document.querySelector('.search_input');
 
-// input change
-document.querySelector('.search_input').addEventListener('input', (e) => {
-    if (e.target.value !== "") {
-        document.querySelector('.closeIcon').style.display = "flex";
-    } else {
-        document.querySelector('.closeIcon').style.display = "none";
-    }
-})
-
-// clear input
-const clearHandler = () => {
-    searchInput.value = "";
-    document.querySelector('.closeIcon').style.display = "none";
-    document.querySelector('.list_container').remove();
-}
-
-// submit
-const submitHandler = async () => {
-    fetch("http://127.0.0.1:8000/all_product_search_view/")
-        .then((response) => response.json())
-        .then((data) => {
-            let albums = data;
-            console.log(data)
-            let list = document.querySelector('.list');
-            let ul = document.createElement('ul');
-            ul.classList.add("list_container");
-            ul.style.display = "flex";
-            
-            albums.map(item => {
-                // create element
-                let li = document.createElement('li');
-                let divLeft = document.createElement('div');
-                let divRight = document.createElement('div');
-                let img = document.createElement('img');
-                let div = document.createElement('div');
-                let p1 = document.createElement('p');
-                let p2 = document.createElement('p');
-                let span = document.createElement('span');
-                let input = document.createElement('input');
-
-                // add class
-                li.classList.add('list_item');
-                divLeft.classList.add('list_item_left');
-                divRight.classList.add('list_item_right');
-                img.classList.add("list_item_img");
-                div.classList.add("list_item_title");
-                p1.classList.add("list_item_title_top");
-                p2.classList.add("list_item_title_bottom");
-                span.classList.add("list_item_price");
-                input.classList.add("list_item_quantity");
-
-                img.src = item.url;
-                p1.textContent = "Top part";
-                p2.textContent = "Bottom part";
-                div.appendChild(p1);
-                div.appendChild(p2);
-                divLeft.appendChild(img);
-                divLeft.appendChild(div);
-                span.textContent = "3400 руб.";
-                input.setAttribute('type', "number");
-                input.value = item.id;
-                divRight.appendChild(span);
-                divRight.appendChild(input);
-
-                li.appendChild(divLeft);
-                li.appendChild(divRight);
-                ul.appendChild(li);
-            })
-            list.appendChild(ul);
-        })
-}
-</script>
 {% endblock %}
