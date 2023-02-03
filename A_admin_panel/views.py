@@ -98,6 +98,13 @@ def create_product_admin(request):
         product_save.save()
         return redirect('all_product_admin')
     return render(request,'admin_panel/product/create.html',context)
+
+class CreateProductAdmin(CreateView):
+    model = Product
+    form_class = ProductsForms
+    template_name = 'admin_panel/product/create.html'
+    success_url = reverse_lazy('all_product_admin')
+
 class UpdateProductAdmin(UpdateView):
     model = Product
     form_class = ProductsForms

@@ -58,10 +58,10 @@
                     <p class="card-text">
                         <span style="font-weight: bold;font-size: 18px;">Производитель: </span > 
                             <span style="font-weight: 650;font-size: 16px;">
-                                <a href="#">{{objects.manufacturer}}</a>
+                                <a href="#">{{objects.brend_id.name}}</a>
                             </span>
                         </p>
-                    <p class="card-text" style="font-weight: bold;">{{objects.description}}</p>
+                    <p class="card-text" style="font-weight: bold;">{{objects.description|safe}}</p>
                     <p class="card-text">
                         <span style="font-weight: bold;font-size: 18px;">Доступное количество: </span> 
                         <span style="font-weight: 650;font-size: 16px;">

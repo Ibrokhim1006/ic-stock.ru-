@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # ckeditors
     'ckeditor',
     'ckeditor_uploader',
+    'widget_tweaks',
     # bootstrapp
     "crispy_forms",
     "crispy_bootstrap5",

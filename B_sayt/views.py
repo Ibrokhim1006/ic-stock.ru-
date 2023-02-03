@@ -5,6 +5,10 @@ from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import filters
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse , HttpResponseRedirect
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.decorators import api_view
+from django.db.models import Q
 from B_sayt.serializers import *
 from A_admin_panel.models import *
 
@@ -22,15 +26,7 @@ def index(request):
     context['objects_advend'] = Advantages.objects.all()
     context['objects_brend'] = Brand.objects.all()[:7]
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
-    if request.method=='POST':
-        full_name = request.POST.get('full_name')
-        phone = request.POST.get('phone')
-        if full_name=='' or phone=='':
-            context['error'] = "Заполните информацию !"
-            return render(request,'sayt/index.html',context)
-        ques = Questions(full_name=full_name,phone=phone)
-        ques.save()
-        return redirect('index')
+    
     return render(request,'sayt/index.html',context)
 
 def delivery(request):
@@ -103,8 +99,16 @@ def client_post(request,id):
 class AllProductSearchView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = AllSearchProduct
-    filter_backends = [filters.OrderingFilter]
-    ordering_fields = '__all__'
+    filter_backends = [filters.SearchFilter]
+    search_fields = '__all__'
+
+def saearch_product(request):
+    if request.method=='GET':
+        atrikul = request.GET.get('atrikul')
+        name =  request.GET.get('name')
+    
+    a = Product.objects.filter(id=atrikul).values()
+    return JsonResponse({'data':list(a)})
 
 def supply_line(request):
     context = {}
@@ -122,3 +126,16 @@ def supply_line(request):
         supply_lines.save()
         return redirect('supply_line')
     return render(request,'sayt/supply_line.html',context)
+
+def quality(request):
+    context = {}
+    if request.method=='POST':
+        full_name = request.POST.get('full_name')
+        phone = request.POST.get('phone')
+        if full_name=='' or phone=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/index.html',context)
+        ques = Questions(full_name=full_name,phone=phone)
+        ques.save()
+        return redirect('quality')
+    return render(request,'sayt/quality.html',context)

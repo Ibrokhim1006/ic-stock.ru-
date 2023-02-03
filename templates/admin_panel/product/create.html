@@ -17,39 +17,25 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-6 mt-3">
-                            <label for="name" class="form-label">Наименование</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Наименование">
+                            {{ form.name.label_tag }} <br> {{ form.name }} 
                         </div>
                         <div class="col-lg-6 mt-3">
-                            <label for="manufacter" class="form-label">Производитель</label>
-                            <input type="text" class="form-control" name="manufacter" id="manufacter" placeholder="Производитель">
+                            {{ form.categorsiya_id.label_tag }} <br> {{ form.categorsiya_id }} 
                         </div>
                         <div class="col-lg-6 mt-3">
-                            <label for="categorsiya_id" class="form-label">Каталог товаров</label>
-                            <select class="form-select" aria-label="Default select example" name="categorsiya_id" id="categorsiya_id">
-                                {% for item in object_list %}
-                                    <option value="{{item.id}}">{{item.name}}</option>
-                                {% endfor %}
-                              </select> 
+                            {{ form.brend_id.label_tag }} <br> {{ form.brend_id }} 
                         </div>
                         <div class="col-lg-6 mt-3">
-                            <label for="price" class="form-label">Стоимость</label>
-                            <input type="text" class="form-control" name="price" id="price" placeholder="Стоимость">
-                        </div>
-                        <div class="col-lg-6 mt-3">
-                            <label for="amunt" class="form-label">Доступное количество (не менее</label>
-                            <input type="text" class="form-control" id="amunt" name="amunt" placeholder="Доступное количество (не менее">
-                        </div>
-                        <div class="col-lg-6 mt-3">
-                            <label for="img" class="form-label">Изображение продукта</label>
-                            <input type="file" class="form-control" id="img" name="img" placeholder="Наименование">
+                            {{ form.amunt.label_tag }} <br> {{ form.amunt }} 
                         </div>
                         <div class="col-lg-12 mt-3">
-                            <label for="description" class="form-label">Описание</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            {{ form.img.label_tag }} <br> {{ form.img }} 
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            {{ form.description.label_tag }} <br> {{ form.description }} 
                         </div>
                     </div>
-                    <button class="btn btn-primary mt-3" type="submit">Добавлять</button>
+                    <button class="btn btn-primary mt-3" type="submit">Изменить</button>
                 </form>
             </div>
         </div>

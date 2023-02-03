@@ -1,5 +1,6 @@
 from django import forms 
 from A_admin_panel.models import *
+from ckeditor.widgets import CKEditorWidget
 
 class CategoryForms(forms.ModelForm):
     class Meta:
@@ -15,23 +16,22 @@ class CategoryForms(forms.ModelForm):
         }
 
 class ProductsForms(forms.ModelForm):
+    
     class Meta:
         model = Product
-        fields = ['name','manufacturer','categorsiya_id','price','amunt','img','description',]
+        fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),
-            'manufacturer': forms.TextInput(attrs={'class':'form-control'}),
             'categorsiya_id': forms.Select(attrs={'class':'form-control'}),
-            'price': forms.TextInput(attrs={'class':'form-control'}),
+            'brend_id': forms.Select(attrs={'class':'form-control'}),
             'amunt': forms.TextInput(attrs={'class':'form-control'}),
             'img': forms.FileInput(attrs={'class':'form-control'}),
-            'description': forms.Textarea(attrs={'class':'form-control'})
+            'description': CKEditorWidget()
         }
         labels = {
             'name': 'Наименование',
-            'manufacturer': 'Производитель',
             'categorsiya_id': 'Каталог товаров',
-            'price': 'Стоимость',
+            'brend_id': 'Производитель',
             'amunt': 'Доступное количество (не менее)',
             'img': 'Изображение продукта',
             'description': 'Описание'

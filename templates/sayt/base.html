@@ -36,6 +36,9 @@
     {% block title %} {% endblock %}
   </head>
   <style>
+    .site-nav .site-navigation .site-menu >  .brend-li{
+      display: none;
+    }
      @media only screen and (max-width: 990px){
       .site-mobile-menu .site-nav-wrap  .icon-li{
         width: 50%;
@@ -43,7 +46,11 @@
         margin-top: 5px;
       }
       .site-mobile-menu .site-nav-wrap .phone{
-        margin-top: 5px;
+        margin-top: 10px;
+      }
+      .site-nav .site-navigation .site-menu > .brend-li{
+        display:  inline-block !important;
+        margin-top: 20px !important;
       }
      }
     
@@ -78,9 +85,9 @@
                 </ul>
               </li>
               <li><a href="{% url 'supply_line' %}" style="font-weight: bold;">Линии поставок</a></li>
-              <!-- <li><a href="" style="font-weight: bold;">Качество</a></li> -->
+              <li><a href="{% url 'quality' %}" style="font-weight: bold;">Качество</a></li>
               <li><a href="{% url 'delivery' %}" style="font-weight: bold;">Доставка</a></li>
-              <li><a href="{% url 'contact' %}" style="font-weight: bold;">Контакты</a></li>
+              <li><a href="{% url 'contact'  %}" style="font-weight: bold;">Контакты</a></li>
               <li class="icon-li">
                 <a href="https://t.me/+79311014699 ">
                   <img src="{% static 'sayt/telegram.svg' %}" alt="telegram">
@@ -98,7 +105,13 @@
                   +7 812 333-03-78
                 </a>
               </li>
+              <li class="brend-li mt-3">
+                <a href="{% url 'index' %}" class="logo m-0 float-start" >
+                  <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;" alt="">
+                </a>
+              </li>
             </ul>
+            
             <a href="#" class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
             </a>
@@ -138,7 +151,7 @@
                 <li><a href="{% url 'index' %}">Главная страница</a></li>
                 <li><a href="{% url 'all_category' %}">Каталог</a></li>
                 <li><a href="{% url 'supply_line' %}">Линии поставок</a></li>
-                <li><a href="#">Качество</a></li>
+                <li><a href="{% url 'quality' %}">Качество</a></li>
                 <li><a href="{% url 'delivery' %}">Доставка</a></li>
                 <li><a href="{% url 'contact' %}">Контакты</a></li>
               

@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 import random
 
 
@@ -35,7 +37,7 @@ class Product(models.Model):
     brend_id = models.ForeignKey(Brand,on_delete=models.CASCADE,null=True,blank=True)
     atrikul = models.CharField(max_length=250,null=True,blank=True)    
     manufacturer = models.CharField(max_length=250,null=True,blank=True)
-    description = models.TextField(null=True,blank=True)
+    description = RichTextField()
     amunt = models.CharField(max_length=250,null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
 
