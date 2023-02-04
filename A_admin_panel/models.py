@@ -37,8 +37,6 @@ class Product(models.Model):
     brend_id = models.ForeignKey(Brand,on_delete=models.CASCADE,null=True,blank=True)
     atrikul = models.CharField(max_length=250,null=True,blank=True)    
     manufacturer = models.CharField(max_length=250,null=True,blank=True)
-    img_urls = models.CharField(max_length=250,null=True,blank=True)
-    table = models.JSONField(null=True,blank=True)
     description = models.TextField(null=True,blank=True)
     amunt = models.CharField(max_length=250,null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
