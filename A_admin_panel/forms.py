@@ -25,7 +25,7 @@ class ProductsForms(forms.ModelForm):
             'brend_id': forms.Select(attrs={'class':'form-control'}),
             'amunt': forms.TextInput(attrs={'class':'form-control'}),
             'img': forms.FileInput(attrs={'class':'form-control'}),
-            'description': CKEditorWidget()
+            'description': forms.Textarea(attrs={"class":'form-control'})
         }
         labels = {
             'name': 'Наименование',

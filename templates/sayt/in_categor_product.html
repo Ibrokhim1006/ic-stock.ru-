@@ -103,11 +103,11 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
               </p>
               <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
               <p>
-                <a href="#" style="font-weight: bold;">Доступно к заказу от 500 шт</a>
+                <a href="#" style="font-weight: bold;">В наличие более 500 штук</a>
               </p>
               <p class="card-title" >
-                <span style="font-weight: bold;font-size: 16px;">доставка :</span > 
-                  <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;">цена по запросу</a>
+                <span style="font-weight: bold;font-size: 16px;">Цена :</span > 
+                  <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;">по запросу</a>
                 </p>
               <a href="{% url 'in_product' item.id %}" class="btn btn-primary">Подробнее</a>
             </div>

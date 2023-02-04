@@ -3,196 +3,7 @@
 {% block title %} <title>ic-stock.ru</title> {% endblock %}
 
 {% block content %}
-<style>
-  /* .search_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  .search_wrapper {
-    position: relative;
-  }
-
-  .search_input {
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border: 1px solid lightgray;
-    padding-right: 15px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-
-  .search_input:focus {
-    outline: none;
-  }
-
-  .submitBtn {
-    padding: 8px;
-    border: none;
-    background-color: #2272f2;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all ease-in .15s;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-
-  .submitBtn:hover {
-    background-color: #2272f2d5;
-  }
-
-  .list {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-
-  }
-
-  .list_container {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 16px;
-    border: 1px solid lightgray;
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: 0;
-    max-height: 300px;
-    overflow-y: scroll;
-    border-radius: 5px;
-  }
-
-  .list_item {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    border-bottom: 1px solid lightgray;
-  }
-
-  .list_item_left {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .list_item_right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .list_item_img {
-    width: 50px;
-    height: 100%;
-    border-radius: 5px;
-  }
-
-  .list_item_title {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: left;
-    font-size: 14px;
-  }
-
-  .list_item_title_top {
-    color: green;
-    margin: 0;
-  }
-
-  .list_item_title_bottom {
-    color: crimson;
-    margin: 0;
-  }
-
-  .list_item_price {
-    color: silver;
-    font-weight: 600;
-    font-size: 13px;
-  }
-
-  .list_item_quantity {
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    padding: 5px;
-    width: 50px;
-    font-size: 12px;
-    border-radius: 5px;
-  }
-
-  .list_item_quantity:focus {
-    outline: none;
-  } */
-
-  .search_wrapper {
-    position: relative;
-  }
-
-  .listContainer {
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background-color: #fff !important;
-    max-height: 300px;
-    overflow-y: scroll;
-  }
-
-  .list_container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    list-style: none;
-    /* padding-left: 0 !impo; */
-    padding: 10px;
-  }
-
-  .list_item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .list_item_left,
-  .list_item_right {
-    display: flex;
-    align-items: center;
-  }
-
-  .list_item_quantity {
-    width: 150px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-  }
-
-  .list_item_title p {
-    margin-bottom: 0;
-  }
-
-  /* scroll */
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: silver;
-  }
-
-
-  @media (max-width:576px) {
-    .search_wrapper {
-      width: 100%;
-    }
-  }
-</style>
 
 <div class="hero">
   <div class="hero-slide">
@@ -207,13 +18,13 @@
         <h1 class="heading" data-aos="fade-up" style="font-weight: bold;">
           Поиск по номеру изделия в мировых складах
         </h1>
-        <div class="narrow-w form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+        <form class="narrow-w form-search d-flex align-items-stretch mb-3" method="POST" data-aos="fade-up" data-aos-delay="200">
           {% csrf_token %}
-          <input type="search" class="form-control px-4" placeholder="Поиск" name="search" id="search"/>
-          <div class="listContainer"></div>
-          <div class="list"></div>
-
-        </div>
+            <input type="search" class="form-control px-4" placeholder="Поиск" name="search" id="search"/>
+            <button type="submit" class="btn btn-primary">Поиск</button>
+            <!-- <div class="listContainer"></div> -->
+            <div class="list"></div>
+        </form>
       </div>
     </div>
   </div>
@@ -248,11 +59,11 @@
               </p>
             <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
             <p>
-              <a href="#" style="font-weight: bold;">Доступно к заказу от 500 шт</a>
+              <a href="#" style="font-weight: bold;">В наличие более 500 штук</a>
             </p>
             <p class="card-title" >
-              <span style="font-weight: bold;font-size: 16px;">доставка :</span > 
-                <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;">цена по запросу</a>
+              <span style="font-weight: bold;font-size: 16px;">Цена :</span > 
+                <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;"> по запросу</a>
               </p>
             <a href="{% url 'in_product' item.id %}" class="btn btn-primary">Подробнее</a>
           </div>
@@ -357,78 +168,5 @@
 <!-- end brends -->
 
 
-<script>
 
-  // search
-  document.querySelector('#search').addEventListener('input', (e) => {
-    console.log(e.target.value);
-    document.querySelector('.list_container')?.remove();
-    let list = document.querySelector('.listContainer');
-    document.querySelector('#search').style.borderRadius = "0"
-    if (e.target.value !== "") {
-      fetch(`http://127.0.0.1:8000/all_product_search_view/?atrikul=${e.target.value}`, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json"
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          let albums = data.data;
-          console.log(albums);
-          let ul = document.createElement('ul');
-          ul.classList.add("list_container");
-          ul.style.display = "flex";
-
-          albums.map(item => {
-            // create element
-            let li = document.createElement('li');
-            let a = document.createElement('a');
-            let divLeft = document.createElement('div');
-            let divRight = document.createElement('div');
-            let img = document.createElement('img');
-            let div = document.createElement('div');
-            let p1 = document.createElement('p');
-            let p2 = document.createElement('p');
-            let span = document.createElement('span');
-            let input = document.createElement('input');
-
-            // add class
-            li.classList.add('list_item');
-            a.href="";
-            divLeft.classList.add('list_item_left');
-            divRight.classList.add('list_item_right');
-            img.classList.add("list_item_img");
-            div.classList.add("list_item_title");
-            p1.classList.add("list_item_title_top");
-            p2.classList.add("list_item_title_bottom");
-            span.classList.add("list_item_price");
-            input.classList.add("list_item_quantity");
-
-            img.src = item.img;
-            p1.textContent = item.name;
-            p2.textContent = item.atrikul;
-            div.appendChild(p1);
-            div.appendChild(p2);
-            divLeft.appendChild(img);
-            divLeft.appendChild(div);
-            span.textContent = item.price;
-            input.setAttribute('type', "number");
-            input.value = item.id;
-            divRight.appendChild(span);
-            divRight.appendChild(input);
-
-            a.appendChild(li)
-            li.appendChild(divLeft);
-            li.appendChild(divRight);
-            ul.appendChild(a);
-          })
-          list.appendChild(ul);
-        })
-    } else {
-      document.querySelector('.list_container').remove();
-      document.querySelector('#search').style.borderRadius = "30px";
-    }
-  })
-</script>
 {% endblock %}
