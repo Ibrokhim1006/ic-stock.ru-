@@ -13,5 +13,7 @@ urlpatterns = [
     path('',get_client_ip,name='get_client_ip'),
 
     path('supply_line/',supply_line,name='supply_line'),
-    path('quality/',quality,name='quality')
+    path('quality/',quality,name='quality'),
+
+    path('create_product_view/<str:atrikul>/',CreateProductView.as_view(),name='create_product_view')
 ]

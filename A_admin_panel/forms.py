@@ -16,7 +16,6 @@ class CategoryForms(forms.ModelForm):
         }
 
 class ProductsForms(forms.ModelForm):
-    
     class Meta:
         model = Product
         fields = '__all__'

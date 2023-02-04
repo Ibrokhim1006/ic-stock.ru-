@@ -107,8 +107,15 @@ def saearch_product(request):
         atrikul = request.GET.get('atrikul')
         name =  request.GET.get('name')
     
-    a = Product.objects.filter(id=atrikul).values()
+    a = Product.objects.filter(name=name).values()
     return JsonResponse({'data':list(a)})
+
+# {
+#     'name': 'Configuration',
+#     'data':'Single'
+# },
+
+
 
 def supply_line(request):
     context = {}
@@ -139,3 +146,30 @@ def quality(request):
         ques.save()
         return redirect('quality')
     return render(request,'sayt/quality.html',context)
+
+
+class CreateProductView(APIView):
+    def post(self,request,atrikul):
+        objects = Product.objects.filter(atrikul=atrikul)[0]
+        name = request.data['name']
+        objects.name=name
+        objects.save()
+
+        return Response({'data':'succsess'})
+
+
+def create_product_view(request,atrikul):
+    objects = Product.objects.filter(atrikul=atrikul)
+    if request.method=='POST':
+        name = request.POST.get('name')
+        img_url =  request.POST.get('img_url')
+        table =  request.POST.get('table')
+        description =  request.POST.get('description')
+        if name=='':
+            return JsonResponse({'data':'error'})
+    objects.name=name
+    objects.img_url=img_url
+    objects.table=table
+    objects.description=description
+    objects.save()
+    return JsonResponse({'data':'succsess'})
