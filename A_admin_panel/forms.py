@@ -25,6 +25,7 @@ class ProductsForms(forms.ModelForm):
             'brend_id': forms.Select(attrs={'class':'form-control'}),
             'amunt': forms.TextInput(attrs={'class':'form-control'}),
             'img': forms.FileInput(attrs={'class':'form-control'}),
+            'atrikul':forms.TextInput(attrs={'class':'form-control'}),
             'description': forms.Textarea(attrs={"class":'form-control'})
         }
         labels = {
@@ -33,6 +34,7 @@ class ProductsForms(forms.ModelForm):
             'brend_id': 'Производитель',
             'amunt': 'Доступное количество (не менее)',
             'img': 'Изображение продукта',
+            'atrikul': 'Артикул',
             'description': 'Описание'
         }
 
