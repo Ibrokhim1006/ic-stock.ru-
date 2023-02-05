@@ -385,7 +385,7 @@
     let list = document.querySelector('.listContainer');
     document.querySelector('#search').style.borderRadius = "0"
     if (e.target.value !== "") {
-      fetch(`http://127.0.0.1:8000/all_product_search_view/?search=${e.target.value}`, {
+      fetch(`https://ic-stock.ru/all_product_search_view/?search=${e.target.value}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json"
