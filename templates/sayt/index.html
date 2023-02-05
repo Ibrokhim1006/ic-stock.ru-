@@ -144,6 +144,7 @@
     background-color: #fff !important;
     max-height: 300px;
     overflow-y: scroll;
+    width: 98.5%;
   }
 
   .list_container {
@@ -154,13 +155,26 @@
     /* padding-left: 0 !impo; */
     padding: 10px;
   }
-
+  .list_container a .list_item .list_item_left{
+    width: 100%;
+  }
   .list_item {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid rgb(188, 184, 184);
   }
-
+  .list_container a .list_item .list_item_left .list_item_title{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .list_item img{
+    width: 10%;
+    height: 50px;
+    object-fit: cover;
+  }
   .list_item_left,
   .list_item_right {
     display: flex;
@@ -211,7 +225,7 @@
         <div class="narrow-w form-search d-flex align-items-stretch mb-3" method="POST" data-aos="fade-up" data-aos-delay="200">
           {% csrf_token %}
             <input type="search" class="form-control px-4" placeholder="Поиск" name="search" id="search"/>
-            <button type="submit" class="btn btn-primary">Поиск</button>
+            <!-- <button type="submit" class="btn btn-primary">Поиск</button> -->
             <div class="listContainer"></div>
             <div class="list"></div>
         </div>
@@ -371,7 +385,7 @@
     let list = document.querySelector('.listContainer');
     document.querySelector('#search').style.borderRadius = "0"
     if (e.target.value !== "") {
-      fetch(`https://ic-stock.ru/all_product_search_view/?search=${e.target.value}`, {
+      fetch(`http://127.0.0.1:8000/all_product_search_view/?search=${e.target.value}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json"
@@ -398,18 +412,19 @@
             let p2 = document.createElement('p');
             let span = document.createElement('span');
             let input = document.createElement('input');
-
+            console.log(item.id)
+            var id = item.id
             // add class
             li.classList.add('list_item');
-            a.href="";
+            a.href=`in_product/${item.id}`;
             divLeft.classList.add('list_item_left');
-            divRight.classList.add('list_item_right');
+            // divRight.classList.add('list_item_right');
             img.classList.add("list_item_img");
             div.classList.add("list_item_title");
             p1.classList.add("list_item_title_top");
             p2.classList.add("list_item_title_bottom");
             span.classList.add("list_item_price");
-            input.classList.add("list_item_quantity");
+            // input.classList.add("list_item_quantity");
 
             img.src = item.img;
             p1.textContent = item.name;
@@ -422,7 +437,7 @@
             input.setAttribute('type', "number");
             input.value = item.id;
             divRight.appendChild(span);
-            divRight.appendChild(input);
+            // divRight.appendChild(input);
 
             a.appendChild(li)
             li.appendChild(divLeft);
