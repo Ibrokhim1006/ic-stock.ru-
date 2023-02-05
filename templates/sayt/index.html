@@ -44,22 +44,26 @@
       {% for item in objects_product %}
       <div class="col-lg-4 mt-4">
         <div class="card" style="width: 100%;">
-          {% if item.img %}
-          <img src="{{item.img.url}}" class="card-img-top" alt="{{item.name}}">
-          {% else %}
-          <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
-
-          {% endif %}
+          <div class="card-header text-center">
+            {% if item.img %}
+            <img src="{{item.img.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
+            {% else %}
+            <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
+  
+            {% endif %}
+          </div>
+          
           <div class="card-body">
-            <p class="card-title" >
+            <p class="card-text" >
               <span style="font-weight: bold;font-size: 18px;">Артикул:</span > 
                 <span style="font-weight: 650;font-size: 16px;">
                   <a href="{% url 'in_product' item.id %}">{{item.atrikul}}</a>
                 </span>
               </p>
             <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
-            <p>
-              <a href="#" style="font-weight: bold;">В наличие более 500 штук</a>
+            <p class="card-title">
+                <span style="font-weight: bold;font-size: 16px;">В наличие :</span> 
+                <a href="#" style="font-weight: bold;font-size: 16px;">более 500 штук</a>
             </p>
             <p class="card-title" >
               <span style="font-weight: bold;font-size: 16px;">Цена :</span > 
