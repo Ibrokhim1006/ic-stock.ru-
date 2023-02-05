@@ -95,7 +95,7 @@ class AllProductSearchView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = AllSearchProduct
     filter_backends = [filters.SearchFilter]
-    search_fields = ['atrikul']
+    search_fields = ['atrikul','name']
 
 def saearch_product(request):
     if request.method=='GET':
