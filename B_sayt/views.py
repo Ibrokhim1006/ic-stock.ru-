@@ -95,14 +95,14 @@ class AllProductSearchView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = AllSearchProduct
     filter_backends = [filters.SearchFilter]
-    search_fields = '__all__'
+    search_fields = ['atrikul']
 
 def saearch_product(request):
     if request.method=='GET':
         atrikul = request.GET.get('atrikul')
         name =  request.GET.get('name')
     
-    a = Product.objects.filter(name=name).values()
+    a = Product.objects.filter(atrikul=atrikul).values()
     return JsonResponse({'data':list(a)})
 
 # {
