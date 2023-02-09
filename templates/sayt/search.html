@@ -1,0 +1,164 @@
+{% load static %}
+
+
+<style>
+    .search_wrapper {
+    position: relative;
+  }
+
+  .listContainer {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background-color: #fff !important;
+    max-height: 300px;
+    overflow-y: scroll;
+    width: 98.5%;
+  }
+
+  .list_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    /* padding-left: 0 !impo; */
+    padding: 10px;
+  }
+  .list_container a .list_item .list_item_left{
+    width: 100%;
+  }
+  .list_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(188, 184, 184);
+  }
+  .list_container a .list_item .list_item_left .list_item_title{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .list_item img{
+    width: 10%;
+    height: 50px;
+    object-fit: cover;
+  }
+  .list_item_left,
+  .list_item_right {
+    display: flex;
+    align-items: center;
+  }
+
+  .list_item_quantity {
+    width: 150px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+
+  .list_item_title p {
+    margin-bottom: 0;
+  }
+
+  /* scroll */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: silver;
+  }
+
+
+  @media (max-width:576px) {
+    .search_wrapper {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="narrow-w form-search d-flex align-items-stretch mb-3" method="POST" data-aos="fade-up" data-aos-delay="200">
+    {% csrf_token %}
+      <input type="search" class="form-control px-4" placeholder="Поиск" name="search" id="search"/>
+      <!-- <button type="submit" class="btn btn-primary">Поиск</button> -->
+      <div class="listContainer"></div>
+      <div class="list"></div>
+</div>
+
+<script>
+
+  // search
+  document.querySelector('#search').addEventListener('input', (e) => {
+    console.log(e.target.value);
+    document.querySelector('.list_container')?.remove();
+    let list = document.querySelector('.listContainer');
+    document.querySelector('#search').style.borderRadius = "0"
+    if (e.target.value !== "") {
+      fetch(`https://ic-stock.ru/all_product_search_view/?search=${e.target.value}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json"
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          // let albums = data.data;
+          // console.log(albums);
+          let ul = document.createElement('ul');
+          ul.classList.add("list_container");
+          ul.style.display = "flex";
+
+          data.map(item => {
+            // create element
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            let divLeft = document.createElement('div');
+            let divRight = document.createElement('div');
+            let img = document.createElement('img');
+            let div = document.createElement('div');
+            let p1 = document.createElement('p');
+            let p2 = document.createElement('p');
+            let span = document.createElement('span');
+            let input = document.createElement('input');
+            console.log(item.id)
+            var id = item.id
+            // add class
+            li.classList.add('list_item');
+            a.href=`in_product/${item.id}`;
+            divLeft.classList.add('list_item_left');
+            // divRight.classList.add('list_item_right');
+            img.classList.add("list_item_img");
+            div.classList.add("list_item_title");
+            p1.classList.add("list_item_title_top");
+            p2.classList.add("list_item_title_bottom");
+            span.classList.add("list_item_price");
+            // input.classList.add("list_item_quantity");
+
+            img.src = item.img;
+            p1.textContent = item.name;
+            p2.textContent = item.atrikul;
+            div.appendChild(p1);
+            div.appendChild(p2);
+            divLeft.appendChild(img);
+            divLeft.appendChild(div);
+            span.textContent = item.price;
+            input.setAttribute('type', "number");
+            input.value = item.id;
+            divRight.appendChild(span);
+            // divRight.appendChild(input);
+
+            a.appendChild(li)
+            li.appendChild(divLeft);
+            li.appendChild(divRight);
+            ul.appendChild(a);
+          })
+          list.appendChild(ul);
+        })
+    } else {
+      document.querySelector('.list_container').remove();
+      document.querySelector('#search').style.borderRadius = "30px";
+    }
+  })
+</script>

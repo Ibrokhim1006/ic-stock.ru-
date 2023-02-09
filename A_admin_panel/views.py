@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth .decorators import login_required
 from django.views.generic.edit import UpdateView,CreateView
@@ -76,27 +76,14 @@ def all_product_admin(request):
     return render(request,'admin_panel/product/all_product.html',context)
 @login_required
 def create_product_admin(request):
-    context = {}
-    context['object_list'] = Categoriya.objects.all()
-    if request.method=='POST':
-        name = request.POST.get('name')
-        manufacter = request.POST.get('manufacter')
-        categorsiya_id = request.POST.get('categorsiya_id')
-        try:
-            get_catgeor = Categoriya.objects.get(id=categorsiya_id)
-        except Categoriya.DoesNotExist:
-            get_catgeor=  None
-        price = request.POST.get('price')
-        amunt = request.POST.get('amunt')
-        img = request.FILES.get('img')
-        description = request.POST.get('description')
-        if name=='' or manufacter=='' or categorsiya_id=='' or price=='' or amunt=='' or img=='' or description=='':
-            context['error'] = "Заполните информацию !"
-            return render(request,'admin_panel/product/create.html',context)
-        genret_artikul = random.randint(100000000,999999999)
-        product_save = Product(name=name,img=img,price=price,categorsiya_id=get_catgeor,atrikul=genret_artikul,manufacturer=manufacter,description=description,amunt=amunt)
-        product_save.save()
+    context ={}
+    form = ProductsForms(request.POST or None)
+    if form.is_valid():
+        radd = str(random.randint(100000000,999999999))
+        
+        form.save()
         return redirect('all_product_admin')
+    context['form']= form
     return render(request,'admin_panel/product/create.html',context)
 
 class CreateProductAdmin(CreateView):
@@ -105,11 +92,24 @@ class CreateProductAdmin(CreateView):
     template_name = 'admin_panel/product/create.html'
     success_url = reverse_lazy('all_product_admin')
 
-class UpdateProductAdmin(UpdateView):
-    model = Product
-    form_class = ProductsForms
-    template_name = 'admin_panel/product/update.html'
-    success_url = reverse_lazy('all_product_admin')
+# class UpdateProductAdmin(UpdateView):
+#     model = Product
+#     form_class = ProductsForms
+#     template_name = 'admin_panel/product/update.html'
+#     success_url = reverse_lazy('all_product_admin')
+@login_required
+def update_product_admin(request,pk):
+    context ={}
+    obj = get_object_or_404(Product, id = pk)
+    form = ProductsForms(request.POST or None, instance = obj)
+    if form.is_valid():
+        radd = str(random.randint(100000000,999999999))
+        obj.amunt=radd
+        form.save(obj)
+        return redirect('all_product_admin')
+
+    context["form"] = form
+    return render(request,'admin_panel/product/create.html',context)
 class DeleteProductAdmin(DeleteView):
     model = Product
     template_name = 'admin_panel/product/delete.html'

@@ -12,8 +12,8 @@ urlpatterns = [
     path('delete_category_admin/<int:pk>/',DeleteCategoryAdmin.as_view(),name='delete_category_admin'),
     # PRODCUT CRUD
     path('all_product_admin/',all_product_admin,name='all_product_admin'),
-    path('create_product_admin/',CreateProductAdmin.as_view(),name='create_product_admin'),
-    path('update_product_admin/<int:pk>/',UpdateProductAdmin.as_view(),name='update_product_admin'),
+    path('create_product_admin/',create_product_admin,name='create_product_admin'),
+    path('update_product_admin/<int:pk>/',update_product_admin,name='update_product_admin'),
     path('delete_product_admin/<int:pk>/',DeleteProductAdmin.as_view(),name='delete_product_admin'),
     path('info_product_admin/<int:pk>/',info_product_admin,name='info_product_admin'),
     # Advantags CRUD
