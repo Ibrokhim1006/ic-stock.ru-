@@ -92,7 +92,7 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
               {% if item.img %}
               <img src="{{item.img.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
               {% else %}
-              <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
+              <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{item.name}}">
     
               {% endif %}
             </div>
