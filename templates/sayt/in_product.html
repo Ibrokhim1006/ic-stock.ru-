@@ -28,9 +28,9 @@
             <div class="row g-0">
               <div class="col-md-4 p-4">
                 {% if objects.img  %}
-                <img src="{{objects.img.url}}" class="img-fluid rounded-start" alt="...">
+                <img src="{{objects.img.url}}" class="img-fluid rounded-start" alt="{{objects.name}}">
                 {% else %}
-                <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="...">
+                <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{objects.name}}">
                 {% endif %}
               </div>
               <div class="col-md-8">
