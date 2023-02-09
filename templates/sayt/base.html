@@ -75,28 +75,28 @@
             </a>
 
             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-              <li class="active"><a href="{% url 'index' %}" style="font-weight: bold;">Главная страница</a></li>
+              <li class="active"><a href="{% url 'index' %}" style="font-weight: bold;font-size: 17px;">Главная страница</a></li>
               <li class="has-children" style="font-weight: bold;">
-                <a href="">Каталог</a>
+                <a href="" style="font-size: 17px;">Каталог</a>
                 <ul class="dropdown">
                   {% for item in request.get_catgor %}
                     <li><a href="{% url 'in_categor_product' item.id %}">{{item.name}}</a></li>
                   {% endfor %}
                 </ul>
               </li>
-              <li><a href="{% url 'supply_line' %}" style="font-weight: bold;">Линии поставок</a></li>
-              <li><a href="{% url 'quality' %}" style="font-weight: bold;">Качество</a></li>
-              <li><a href="{% url 'delivery' %}" style="font-weight: bold;">Доставка</a></li>
-              <li><a href="{% url 'contact'  %}" style="font-weight: bold;">Контакты</a></li>
+              <li><a href="{% url 'supply_line' %}" style="font-weight: bold;font-size: 17px;">Линии поставок</a></li>
+              <li><a href="{% url 'quality' %}" style="font-weight: bold;font-size: 17px;">Качество</a></li>
+              <li><a href="{% url 'delivery' %}" style="font-weight: bold;font-size: 17px;">Доставка</a></li>
+              <li><a href="{% url 'contact'  %}" style="font-weight: bold;font-size: 17px;">Контакты</a></li>
               <li class="icon-li">
                 <a href="https://t.me/+79311014699 ">
-                  <img src="{% static 'sayt/telegram.svg' %}" alt="telegram">
+                  <img src="{% static 'sayt/telegram.svg' %}" style="width: 35px;" alt="telegram">
                 </a>
                 <a href="https://wa.me/+79311014699">
-                  <img src="{% static 'sayt/wh.svg' %}" alt="whatsapp">
+                  <img src="{% static 'sayt/wh.svg' %}" style="width: 35px;" alt="whatsapp">
                 </a>
                 <a href="viber://chat?number=%2B79311014699">
-                  <img src="{% static 'sayt/viber.svg' %}" alt="viber">
+                  <img src="{% static 'sayt/viber.svg' %}" style="width: 35px;" alt="viber">
                  </a>
               </li>
               <li class="phone">
@@ -104,6 +104,7 @@
                   Позвонить:<br>
                   +7 812 333-03-78
                 </a>
+                
               </li>
               <li class="brend-li mt-3">
                 <a href="{% url 'index' %}" class="logo m-0 float-start" >
@@ -196,8 +197,8 @@
               </ul>
               <ul class="list-unstyled social">
                 <li>
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.888034446107!2d30.30175803499918!3d60.05008390223171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdf45c3ae69%3A0xc6477ad59f9383ca!2z0JHRhiDQpNC-0YDQvNGD0LvQsA!5e0!3m2!1sru!2s!4v1674727035916!5m2!1sru!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13197.736444729957!2d30.2877438433017!3d60.05064669098526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdf45c3ae69%3A0xc6477ad59f9383ca!2z0JHRhiDQpNC-0YDQvNGD0LvQsA!5e0!3m2!1sru!2s!4v1675943514896!5m2!1sru!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.888034446107!2d30.30175803499918!3d60.05008390223171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdf45c3ae69%3A0xc6477ad59f9383ca!2z0JHRhiDQpNC-0YDQvNGD0LvQsA!5e0!3m2!1sru!2s!4v1674727035916!5m2!1sru!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                 
                 </li>
               </ul>

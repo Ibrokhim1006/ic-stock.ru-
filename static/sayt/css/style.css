@@ -9214,7 +9214,7 @@ textarea.form-control-lg {
     .site-nav .site-navigation .site-menu > li {
       display: inline-block; }
       .site-nav .site-navigation .site-menu > li > a {
-        font-size: 14px;
+        font-size: 20px !important;
         padding: 10px 15px;
         display: inline-block;
         text-decoration: none !important;
@@ -10375,3 +10375,9 @@ nav[aria-label="breadcrumb"] li:before {
       .site-footer .social li a:hover {
         background: #0176BD;
         color: #fff; }
+
+
+
+
+
+
