@@ -53,6 +53,7 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
   <div class="row justify-content-center align-items-center">
     <div class="col-lg-9 text-center mt-5">
       <h1 class="heading" data-aos="fade-up">{{categor.name}}</h1>
+      {% include   'sayt/search.html' %}
 
       <nav
         aria-label="breadcrumb"
@@ -98,7 +99,7 @@ style="background-image: url('../../static/sayt/images/10.jpg')"
             </div>
             <div class="card-body">
               <p class="card-title">
-                <span style="font-weight: bold;font-size: 18px;">Артикул:</span > 
+                <span style="font-weight: bold;font-size: 18px;">Наименование:</span > 
                 <span style="font-weight: 650;font-size: 16px;">
                   <a href="{% url 'in_product' item.id %}">{{item.atrikul}}</a>
                 </span>

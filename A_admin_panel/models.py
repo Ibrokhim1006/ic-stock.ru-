@@ -40,6 +40,11 @@ class Product(models.Model):
     description = models.TextField(null=True,blank=True)
     amunt = models.CharField(max_length=250,null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
+    # def save_product(self,*args,**kwargs):
+    #     barcode_generator = str(random.randint(100000000, 999999999))
+    #     self.amunt = barcode_generator
+    #     # self.amunt.save(save=False)
+    #     return super().save(*args,**kwargs)
 
 
 
