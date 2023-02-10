@@ -101,7 +101,7 @@ class CreateProductAdmin(CreateView):
 def update_product_admin(request,pk):
     context ={}
     obj = get_object_or_404(Product, id = pk)
-    form = ProductsForms(request.POST or None, instance = obj)
+    form = ProductsForms(request.POST or None,request.FILES or None, instance = obj)
     if form.is_valid():
         radd = str(random.randint(100000000,999999999))
         obj.amunt=radd
