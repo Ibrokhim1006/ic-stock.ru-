@@ -10381,3 +10381,6 @@ nav[aria-label="breadcrumb"] li:before {
 
 
 
+        #tns1 > .tns-item{
+          width: calc(150%)
+        }

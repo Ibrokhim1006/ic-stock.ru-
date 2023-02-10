@@ -123,7 +123,13 @@
 
   <div class="hero">
     <div class="hero-slide">
-      <div class="img overlay" style="background-image: url('../../static/sayt/manager.jpg')"></div>
+      <div class="img overlay">
+        <video id="video1" style="width: 100%;height: 100%;object-fit: cover;padding: 0;margin: 0;" loop autoplay muted controls>
+          <source src="{% static 'sayt/1.mp4' %}" type="video/mp4">
+          <!-- <source src="{% static 'sayt/2.mp4' %}" type="video/ogg"> -->
+          Your browser does not support HTML video.
+        </video>
+      </div>
     </div>
   
     <div class="container">
