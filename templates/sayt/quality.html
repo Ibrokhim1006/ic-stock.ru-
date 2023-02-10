@@ -14,30 +14,24 @@
   
     <div class="container">
       
-      <div class="row  align-items-center">
+      <div class="row  justify-content-center align-items-center">
        
-        <div class="col-lg-6" style="margin-top: 100px;">
-            <div class="card" style="background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.5);">
-                <div class="card-body">
-                  <h2 class="card-title text-start" style="color: #fff;font-weight: bold;">
-                    Мы поставляем промышленное электронное оборудование и компоненты для его ремонта
-                </h2>
-                  <h4 class="card-title text-start" style="color: #fff;font-weight: bold;">
-                    в Россию и страны СНГ по ценам производителей, без посредников
-                </h4>
-                  <div>
-                    <ul class="text-start">
-                        <li style="color: #fff;font-weight: bold;">Обеспечиваем своим клиентам максимальную надежность поставок, которые осуществляются при полном соблюдении законодательства РФ и правил сертификации продукции.</li>
-                        <li style="color: #fff;font-weight: bold;">Все грузы застрахованы и имеют официальную гарантию от завода-изготовителя.</li>
-                        <li style="color: #fff;font-weight: bold;">С нами Вы уверены в качестве поставляемого оборудования!</li>
-                      </ul>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="colg-lg-12">
-          {% include   'sayt/search.html' %}
-        </div>
+   
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">Качество</h1>
+            {% include   'sayt/search.html' %}
+  
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
+                <li class="breadcrumb-item active text-white-50" aria-current="page">
+                  Качество
+                </li>
+              </ol>
+            </nav>
+          </div>
+     
+
       </div>
       
     </div>
