@@ -20,8 +20,17 @@ def index(request):
     context['objects_brend'] = Brand.objects.all()[:7]
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
     if request.method=='POST':
-        name = request.POST.get('search')
-        context['objects_product'] = Product.objects.filter(atrikul=name)  
+        full_name = request.POST.get('full_name')
+        company = request.POST.get('company')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        content = request.POST.get('content')
+        if full_name=='' or company=='' or email=='' or phone=='' or content=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/index.html',context)
+        supply_lines = SupplyLine(full_name=full_name,company=company,email=email,phone=phone,content=content)
+        supply_lines.save()
+        return redirect('index') 
     return render(request,'sayt/index.html',context)
 
 def delivery(request):
