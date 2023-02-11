@@ -80,33 +80,41 @@
 <!-- end section 2 -->
 
 <!-- section 3 -->
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-        <p class="text-center" style="color: red;font-size: 20px;font-weight: bold;">{{error}}</p>
-        <form action="{% url 'contact' %}" method="post">
-          {% csrf_token %}
-          <div class="row">
-            <div class="col-6 mb-3">
-              <input type="text" class="form-control" name="full_name" placeholder="Ф.И.О"/>
-            </div>
-            <div class="col-6 mb-3">
-              <input type="email" class="form-control" name="email" placeholder="E-mail"/>
-            </div>
-            <div class="col-12 mb-3">
-              <input type="text" class="form-control" name="predmets" placeholder="Предмет"/>
-            </div>
-            <div class="col-12 mb-3">
-              <textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
-            </div>
-            <div class="col-12">
-              <input type="submit" value="Отправить сообщение" class="btn btn-primary"/>
-            </div>
-          </div>
-        </form>
-      </div>
+
+
+
+<div class="hero">
+  <div class="hero-slide">
+    <div class="img overlay" style="background-image: url('../../static/sayt/photo/8.jpg')">      
     </div>
+  </div>
+
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+              <p class="text-cnter" style="color: red;font-size: 20px;font-weight: bold;">{{error}}</p>
+              <form action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <input type="text" class="form-control" name="full_name" placeholder="Ф.И.О"/>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="E-mail"/>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <input type="text" class="form-control" name="predmets" placeholder="Предмет"/>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <input type="submit" value="Отправить сообщение" class="btn btn-primary"/>
+                  </div>
+                </div>
+              </form>
+          </div>
+      </div>
   </div>
 </div>
 <!-- end section 3 -->

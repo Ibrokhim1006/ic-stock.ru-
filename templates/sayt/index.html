@@ -375,6 +375,62 @@
 </div>
 <!-- end brends -->
 
+<!-- section 5 -->
+<div class="hero">
+  <div class="hero-slide">
+    <div class="img overlay">
+      <video id="video1" style="width: 100%;height: 100%;object-fit: cover;padding: 0;margin: 0;" loop autoplay muted controls>
+        <source src="{% static 'sayt/2.mp4' %}" type="video/mp4">
+        <!-- <source src="{% static 'sayt/2.mp4' %}" type="video/ogg"> -->
+        Your browser does not support HTML video.
+      </video>
+    </div>
+  </div>
+
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-6">
+              <h1 style="color: #fff;font-weight: bold;">Оставьте заявку</h1><br>
+              <h4 style="color: #fff;font-weight: bold;">Отправьте свой вопрос или заявку в свободной форме и мы свяжемся с вами в течение суток:</h4>
+              <br>
+              <ul>
+                  <li style="color: #fff;font-weight: bold;font-size: 18px;">Проконсультируем по стоимости и срокам доставки продукции.</li><br>
+                  <li style="color: #fff;font-weight: bold;font-size: 18px;">Ответим на все вопросы.</li><br>
+                  <li style="color: #fff;font-weight: bold;font-size: 18px;">Поможем подобрать аналоги при необходимости.</li>
+      
+              </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <p class="text-cnter" style="color: red;font-size: 20px;font-weight: bold;">{{error}}</p>
+            <form action="{% url 'supply_line' %}" method="post">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <input type="full_name" class="form-control" name="full_name" placeholder="Ф.И.О"/>
+                </div>
+                <div class="col-12 mb-3">
+                  <input type="comany" class="form-control" name="company" placeholder="Компания"/>
+                </div>
+                <div class="col-6 mb-3">
+                  <input type="email" class="form-control" name="email" placeholder="E-mail"/>
+                </div>
+                <div class="col-6 mb-3">
+                  <input type="phone" class="form-control" name="phone" placeholder="Телефон"/>
+                </div>
+                <div class="col-12 mb-3">
+                  <textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="Артикулы интересующих позиций*"></textarea>
+                </div>
+      
+                <div class="col-12">
+                  <input type="submit" value="Отправить сообщение" class="btn btn-primary"/>
+                </div>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- end section 5 -->
 
 <script>
 
