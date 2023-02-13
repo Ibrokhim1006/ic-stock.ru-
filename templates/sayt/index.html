@@ -249,8 +249,8 @@
       <div class="col-lg-4 mt-4">
         <div class="card" style="width: 100%;">
           <div class="card-header text-center">
-            {% if item.img %}
-            <img src="{{item.img.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
+            {% if item.categorsiya_id.img_categoriya %}
+            <img src="{{item.categorsiya_id.img_categoriya.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
             {% else %}
             <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{item.name}}">
   
@@ -436,7 +436,6 @@
 
   // search
   document.querySelector('#search').addEventListener('input', (e) => {
-    console.log(e.target.value);
     document.querySelector('.list_container')?.remove();
     let list = document.querySelector('.listContainer');
     document.querySelector('#search').style.borderRadius = "0"
@@ -449,7 +448,6 @@
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
           // let albums = data.data;
           // console.log(albums);
           let ul = document.createElement('ul');
@@ -468,7 +466,6 @@
             let p2 = document.createElement('p');
             let span = document.createElement('span');
             let input = document.createElement('input');
-            console.log(item.id)
             var id = item.id
             // add class
             li.classList.add('list_item');
@@ -482,7 +479,7 @@
             span.classList.add("list_item_price");
             // input.classList.add("list_item_quantity");
 
-            img.src = item.img;
+            img.src = item.categorsiya_id.img_categoriya;
             p1.textContent = item.name;
             p2.textContent = item.atrikul;
             div.appendChild(p1);
