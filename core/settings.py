@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'B_sayt'
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     # "whitenoise.middleware.WhiteNoiseMiddleware",
