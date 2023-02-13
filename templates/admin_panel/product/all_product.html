@@ -25,7 +25,11 @@
                     <tr>
                         <td class="text-center">{{forloop.counter}}</td>
                         <td class="text-center">
+                          {% if item.name %}
                             {{item.name}}/<br>{{item.atrikul}}
+                          {% else %}
+                            <span style="color:red;font-size: 19px;">None</span>/<br>{{item.atrikul}}
+                          {% endif %}
                         </td>
                         <td class="text-center">
                             {{item.categorsiya_id}}
