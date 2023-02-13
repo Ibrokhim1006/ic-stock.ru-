@@ -11,7 +11,11 @@
         <h4 class="card-title" style="font-size: 16px;">{{objects.name}}</h4>
         <h6 class="card-subtitle text-muted" style="font-size: 16px;">{{objects.atrikul}}</h6>
     </div>
-    <img class="img-fluid" src="{{objects.img.url}}" style="height: 300px;object-fit: cover;" alt="{{objects.name}}">
+    {% if objects.img %}
+        <img class="img-fluid" src="{{objects.img.url}}" style="height: 300px;object-fit: cover;" alt="{{objects.name}}">
+    {% else %}
+        <img class="img-fluid" src="{% static 'sayt/def.png' %}" style="height: 300px;object-fit: cover;" alt="{{objects.name}}">
+    {% endif %}
     <div class="card-body">
         <p class="card-text" style="font-size: 17px;">
             {{objects.description}}
