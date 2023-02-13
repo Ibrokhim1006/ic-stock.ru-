@@ -39,7 +39,7 @@ def home_admin(request):
 @login_required
 def all_category_admin(request):
     context = {}
-    context['objects_list'] = Categoriya.objects.all().order_by('-id')
+    context['objects_list'] = Categoriya.objects.all()
     return render(request,'admin_panel/category/all_category.html',context)
 
 # Categoriya CRUD
