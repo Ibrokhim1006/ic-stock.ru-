@@ -31,8 +31,8 @@
                             {{item.categorsiya_id}}
                         </td>
                         <td class="text-center">
-                            {% if item.img %}
-                                <img src="{{item.img.url}}" width="50" alt="{{item.title}}">
+                            {% if item.categorsiya_id.img_categoriya %}
+                                <img src="{{item.categorsiya_id.img_categoriya.url}}" width="50" alt="{{item.title}}">
                             {% else %}
                                 <p class="text-danger">К товару не прикреплено изображение</p>
                             {% endif %}

@@ -90,7 +90,6 @@
 
   // search
   document.querySelector('#search').addEventListener('input', (e) => {
-    console.log(e.target.value);
     document.querySelector('.list_container')?.remove();
     let list = document.querySelector('.listContainer');
     document.querySelector('#search').style.borderRadius = "0"
@@ -103,14 +102,12 @@
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
-          // let albums = data.data;
-          // console.log(albums);
           let ul = document.createElement('ul');
           ul.classList.add("list_container");
           ul.style.display = "flex";
 
           data.map(item => {
+
             // create element
             let li = document.createElement('li');
             let a = document.createElement('a');
@@ -122,7 +119,6 @@
             let p2 = document.createElement('p');
             let span = document.createElement('span');
             let input = document.createElement('input');
-            console.log(item.id)
             var id = item.id
             // add class
             li.classList.add('list_item');
@@ -136,7 +132,7 @@
             span.classList.add("list_item_price");
             // input.classList.add("list_item_quantity");
 
-            img.src = item.img;
+            img.src = item.categorsiya_id.img_categoriya;
             p1.textContent = item.name;
             p2.textContent = item.atrikul;
             div.appendChild(p1);
