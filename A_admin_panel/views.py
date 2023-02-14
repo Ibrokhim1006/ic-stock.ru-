@@ -64,7 +64,7 @@ def all_product_admin(request):
     context = {}
     context['objects_list'] = Product.objects.all().order_by('-id')
     page_num = request.GET.get('page', 1)
-    paginator = Paginator(context['objects_list'], 30) # 6 employees per page
+    paginator = Paginator(context['objects_list'], 120) # 6 employees per page
     try:
         context['page_obj'] = paginator.page(page_num)
     except PageNotAnInteger:
