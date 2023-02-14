@@ -4,7 +4,8 @@ from django.contrib.auth .decorators import login_required
 from django.views.generic.edit import UpdateView,CreateView
 from django.views.generic import ListView,DeleteView,DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
+from django.http import HttpResponseRedirect
 import random
 import pandas as pd
 from django.core.files.storage import FileSystemStorage
@@ -63,6 +64,7 @@ class DeleteCategoryAdmin(DeleteView):
 def all_product_admin(request):
     context = {}
     context['objects_list'] = Product.objects.all().order_by('-id')
+    context['objects_list'].reverse()
     page_num = request.GET.get('page', 1)
     paginator = Paginator(context['objects_list'], 120) # 6 employees per page
     try:
