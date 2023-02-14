@@ -93,7 +93,7 @@
 
                 <!--Pagination-->
     <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
+      <ul class="pagination justify-content-center " style="overflow: scroll">
         {% if page_obj.has_previous %}
           <li class="page-item">
             <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
