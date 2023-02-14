@@ -4,6 +4,7 @@
 
 {% block content %}
 <a href="{% url 'create_product_admin' %}" class="btn btn-primary">Добавить продукт</a>
+
 <div class="row mt-4">
     <div class="col-12">
         <div class="card">
@@ -11,6 +12,7 @@
                 <h4 class="card-title">Все продукты</h4>
             </div>
             <div class="card-body">
+
                 <table  class="table table-bordered  dt-responsive nowrap w-100">
                     <thead class="table-dark">
                     <tr class="text-center">
@@ -49,11 +51,11 @@
                     </tr>
                     {% endfor %}
                 </table>
-                <nav aria-label="Page navigation example text-center">
+                <!-- <nav aria-label="Page navigation example text-center">
                     <ul class="pagination justify-content-center">
                       {% if page_obj.has_previous %}
                       <li class="page-item">
-                        <!-- <span aria-hidden="true">&raquo;</span> -->
+  
                         <a href="?page={{ page_obj.previous_page_number }}"  class="page-link">« Назад</a>
                       </li>
                     
@@ -87,7 +89,41 @@
                   {% endif %}
                   
                     </ul>
+                  </nav> -->
+
+                  <nav aria-label="Page navigation example text-center">
+                    <ul class="pagination justify-content-center">
+                    {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active" aria-current="page">
+                      <span class="page-link">
+                        {{ i }}
+                        <span class="sr-only">(current)</span>
+                      </span>
+                    </li>
+                    {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                         <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+        
+                {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+                   <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'5' }}">&hellip;</a></li>
+                {% endif %}
+        
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                  </li>
+                {% else %}
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+                  </li>
+                {% endif %}
+              </ul>
+
                   </nav>
+        
+          <!--end of Pagination-->
             </div>
         </div>
         <!-- end cardaa -->
