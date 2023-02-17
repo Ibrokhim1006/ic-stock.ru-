@@ -13,13 +13,17 @@ django-excel==0.0.10
 django-filter==22.1
 django-import-export==3.0.2
 django-js-asset==2.0.0
+django-seo==0.3.5
+django-sitemaps==2.0.1
 django-staticfiles==1.2.1
 django-widget-tweaks==1.4.12
 djangorestframework==3.14.0
+DjangoSEO==1.0
 et-xmlfile==1.1.0
 gunicorn==20.1.0
 idna==3.4
 lml==0.1.0
+lxml==4.9.2
 MarkupPy==1.14
 numpy==1.24.1
 odfpy==1.4.1
