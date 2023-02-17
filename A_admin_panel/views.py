@@ -5,6 +5,10 @@ from django.views.generic.edit import UpdateView,CreateView
 from django.views.generic import ListView,DeleteView,DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy,reverse
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from django.http import HttpResponseRedirect
 import random
 import pandas as pd
@@ -106,13 +110,16 @@ def update_product_admin(request,pk):
     obj = get_object_or_404(Product, id = pk)
     form = ProductsForms(request.POST or None,request.FILES or None, instance = obj)
     if form.is_valid():
-        radd = str(random.randint(100000000,999999999))
-        obj.amunt=radd
-        form.save(obj)
+        form.save()
         return redirect('all_product_admin')
 
     context["form"] = form
     return render(request,'admin_panel/product/all_product.html',context)
+class RandUpdate(APIView):
+    def get(self,request,format=None):
+        radd = str(random.randint(100000000,999999999))
+        pr = Product.objects.all().update(amunt=radd)
+        return Response({'msg':'ok'})
 class DeleteProductAdmin(DeleteView):
     model = Product
     template_name = 'admin_panel/product/delete.html'
@@ -200,3 +207,19 @@ class DeletePochtaAdmin(DeleteView):
     model = Delivery
     template_name = 'admin_panel/pochta/delete.html'
     success_url = reverse_lazy('all_pochta_admin')
+
+
+# SEO optimization
+class AllSEOAdmin(ListView):
+    model = SeoContent
+    template_name = 'admin_panel/seo/all_objects.html'
+class CreateSEOAdmin(CreateView):
+    model = SeoContent
+    form_class = SeoForms
+    template_name = 'admin_panel/seo/create.html'
+    success_url = reverse_lazy('all_seo_admin')
+class UpdateSEOAdmin(UpdateView):
+    model = SeoContent
+    form_class = SeoForms
+    template_name = 'admin_panel/seo/update.html'
+    success_url = reverse_lazy('all_seo_admin')

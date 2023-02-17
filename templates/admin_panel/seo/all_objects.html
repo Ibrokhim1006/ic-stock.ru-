@@ -1,0 +1,43 @@
+{% extends  'admin_panel/base.html' %}
+{% load static %}
+{% block title %} <title>SEO-панель</title> {% endblock %}
+
+{% block content %}
+<a href="{% url 'create_seo_admin' %}" class="btn btn-primary">Добавить SEO</a>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">SEO-панель</h4>
+            </div>
+            <div class="card-body">
+
+                <table  class="table table-bordered  dt-responsive nowrap w-100">
+                    <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 5%;">№</th>
+                        <th style="width: 45%;">Категория</th>
+                        <th style="width: 45%;">Описание</th>
+                        <th style="width: 5%;">Действия</th>
+                    </tr>
+                    </thead>
+                    {% for item in object_list %}
+                    <tr>
+                        <td class="text-center">{{forloop.counter}}</td>
+                        <td class="text-center">{{item.id_seo_catgeory}}</td>
+                        <td class="text-center">{{item.content}}</td>
+                        <td class="text-center">
+                            <a href="{% url 'update_seo_admin' item.id %}" class="btn btn-soft-success waves-effect waves-light" ><i class="bx bx-edit font-size-16 align-middle"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <!-- end cardaa -->
+    </div> <!-- end col -->
+</div>
+
+
+{% endblock %}

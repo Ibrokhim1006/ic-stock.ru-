@@ -81,3 +81,18 @@ class PochtaForms(forms.ModelForm):
             'name': 'Имя Почта',
             'img': 'Значок Почта'
         }
+
+
+class SeoForms(forms.ModelForm):
+    class Meta:
+        model = SeoContent
+        fields = '__all__'
+        widgets = {
+            'id_seo_catgeory': forms.Select(attrs={'class':'form-control'}),
+            'content': forms.Textarea(attrs={'class':'form-control'}),
+        }
+
+        labels = {
+            'id_seo_catgeory': 'Категория',
+            'content': 'Описание',
+        }

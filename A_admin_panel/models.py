@@ -3,6 +3,7 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 import random
 
+random_string = str(random.randint(100000000, 999999999))
 
 class Advantages(models.Model):
     title = models.CharField(max_length=250,verbose_name="Преимущества")
@@ -38,13 +39,8 @@ class Product(models.Model):
     atrikul = models.CharField(max_length=250,null=True,blank=True)    
     manufacturer = models.CharField(max_length=250,null=True,blank=True)
     description = models.TextField(null=True,blank=True)
-    amunt = models.CharField(max_length=250,null=True,blank=True)
+    amunt = models.CharField(max_length=250,null=True,blank=True,default =random_string)
     create_date = models.DateTimeField(auto_now_add=True)
-    # def save_product(self,*args,**kwargs):
-    #     barcode_generator = str(random.randint(100000000, 999999999))
-    #     self.amunt = barcode_generator
-    #     # self.amunt.save(save=False)
-    #     return super().save(*args,**kwargs)
 
 
 
@@ -93,4 +89,25 @@ class Delivery(models.Model):
     def __str__(self):
         return self.name
 
-    
+
+class SEOMap(models.Model):
+    title = models.CharField(max_length=250,null=True,blank=True)
+    desc = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+
+class SeoCategory(models.Model):
+    title = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.title
+
+class SeoContent(models.Model):
+    title = models.CharField(max_length=250,null=True,blank=True)
+    id_seo_catgeory = models.ForeignKey(SeoCategory,on_delete=models.CASCADE)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title

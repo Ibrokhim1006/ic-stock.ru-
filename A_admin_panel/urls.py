@@ -3,6 +3,7 @@ from A_admin_panel.views import *
 
 urlpatterns = [
     path('',login_admin,name='login_admin'),
+
     path('logout_user/',logout_user,name='logout_user'),
     path('home_admin/',home_admin,name='home_admin'),
     # CATEGORIYA CRUD
@@ -12,7 +13,7 @@ urlpatterns = [
     path('delete_category_admin/<int:pk>/',DeleteCategoryAdmin.as_view(),name='delete_category_admin'),
     # PRODCUT CRUD
     path('all_product_admin/',all_product_admin,name='all_product_admin'),
-    path('create_product_admin/',create_product_admin,name='create_product_admin'),
+    path('create_product_admin/',CreateProductAdmin.as_view(),name='create_product_admin'),
     path('update_product_admin/<int:pk>/',update_product_admin,name='update_product_admin'),
     path('delete_product_admin/<int:pk>/',DeleteProductAdmin.as_view(),name='delete_product_admin'),
     path('info_product_admin/<int:pk>/',info_product_admin,name='info_product_admin'),
@@ -36,4 +37,11 @@ urlpatterns = [
     path('create_pochta_admin/',CreatePochtaAdmin.as_view(),name='create_pochta_admin'),
     path('update_pochta_admin<int:pk>/',UpdatePochtaAdmin.as_view(),name='update_pochta_admin'),
     path('delete_pochta_admin/<int:pk>/',DeletePochtaAdmin.as_view(),name='delete_pochta_admin'),
+
+    path('RandUpdate/',RandUpdate.as_view()),
+
+    # seo urls
+    path('all_seo_admin/',AllSEOAdmin.as_view(),name='all_seo_admin'),
+    path('create_seo_admin/',CreateSEOAdmin.as_view(),name='create_seo_admin'),
+    path('update_seo_admin/<int:pk>/',UpdateSEOAdmin.as_view(),name='update_seo_admin'),
 ]

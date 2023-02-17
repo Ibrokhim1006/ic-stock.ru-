@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-_ao4*&u@jzp%uxgh6c!^%0lv1r9c#@nr3!%=y34kj1j@89&f@7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://ic-stock.ru/']
 
 
 # Application definition
@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -43,7 +45,7 @@ INSTALLED_APPS = [
     'A_admin_panel',
     'B_sayt'
 ]
-
+SITE_ID=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
