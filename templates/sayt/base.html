@@ -34,6 +34,7 @@
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z74Z168NT0"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-Z74Z168NT0'); </script>
   {% block title %} {% endblock %}
 </head>
@@ -98,7 +99,7 @@
 
   @media only screen and (max-width: 990px) {
     .site-mobile-menu .site-nav-wrap .icon-li {
-      width: 50%;
+      width: 100%;
       display: flex;
       margin-top: 5px;
     }
@@ -141,15 +142,37 @@
     right: 0;
     
   }
+  .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:22px;
+	/* right:40px; */
+  left: 40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
 
+.my-float{
+	margin-top:16px;
+}
 </style>
 
 <body>
-  <div class="what">
+  <!-- <div class="what">
     <a href="https://wa.me/+79311014699">
       <img src="{% static 'sayt/wh.svg' %}" style="width: 50px;" alt="whatsapp">
     </a>
-  </div>
+  </div> -->
+
+  <a href="https://wa.me/+79311014699" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+    </a>
 
   <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
@@ -195,7 +218,7 @@
                 <img src="{% static 'sayt/viber.svg' %}" style="width: 30px;" alt="viber">
               </a>
             </li>
-            <li class="phone_call">
+            <li class="phone_call mt-2">
               <a class="phone_call_link" href="tel://+7 812 333-03-78">
                 <span class="phone_call_img">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -205,6 +228,12 @@
                   </svg>
                 </span>
                 Позвонить
+              </a>
+            </li>
+            <li class="brend-li mt-3">
+              <a href="{% url 'index' %}" class="logo m-0 float-start">
+                <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;"
+                  alt="">
               </a>
             </li>
           </ul>
