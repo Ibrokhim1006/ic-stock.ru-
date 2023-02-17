@@ -161,6 +161,12 @@ class CreateProductView(APIView):
 
         return Response({'data':'succsess'})
 
+class DeleteProductView(APIView):
+    def get(self,request):
+        objects = Product.objects.all()
+        objects.delete()
+        return Response({'data':'succsess'})
+
 
 def create_product_view(request,atrikul):
     objects = Product.objects.filter(atrikul=atrikul)
