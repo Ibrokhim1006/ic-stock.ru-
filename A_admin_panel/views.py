@@ -35,7 +35,9 @@ def login_admin(request):
 @login_required
 def logout_user(request):
     logout(request)
-    return redirect('login_admin')
+    return redirect('/')
+
+   
 
 @login_required
 def home_admin(request):

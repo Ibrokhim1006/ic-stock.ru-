@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_ao4*&u@jzp%uxgh6c!^%0lv1r9c#@nr3!%=y34kj1j@89&f@7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -162,8 +162,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'admin_panel'
-LOGIN_URL = 'admin_panel'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/'
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

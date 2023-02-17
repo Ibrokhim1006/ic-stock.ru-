@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('supply_line/',supply_line,name='supply_line'),
     path('quality/',quality,name='quality'),
-    path('DeleteProductView/',DeleteProductView.as_view())
+    # path('DeleteProductView/',DeleteProductView.as_view())
 
     # path('create_product_view/<str:atrikul>/',CreateProductView.as_view,name='create_product_view')
 ]
