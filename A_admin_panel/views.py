@@ -75,6 +75,7 @@ def all_product_admin(request):
     except EmptyPage:
         # if the page is out of range, deliver the last page
         context['page_obj'] = paginator.page(paginator.num_pages)
+    
     return render(request,'admin_panel/product/all_product.html',context)
 @login_required
 def create_product_admin(request):
@@ -111,7 +112,7 @@ def update_product_admin(request,pk):
         return redirect('all_product_admin')
 
     context["form"] = form
-    return render(request,'admin_panel/product/create.html',context)
+    return render(request,'admin_panel/product/all_product.html',context)
 class DeleteProductAdmin(DeleteView):
     model = Product
     template_name = 'admin_panel/product/delete.html'
