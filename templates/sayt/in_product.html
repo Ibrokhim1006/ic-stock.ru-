@@ -8,9 +8,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-9 text-center mt-5">
-                <h1 class="heading" data-aos="fade-up">{{objects.name}}</h1>
                 {% include   'sayt/search.html' %}
-
                 <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
                     <ol class="breadcrumb text-center justify-content-center">
                         <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
@@ -31,9 +29,9 @@
             <div class="row g-0">
               <div class="col-md-4 p-4">
                 {% if objects.categorsiya_id.img_categoriya  %}
-                <img src="{{objects.categorsiya_id.img_categoriya.url}}" class="img-fluid rounded-start" alt="{{objects.name}}">
+                    <img src="{{objects.categorsiya_id.img_categoriya.url}}" class="img-fluid rounded-start" alt="{{objects.name}}">
                 {% else %}
-                <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{objects.name}}">
+                    <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{objects.name}}">
                 {% endif %}
               </div>
               <div class="col-md-8">
@@ -76,12 +74,12 @@
                         </p>
                     
                     <p class="card-text">
-                        <span style="font-weight: bold;font-size: 18px;">в наличие: </span> 
+                        <span style="font-weight: bold;font-size: 18px;">Отправить запрос: </span> 
                         <span style="font-weight: 650;font-size: 16px;">
                             <a href="#">более 500 штук</a>
                         </span>
                     </p>
-                    <p class="card-text"><span style="font-weight: bold;font-size: 18px;">Цена: </span> 
+                    <p class="card-text"><span style="font-weight: bold;font-size: 18px;">Наличие: </span> 
                         <span style="font-weight: 650;font-size: 16px;">
                             <a href="{% url 'client_post' objects.id %}" style="color: red;">по запросу</a>
                         </span>

@@ -2,7 +2,6 @@
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   {% for item in request.get_description %}
   <meta name="{{item.title}}" content="{{item.content}}">
@@ -14,11 +13,9 @@
   <meta name="google-site-verification" content="d6D6W-gzSM3IoTZqfr2aV-5plAHlH08Q2IDjdZDZl2U" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Untree.co" />
-  <link rel="shortcut icon" href="{% static 'sayt/images/IC-Stock-Trade.jpg' %}" />
-
-
   <meta name="keywords" content="bootstrap, bootstrap5" />
 
+  <link rel="shortcut icon" href="{% static 'sayt/images/IC-Stock-Trade.jpg' %}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -163,15 +160,9 @@
 </style>
 
 <body>
-  <!-- <div class="what">
-    <a href="https://wa.me/+79311014699">
-      <img src="{% static 'sayt/wh.svg' %}" style="width: 50px;" alt="whatsapp">
-    </a>
-  </div> -->
-
   <a href="https://wa.me/+79311014699" class="float" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
-    </a>
+  </a>
 
   <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
@@ -182,18 +173,16 @@
     <div class="site-mobile-menu-body"></div>
   </div>
 
+  <!-- navbar -->
   <nav class="site-nav" style="width: 68% !important;">
     <div class="container">
       <div class="menu-bg-wrap">
         <div class="site-navigation">
           <a href="{% url 'index' %}" class="logo m-0 float-start">
-            <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;"
-              alt="">
+            <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;" alt="ic-stock">
           </a>
-
           <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-            <li class="active"><a href="{% url 'index' %}" style="font-weight: 600 !important;">Главная страница</a>
-            </li>
+            <li class="active"><a href="{% url 'index' %}" style="font-weight: 600 !important;">Главная страница</a></li>
             <li class="has-children" style="font-weight: bold;">
               <a href="">Каталог</a>
               <ul class="dropdown">
@@ -202,10 +191,10 @@
                 {% endfor %}
               </ul>
             </li>
-            <li><a href="{% url 'supply_line' %}" style="font-weight: 600;" class="p-2">Линии поставок</a></li>
-            <li><a href="{% url 'quality' %}" style="font-weight: 600;" class="p-2">Качество</a></li>
-            <li><a href="{% url 'delivery' %}" style="font-weight: 600;" class="p-2">Доставка</a></li>
-            <li><a href="{% url 'contact'  %}" style="font-weight: 600;" class="p-2">Контакты</a></li>
+            <li><a href="{% url 'supply_line' %}" style="font-weight: 600;">Линии поставок</a></li>
+            <li><a href="{% url 'quality' %}" style="font-weight: 600;">Качество</a></li>
+            <li><a href="{% url 'delivery' %}" style="font-weight: 600;">Доставка</a></li>
+            <li><a href="{% url 'contact'  %}" style="font-weight: 600;">Контакты</a></li>
             <li class="icon-li">
               <a href="https://t.me/+79311014699 ">
                 <img src="{% static 'sayt/telegram.svg' %}" style="width: 30px;" alt="telegram">
@@ -236,17 +225,14 @@
               </a>
             </li>
           </ul>
-
-          <a href="#"
-            class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
-            data-toggle="collapse" data-target="#main-navbar">
+          <a href="#" class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
           </a>
         </div>
       </div>
     </div>
   </nav>
-
+<!-- end navbar -->
   {% block content %}
 
   {% endblock %}
@@ -256,14 +242,11 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="widget">
-            <a href="{% url 'index' %}"><img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 40%;"
-                alt="ic-stock.ru"></a>
+            <a href="{% url 'index' %}"><img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 40%;" alt="ic-stock.ru"></a>
             <h3 class="mt-3">Контакты</h3>
-            <address>ООО «ПРОАВТОМАТИКА» ИНН 7810136443</address>
             <address>192236, Санкт-Петербург, Софийская ул, дом 17, БС "ФОРМУЛА" </address>
             <ul class="list-unstyled links">
               <li><a href="tel://+7 812 333-03-78">+7 812 333-03-78</a></li>
-              <!-- <li><a href="tel://11234567890">+998(99)543-12-50</a></li> -->
               <li>
                 <a href="mailto:info@icstock.ru">info@icstock.ru</a>
               </li>
@@ -356,9 +339,7 @@
         </div>
       </div>
     </div>
-    <!-- /.container -->
   </div>
-  <!-- /.site-footer -->
 
   <!-- Preloader -->
   <div id="overlayer"></div>

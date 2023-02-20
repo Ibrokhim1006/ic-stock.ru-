@@ -4,134 +4,6 @@
 
 {% block content %}
 <style>
-  /* .search_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .search_wrapper {
-    position: relative;
-  }
-
-  .search_input {
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border: 1px solid lightgray;
-    padding-right: 15px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-
-  .search_input:focus {
-    outline: none;
-  }
-
-  .submitBtn {
-    padding: 8px;
-    border: none;
-    background-color: #2272f2;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all ease-in .15s;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-
-  .submitBtn:hover {
-    background-color: #2272f2d5;
-  }
-
-  .list {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-
-  }
-
-  .list_container {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 16px;
-    border: 1px solid lightgray;
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: 0;
-    max-height: 300px;
-    overflow-y: scroll;
-    border-radius: 5px;
-  }
-
-  .list_item {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    border-bottom: 1px solid lightgray;
-  }
-
-  .list_item_left {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .list_item_right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .list_item_img {
-    width: 50px;
-    height: 100%;
-    border-radius: 5px;
-  }
-
-  .list_item_title {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: left;
-    font-size: 14px;
-  }
-
-  .list_item_title_top {
-    color: green;
-    margin: 0;
-  }
-
-  .list_item_title_bottom {
-    color: crimson;
-    margin: 0;
-  }
-
-  .list_item_price {
-    color: silver;
-    font-weight: 600;
-    font-size: 13px;
-  }
-
-  .list_item_quantity {
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    padding: 5px;
-    width: 50px;
-    font-size: 12px;
-    border-radius: 5px;
-  }
-
-  .list_item_quantity:focus {
-    outline: none;
-  } */
-
   .search_wrapper {
     position: relative;
   }
@@ -219,13 +91,9 @@
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-9 text-center">
-        <h1 class="heading" data-aos="fade-up" style="font-weight: bold;">
-          Поиск по номеру изделия в мировых складах
-        </h1>
         <div class="narrow-w form-search d-flex align-items-stretch mb-3" method="POST" data-aos="fade-up" data-aos-delay="200">
           {% csrf_token %}
             <input type="search" class="form-control px-4" placeholder="Поиск" name="search" id="search"/>
-            <!-- <button type="submit" class="btn btn-primary">Поиск</button> -->
             <div class="listContainer"></div>
             <div class="list"></div>
         </div>
@@ -237,23 +105,16 @@
 
 <div class="section">
   <div class="container">
-    <div class="row mb-5 align-items-center">
-      <div class="col-lg-6">
-        <h2 class="font-weight-bold text-primary heading" style="font-weight: bold;">
-          Новые продукты
-        </h2>
-      </div>
-    </div>
+
     <div class="row">
       {% for item in objects_product %}
       <div class="col-lg-4 mt-4">
         <div class="card" style="width: 100%;">
           <div class="card-header text-center">
             {% if item.categorsiya_id.img_categoriya %}
-            <img src="{{item.categorsiya_id.img_categoriya.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
+              <img src="{{item.categorsiya_id.img_categoriya.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
             {% else %}
-            <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{item.name}}">
-  
+              <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{item.name}}">
             {% endif %}
           </div>
           
@@ -324,7 +185,7 @@
       </div>
       <div class="col-lg-5" style="font-weight: bold;">
         <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
-          Наша компания, предлагает необходимые электронные компоненты для обеспечения деятельности многих предприятий где есть электроника, автоматика, электротехника и есть специалисты ее обслуживающие. Широкий ассортимент дает клиентам возможность выбора элементной базы, не только для создания оригинальных инновационных проектов, но и для комплектации серийного производства. Часть продукции поставляется на эксклюзивной основе.
+          Наша компания, предлагает необходимые электронные компоненты для обеспечения деятельности многих предприятий, где есть электроника, автоматика, электротехника и есть специалисты ее обслуживающие. Широкий ассортимент дает клиентам возможность выбора элементной базы, не только для создания оригинальных инновационных проектов, но и для комплектации серийного производства. Часть продукции поставляется на эксклюзивной основе.
         </p>
         <p class="text-black-50" style="font-weight: bold;font-size: 16px;">
           Нашими партнерами могут стать все - от опытных мастеров и оптовых торговцев до новичков. Всем нашим клиентам мы готовы предоставить свои знания, опыт, поддержку на начальной стадии становления бизнеса. Мы ценим своих заказчиков и всегда готовы предложить им решения, которыми они останутся довольны. Мы не даём нереальные обещания и берёмся за выполнение только тех задач, которые способны решить. Мы всегда готовы выслушать Ваши пожелания в адрес нашей компании.
@@ -396,7 +257,7 @@
               <ul class="txt">
                   <li style="color: #fff;font-weight: bold;font-size: 18px;">Проконсультируем по стоимости и срокам доставки продукции.</li><br>
                   <li style="color: #fff;font-weight: bold;font-size: 18px;">Ответим на все вопросы.</li><br>
-                  <li style="color: #fff;font-weight: bold;font-size: 18px;">Поможем подобрать аналоги при необходимости.</li>
+                  <li style="color: #fff;font-weight: bold;font-size: 18px;">Поможем подобрать аналоги.</li>
       
               </ul>
           </div>
