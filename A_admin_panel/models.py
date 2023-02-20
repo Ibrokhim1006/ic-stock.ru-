@@ -3,7 +3,7 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 import random
 
-random_string = str(random.randint(100000000, 999999999))
+# random_string = str(random.randint(100000000, 999999999))
 
 class Advantages(models.Model):
     title = models.CharField(max_length=250,verbose_name="Преимущества")
@@ -14,7 +14,7 @@ class Advantages(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=250,verbose_name="Имя бренда")
-    img_brend = models.ImageField(upload_to='brend/',verbose_name="Фирменное изображение")
+    img_brend = models.FileField(upload_to='brend/',verbose_name="Фирменное изображение")
     urls = models.URLField(null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
 
@@ -32,14 +32,14 @@ class Categoriya(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=250,null=True,blank=True)
-    img = models.ImageField(upload_to="product/",null=True,blank=True)
+    img = models.FileField(upload_to="product/",null=True,blank=True)
     price = models.CharField(max_length=250,null=True,blank=True)
     categorsiya_id = models.ForeignKey(Categoriya,on_delete=models.CASCADE,null=True,blank=True)
     brend_id = models.ForeignKey(Brand,on_delete=models.CASCADE,null=True,blank=True)
     atrikul = models.CharField(max_length=250,null=True,blank=True)    
     manufacturer = models.CharField(max_length=250,null=True,blank=True)
     description = models.TextField(null=True,blank=True)
-    amunt = models.CharField(max_length=250,null=True,blank=True,default =random_string)
+    amunt = models.CharField(max_length=250,null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
 
 
@@ -84,18 +84,13 @@ class Questions(models.Model):
 
 class Delivery(models.Model):
     name = models.CharField(max_length=250)
-    img = models.ImageField(upload_to='delivery/')
+    img = models.FileField(upload_to='delivery/')
 
     def __str__(self):
         return self.name
 
 
-class SEOMap(models.Model):
-    title = models.CharField(max_length=250,null=True,blank=True)
-    desc = models.TextField()
 
-    def __str__(self):
-        return self.title
 
 
 class SeoCategory(models.Model):
