@@ -101,11 +101,11 @@ class CreateProductAdmin(CreateView):
     template_name = 'admin_panel/product/create.html'
     success_url = reverse_lazy('all_product_admin')
 
-# class UpdateProductAdmin(UpdateView):
-#     model = Product
-#     form_class = ProductsForms
-#     template_name = 'admin_panel/product/update.html'
-#     success_url = reverse_lazy('all_product_admin')
+class UpdateProductAdmin(UpdateView):
+    model = Product
+    form_class = ProductsForms
+    template_name = 'admin_panel/product/update.html'
+    success_url = reverse_lazy('all_product_admin')
 @login_required
 def update_product_admin(request,pk):
     context ={}
