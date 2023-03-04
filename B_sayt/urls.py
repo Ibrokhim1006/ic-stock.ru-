@@ -6,8 +6,8 @@ urlpatterns = [
     path('delivery/',delivery,name='delivery'),
     path('contact/',contact,name='contact'),
     path('all_category/',all_category,name='all_category'),
-    path('in_categor_product/<int:id>/',in_categor_product,name='in_categor_product'),
-    path('in_product/<int:id>/',in_product,name='in_product'),
+    path('<str:name>/',in_categor_product,name='in_categor_product'),
+    path('product/<str:atrikul>/',in_product,name='in_product'),
     path('all_product_search_view/',AllProductSearchView.as_view()),
     path('client_post/<int:id>/',client_post,name='client_post'),
 

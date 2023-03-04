@@ -59,29 +59,33 @@ def all_category(request):
     context['objects_all'] = Categoriya.objects.all()
     return render(request,'sayt/all_category.html',context)
 
-def in_categor_product(request,id):
+def in_categor_product(request,name):
     context = {}
-    context['categor'] = Categoriya.objects.get(id=id)
-    context['objects_product'] = Product.objects.filter(categorsiya_id=id).order_by('-id')
-    page_num = request.GET.get('page', 1)
+    context['categor'] = Categoriya.objects.get(name=name)
+    # context['objects_product'] = Product.objects.filter(categorsiya_id__name=name).order_by('-id')
+    # page_num = request.GET.get('page', 1)
 
-    paginator = Paginator(context['objects_product'], 30) # 6 employees per page
+    # paginator = Paginator(context['objects_product'], 30) # 6 employees per page
 
 
-    try:
-        context['page_obj'] = paginator.page(page_num)
-    except PageNotAnInteger:
-        # if page is not an integer, deliver the first page
-        context['page_obj'] = paginator.page(1)
-    except EmptyPage:
-        # if the page is out of range, deliver the last page
-        context['page_obj'] = paginator.page(paginator.num_pages)
+    # try:
+    #     context['page_obj'] = paginator.page(page_num)
+    # except PageNotAnInteger:
+    #     # if page is not an integer, deliver the first page
+    #     context['page_obj'] = paginator.page(1)
+    # except EmptyPage:
+    #     # if the page is out of range, deliver the last page
+    #     context['page_obj'] = paginator.page(paginator.num_pages)
 
     return render(request,'sayt/in_categor_product.html',context)
 
-def in_product(request,id):
+def in_product(request,atrikul):
     context = {}
-    context['objects'] = Product.objects.get(id=id)
+    try:
+        context['objects'] = Product.objects.get(atrikul=atrikul)
+    except Product.DoesNotExist:
+        context['objects'] = None
+    print(context['objects'])
     return render(request,'sayt/in_product.html',context)
 
 def client_post(request,id):

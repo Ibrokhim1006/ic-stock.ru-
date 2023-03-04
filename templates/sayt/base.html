@@ -188,7 +188,7 @@
               <a href="">Каталог</a>
               <ul class="dropdown">
                 {% for item in request.get_catgor %}
-                <li><a href="{% url 'in_categor_product' item.id %}">{{item.name}}</a></li>
+                <li><a href="{% url 'in_categor_product' item.name %}">{{item.name}}</a></li>
                 {% endfor %}
               </ul>
             </li>
