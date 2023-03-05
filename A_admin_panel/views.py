@@ -60,6 +60,19 @@ class UpdateCategoryAdmin(UpdateView):
     form_class = CategoryForms
     template_name = 'admin_panel/category/update.html'
     success_url = reverse_lazy('all_category_admin')
+
+# @login_required
+# def delete_category_admin(request,pk):
+#     context = {}
+#     context['objects'] = Categoriya.objects.get(id=pk)
+#     return render(request,'admin_panel/category/delete.html',context)
+
+# @login_required
+# def del_cate(request,pk):
+#     cat = Categoriya.objects.get(id=pk)
+#     cat.delete()
+#     return redirect('all_category_admin')
+
 class DeleteCategoryAdmin(DeleteView):
     model = Categoriya
     template_name = 'admin_panel/category/delete.html'
@@ -117,11 +130,7 @@ def update_product_admin(request,pk):
 
     context["form"] = form
     return render(request,'admin_panel/product/all_product.html',context)
-class RandUpdate(APIView):
-    def get(self,request,format=None):
-        radd = str(random.randint(100000000,999999999))
-        pr = Product.objects.all().update(amunt=radd)
-        return Response({'msg':'ok'})
+
 class DeleteProductAdmin(DeleteView):
     model = Product
     template_name = 'admin_panel/product/delete.html'
@@ -177,18 +186,18 @@ def orders(request):
     context['objects_list'] = ClientPost.objects.all().order_by('-id')
     return render(request,'admin_panel/orders.html',context)
 
-@login_required
-def create_prodcut_with_excel(request):
-    if request.method == 'POST' and request.FILES['myfile']:      
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)              
-        empexceldata = pd.read_excel(filename)        
-        dbframe = empexceldata
-        for dbframe in dbframe.itertuples():
-            print(dbframe)
-    return render(request,'admin_panel/create.html')
+# @login_required
+# def create_prodcut_with_excel(request):
+#     if request.method == 'POST' and request.FILES['myfile']:      
+#         myfile = request.FILES['myfile']
+#         fs = FileSystemStorage()
+#         filename = fs.save(myfile.name, myfile)
+#         uploaded_file_url = fs.url(filename)              
+#         empexceldata = pd.read_excel(filename)        
+#         dbframe = empexceldata
+#         for dbframe in dbframe.itertuples():
+#             print(dbframe)
+#     return render(request,'admin_panel/create.html')
 
 
 # Pochta CRUD

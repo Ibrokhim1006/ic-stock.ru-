@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% for item in request.get_description %}
+  {% for item in request.get_seo %}
   <meta name="{{item.title}}" content="{{item.content}}">
   {% endfor %}
   <meta charset="utf-8" />
@@ -188,7 +188,7 @@
               <a href="">Каталог</a>
               <ul class="dropdown">
                 {% for item in request.get_catgor %}
-                <li><a href="{% url 'in_categor_product' item.id %}">{{item.name}}</a></li>
+                <li><a href="{% url 'in_categor_product' item.urls %}">{{item.name}}</a></li>
                 {% endfor %}
               </ul>
             </li>

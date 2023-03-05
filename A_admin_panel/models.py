@@ -23,6 +23,7 @@ class Brand(models.Model):
 
 class Categoriya(models.Model):
     name = models.CharField(max_length=250,verbose_name="Название категории")
+    urls = models.CharField(max_length=250,null=True,blank=True)
     img_categoriya = models.FileField(upload_to="catgeoriya/",null=True,blank=True,verbose_name="Изображение категории")
     create_date = models.DateTimeField(auto_now_add=True)
 
