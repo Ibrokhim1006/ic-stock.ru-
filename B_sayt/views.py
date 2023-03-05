@@ -79,9 +79,9 @@ def in_categor_product(request,urls):
 
     return render(request,'sayt/in_categor_product.html',context)
 
-def in_product(request,id):
+def in_product(request,atrikul):
     context = {}
-    context['objects'] = Product.objects.get(id=id)
+    context['objects'] = Product.objects.get(atrikul=atrikul)
     return render(request,'sayt/in_product.html',context)
 
 def client_post(request,id):
