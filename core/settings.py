@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic',
-    'import_export',
+    # 'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'A_admin_panel.middleware.all_categoriya',
+    'B_sayt.middleware.all_ceo',
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 ROOT_URLCONF = 'core.urls'

@@ -59,10 +59,10 @@ def all_category(request):
     context['objects_all'] = Categoriya.objects.all()
     return render(request,'sayt/all_category.html',context)
 
-def in_categor_product(request,id):
+def in_categor_product(request,urls):
     context = {}
-    context['categor'] = Categoriya.objects.get(id=id)
-    context['objects_product'] = Product.objects.filter(categorsiya_id=id).order_by('-id')
+    context['categor'] = Categoriya.objects.get(urls=urls)
+    context['objects_product'] = Product.objects.filter(categorsiya_id=context['categor'].id).order_by('-id')
     page_num = request.GET.get('page', 1)
 
     paginator = Paginator(context['objects_product'], 30) # 6 employees per page

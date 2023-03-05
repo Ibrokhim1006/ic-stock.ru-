@@ -11,6 +11,7 @@ urlpatterns = [
     path('create_category_admin/',CreateCategoryAdmin.as_view(),name='create_category_admin'),
     path('update_category_admin/<int:pk>/',UpdateCategoryAdmin.as_view(),name='update_category_admin'),
     path('delete_category_admin/<int:pk>/',DeleteCategoryAdmin.as_view(),name='delete_category_admin'),
+
     # PRODCUT CRUD
     path('all_product_admin/',all_product_admin,name='all_product_admin'),
     path('create_product_admin/',CreateProductAdmin.as_view(),name='create_product_admin'),
@@ -30,7 +31,7 @@ urlpatterns = [
     path('delete_brands_admin/<int:pk>/',DeleteABrandsAdmin.as_view(),name='delete_brands_admin'),
 
     path('orders/',orders,name='orders'),
-    path('create_prodcut_with_excel/',create_prodcut_with_excel,name='create_prodcut_with_excel'),
+    # path('create_prodcut_with_excel/',create_prodcut_with_excel,name='create_prodcut_with_excel'),
 
     # Pochta CRUD
     path('all_pochta_admin/',AllPochtaAdmin.as_view(),name='all_pochta_admin'),
@@ -38,7 +39,7 @@ urlpatterns = [
     path('update_pochta_admin<int:pk>/',UpdatePochtaAdmin.as_view(),name='update_pochta_admin'),
     path('delete_pochta_admin/<int:pk>/',DeletePochtaAdmin.as_view(),name='delete_pochta_admin'),
 
-    path('RandUpdate/',RandUpdate.as_view()),
+    # path('RandUpdate/',RandUpdate.as_view()),
 
     # seo urls
     path('all_seo_admin/',AllSEOAdmin.as_view(),name='all_seo_admin'),
