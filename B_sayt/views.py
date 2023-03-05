@@ -79,9 +79,9 @@ def in_categor_product(request,urls):
 
     return render(request,'sayt/in_categor_product.html',context)
 
-def in_product(request,brend_id__name,atrikul):
+def in_product(request,brend_id__ur,atrikul):
     context = {}
-    context['objects'] = Product.objects.get(brend_id__name=brend_id__name,atrikul=atrikul)
+    context['objects'] = Product.objects.get(brend_id__ur=brend_id__ur,atrikul=atrikul)
     return render(request,'sayt/in_product.html',context)
 
 def client_post(request,id):
@@ -104,7 +104,7 @@ class AllProductSearchView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = AllSearchProduct
     filter_backends = [filters.SearchFilter]
-    search_fields = ['atrikul','name']
+    search_fields = ['atrikul','name',]
 
 def saearch_product(request):
     if request.method=='GET':
