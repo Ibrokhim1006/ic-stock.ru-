@@ -15,6 +15,7 @@ class Advantages(models.Model):
 class Brand(models.Model):
     name = models.CharField(max_length=250,verbose_name="Имя бренда")
     img_brend = models.FileField(upload_to='brend/',verbose_name="Фирменное изображение")
+    ur = models.CharField(max_length=20,null=True,blank=True)
     urls = models.URLField(null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
 
