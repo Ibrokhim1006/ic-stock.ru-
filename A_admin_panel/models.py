@@ -28,8 +28,7 @@ class Categoriya(models.Model):
     img_categoriya = models.FileField(upload_to="catgeoriya/",null=True,blank=True,verbose_name="Изображение категории")
     create_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.name
+
 
 
 class Product(models.Model):
