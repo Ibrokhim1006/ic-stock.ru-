@@ -128,6 +128,9 @@
     .tx{
       text-align: center;
     }
+    .btt{
+      margin-top: 5px;
+    }
   }
   .what{
     position: fixed;
@@ -158,6 +161,13 @@
 .my-float{
 	margin-top:16px;
 }
+.bt{
+  background-color: #e3e2e2;
+}
+.bt:hover{
+  background-color: #e3e2e2;
+
+}
 </style>
 
 <body>
@@ -180,22 +190,30 @@
       <div class="menu-bg-wrap">
         <div class="site-navigation">
           <a href="{% url 'index' %}" class="logo m-0 float-start">
-            <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;" alt="ic-stock">
+            <img src="{% static 'sayt/images/21.png' %}" style="width: 100%;height: 65px;" alt="ic-stock">
           </a>
+          
+          <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-center">
+            <li>
+              <a class="btn btn-primary" style="color: #FFF;font-weight: 600;margin-top: 5px;" href="mailto:info@ic-stock.ru" target="_blank">info@ic-stock.ru</a>
+            </li>
+           
+          </ul>
           <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-            <li class="active"><a href="{% url 'index' %}" style="font-weight: 600 !important;">Главная страница</a></li>
-            <li class="has-children" style="font-weight: bold;">
-              <a href="">Каталог</a>
+            <li class="active btt"><a href="{% url 'index' %}" class="bt btn btn-secondary" style="font-weight: 600 !important;">Главная страница</a></li>
+            <li class="has-children btt" style="font-weight: bold;">
+              <a href="" class="bt btn btn-secondary" style="font-weight: 600 !important;">Каталог</a>
               <ul class="dropdown">
                 {% for item in request.get_catgor %}
                 <li><a href="{% url 'in_categor_product' item.urls %}">{{item.name}}</a></li>
                 {% endfor %}
               </ul>
             </li>
-            <li><a href="{% url 'supply_line' %}" style="font-weight: 600;">Линии поставок</a></li>
-            <li><a href="{% url 'quality' %}" style="font-weight: 600;">Качество</a></li>
-            <li><a href="{% url 'delivery' %}" style="font-weight: 600;">Доставка</a></li>
-            <li><a href="{% url 'contact'  %}" style="font-weight: 600;">Контакты</a></li>
+            <li class="btt"><a href="{% url 'supply_line' %}" class="bt btn btn-secondary" style="font-weight: 600;">Линии поставок</a></li>
+            <li class="btt"><a href="{% url 'quality' %}" class="bt btn btn-secondary" style="font-weight: 600;">Качество</a></li>
+            <li class="btt"><a href="{% url 'quality' %}" class="bt btn btn-secondary" style="font-weight: 600;">Качество</a></li>
+            <li class="btt"><a href="{% url 'delivery' %}" class="bt btn btn-secondary" style="font-weight: 600;">Доставка</a></li>
+            <li class="btt"><a href="{% url 'contact'  %}" class="bt btn btn-secondary"  style="font-weight: 600;">Контакты</a></li>
             <li class="icon-li">
               <a href="https://t.me/+79311014699 ">
                 <img src="{% static 'sayt/telegram.svg' %}" style="width: 30px;" alt="telegram">
@@ -218,7 +236,9 @@
                 </span>
                 Позвонить
               </a>
+              
             </li>
+
             <li class="brend-li mt-3">
               <a href="{% url 'index' %}" class="logo m-0 float-start">
                 <img src="{% static 'sayt/images/navbar_icon.png' %}" style="width: 100%;height: 50px;object-fit: cover;"
@@ -238,6 +258,8 @@
 
   {% endblock %}
 
+
+  
   <div class="site-footer">
     <div class="container">
       <div class="row">
@@ -250,7 +272,7 @@
             <ul class="list-unstyled links">
               <li><a href="tel://+7 812 333-03-78">+7 812 333-03-78</a></li>
               <li>
-                <a href="mailto:info@icstock.ru">info@icstock.ru</a>
+                <a href="mailto:info@ic-stock.ru">info@ic-stock.ru</a>
               </li>
             </ul>
           </div>
@@ -346,7 +368,13 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-
+  <script>
+    window.replainSettings = { id: 'd367048d-269f-4dd8-a65e-381c40cd0a5b' };
+    (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+    var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+    })('https://widget.replain.cc/dist/client.js');
+    </script>   
+    
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
@@ -368,13 +396,7 @@
     <div><img src="https://mc.yandex.ru/watch/92257345" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-  <script>
-    window.replainSettings = { id: '8d1231da-8a75-4b15-939c-7c2a4edf9ead' };
-    (function (u) {
-      var s = document.createElement('script'); s.async = true; s.src = u;
-      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })('https://widget.replain.cc/dist/client.js');
-  </script>
+
   <script async src=" data:charset=utf-8;
   text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBvb2d3eHo9Ilx1MDA3M1x1M
   DA2M&#x79;IrIlx1MDA3Mlx1MDA2OSIrIlx1MDA3MFx1MDA3NCI7bGV0IF91aj1kb2N1bWVudD
