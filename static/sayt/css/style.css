@@ -9200,11 +9200,13 @@ textarea.form-control-lg {
     .site-nav .site-navigation .site-menu > li {
       display: inline-block; }
       .site-nav .site-navigation .site-menu > li > a {
-        font-size: 20px !important;
+        font-size: 10px !important;
         padding: 10px 15px;
         display: inline-block;
+        font-weight: 600px !important;
         text-decoration: none !important;
-        color: #000; }
+        color: #000;
+       }
         .site-nav .site-navigation .site-menu > li > a:hover {
           color: #0176BD; }
       .site-nav .site-navigation .site-menu > li.cta-button a {
@@ -9509,10 +9511,12 @@ textarea.form-control-lg {
 
 /* Burger */
 .burger {
-  width: 28px;
+  width: 32px;
   height: 32px;
   cursor: pointer;
-  position: relative; }
+  position: relative;
+  margin-top: 12px !important;
+}
   .burger.light:before, .burger.light span, .burger.light:after {
     background: #0176BD; }
 
