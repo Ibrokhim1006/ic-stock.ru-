@@ -22,7 +22,7 @@ def index(request):
     context['objects_advend'] = Advantages.objects.all()
     context['objects_brend'] = Brand.objects.all()[:7]
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
-    context['objects_category'] = Categoriya.objects.all()[:6]
+    context['objects_category'] = Categoriya.objects.all().order_by('id')[:6]
     if request.method=='POST':
         full_name = request.POST.get('full_name')
         company = request.POST.get('company')
