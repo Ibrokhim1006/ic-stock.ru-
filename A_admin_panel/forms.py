@@ -9,12 +9,14 @@ class CategoryForms(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),
             'urls': forms.TextInput(attrs={'class':'form-control'}),
+            'decription': forms.Textarea(attrs={'class':'form-control'}),
             'img_categoriya': forms.FileInput(attrs={'class':'form-control'})
         }
         labels = {
             'name': 'Имя каталога',
             'urls': "URL",
-            'img_categoriya': 'Икона'
+            'img_categoriya': 'Икона',
+            'decription': 'Описание'
         }
 
 class ProductsForms(forms.ModelForm):

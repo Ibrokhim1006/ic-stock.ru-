@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -13,12 +13,16 @@ from B_sayt.serializers import *
 from A_admin_panel.models import *
 
 
+def post(request,post_id=id):
+    item = get_object_or_404(Product,id=post_id)
+    return render(request,'sayt/post.html',item)
 
 def index(request):
     context = {}
     context['objects_advend'] = Advantages.objects.all()
     context['objects_brend'] = Brand.objects.all()[:7]
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
+    context['objects_category'] = Categoriya.objects.all()[:6]
     if request.method=='POST':
         full_name = request.POST.get('full_name')
         company = request.POST.get('company')
