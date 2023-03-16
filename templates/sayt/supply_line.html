@@ -1,5 +1,10 @@
 {% extends  'sayt/base.html' %}
 {% load static %}
+{% block seo %}
+  {% for item in request.get_seo %}
+    <meta name="{{item.title}}" content="{{item.content}}">
+  {% endfor %}
+{% endblock %}
 {% block title %} <title>Линии поставок ic-stock.ru</title> {% endblock %}
 
 {% block content %}

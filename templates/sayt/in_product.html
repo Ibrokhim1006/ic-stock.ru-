@@ -1,5 +1,11 @@
 {% extends  'sayt/base.html' %}
 {% load static %}
+{% block seo %}
+  <meta name="{{objects.atrikul}}" content="{{objects.description}}">
+  {% for item in request.get_seo %}
+    <meta name="{{item.title}}" content="{{item.content}}">
+  {% endfor %}
+{% endblock %}
 {% block title %} <title>{{objects.name}} ic-stock.ru</title> {% endblock %}
 
 {% block content %}

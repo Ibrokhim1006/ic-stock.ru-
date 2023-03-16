@@ -1,5 +1,10 @@
 {% extends 'sayt/base.html' %}
 {% load static %}
+{% block seo %}
+  {% for item in request.get_seo %}
+    <meta name="{{item.title}}" content="{{item.content}}">
+  {% endfor %}
+{% endblock %}
 {% block title %} <title>ic-stock.ru</title> {% endblock %}
 
 {% block content %}
@@ -87,10 +92,10 @@
     <div class="img overlay" style="background-image: url('../../static/sayt/photo/22.jpg')"></div>
     <div class="img overlay"  style="background-image: url('../../static/sayt/images/10.jpg')"></div>
   </div>
-
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-9 text-center">
+        
         <div class="narrow-w form-search d-flex align-items-stretch mb-3" method="POST" data-aos="fade-up" data-aos-delay="200">
           {% csrf_token %}
             <input type="search" class="form-control px-4" placeholder="Поиск" name="search" id="search"/>
@@ -107,12 +112,12 @@
   <div class="container">
 
     <div class="row">
-      {% for item in objects_product %}
+      {% for item in objects_category %}
       <div class="col-lg-4 mt-4">
         <div class="card" style="width: 100%;">
           <div class="card-header text-center">
-            {% if item.categorsiya_id.img_categoriya %}
-              <img src="{{item.categorsiya_id.img_categoriya.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
+            {% if item.img_categoriya %}
+              <img src="{{item.img_categoriya.url}}" class="card-img-top text-center" style="width: 60%;object-fit: cover;" alt="{{item.name}}">
             {% else %}
               <img src="{% static 'sayt/def.png' %}" class="img-fluid rounded-start" alt="{{item.name}}">
             {% endif %}
@@ -120,21 +125,21 @@
           
           <div class="card-body">
             <p class="card-text" >
-              <span style="font-weight: bold;font-size: 18px;">Наименование:</span > 
+              <!-- <span style="font-weight: bold;font-size: 18px;">Наименование:</span >  -->
                 <span style="font-weight: 650;font-size: 16px;">
-                  <a href="{% url 'in_product' item.brend_id.ur item.atrikul %}">{{item.atrikul}}</a>
+                  <a href="">{{item.name}}</a>
                 </span>
               </p>
-            <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
+            <!-- <p class="card-text" style="font-weight: bold;">{{item.description|truncatechars:120}}</p>
             <p class="card-title">
                 <span style="font-weight: bold;font-size: 16px;">Наличие :</span> 
                 <a href="#" style="font-weight: bold;font-size: 16px;">более 500 штук</a>
-            </p>
+            </p> -->
             <!-- <p class="card-title" >
               <span style="font-weight: bold;font-size: 16px;">Отправить запрос :</span > 
-                <a href="{% url 'client_post' item.id %}" style="font-weight: bold;font-size: 16px;"> по запросу</a>
+                <a href="" style="font-weight: bold;font-size: 16px;"> по запросу</a>
               </p> -->
-            <a href="{% url 'in_product' item.brend_id.ur item.atrikul %}" class="btn btn-primary">Подробнее</a>
+            <a href="{% url 'in_categor_product' item.urls %}" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
