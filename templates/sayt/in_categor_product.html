@@ -1,7 +1,7 @@
 {% extends  'sayt/base.html' %}
 {% load static %}
 {% block seo %}
-  <meta name="{{categor.name}}" content="ss">
+  <meta name="{{categor.name}}" content="{{categor.decription}}">
   {% for item in request.get_seo %}
     <meta name="{{item.title}}" content="{{item.content}}">
   {% endfor %}
