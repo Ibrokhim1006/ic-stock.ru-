@@ -1,23 +1,26 @@
-{% extends  'sayt/base.html' %}
+{% extends 'sayt/base.html' %}
 {% load static %}
 {% block seo %}
-  {% for item in request.get_seo %}
-    <meta name="{{item.title}}" content="{{item.content}}">
-  {% endfor %}
+{% for item in request.get_seo %}
+<meta name="{{item.title}}" content="{{item.content}}">
+{% endfor %}
 {% endblock %}
 {% block title %} <title>Каталоги ic-stock.ru</title> {% endblock %}
 
 {% block content %}
 
-<div class="hero page-inner overlay" style="background-image: url('../../static/sayt/images/10.jpg')">
+<div class="hero page-inner overlay" style="background-image:
+  url('../../static/sayt/images/10.jpg')">
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-9 text-center mt-5">
-        {% include   'sayt/search.html' %}
+        {% include 'sayt/search.html' %}
         <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
           <ol class="breadcrumb text-center justify-content-center">
-            <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная страница</a></li>
-            <li class="breadcrumb-item active text-white-50" aria-current="page">Каталоги</li>
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная
+                страница</a></li>
+            <li class="breadcrumb-item active text-white-50"
+              aria-current="page">Каталоги</li>
           </ol>
         </nav>
       </div>
@@ -33,8 +36,10 @@
       {% for item in objects_all %}
       <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
         <div class="box-feature mb-4">
-          <img src="{{item.img.url}}" class="flaticon-house mb-4 d-block text-center" style="width: 100%;" alt="">
-          <p><a href="{% url 'in_categor_product' item.urls %}" class="learn-more" style="font-size: 20px;">{{item.name}}</a></p>
+          <img src="{{item.img.url}}" class="flaticon-house mb-4 d-block
+            text-center" style="width: 100%;" alt="">
+          <p><a href="{% url 'in_categor_product' item.urls %}"
+              class="learn-more" style="font-size: 20px;">{{item.name}}</a></p>
         </div>
       </div>
       {% endfor %}
@@ -49,7 +54,8 @@
   <div class="container">
     <div class="row mb-5 align-items-center">
       <div class="col-md-6">
-        <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0" style="font-weight: bold;">
+        <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0"
+          style="font-weight: bold;">
           Бренд
         </h2>
       </div>
@@ -66,13 +72,15 @@
     </div>
     <div class="testimonial-slider-wrap">
       <div class="testimonial-slider">
-        {% for item in objects_brend  %}
-          <div class="item">
-            <div class="testimonial d-flex justify-content-center align-items-center flex-column mb-3">
-              <img src="{{item.img_brend.url}}" alt="Image" class="img-fluid  mb-4" style="width: 50%;"/>
-              <h3 class="h5 text-primary mb-4">{{item.name}}</h3>
-            </div>
+        {% for item in objects_brend %}
+        <div class="item">
+          <div class="testimonial d-flex justify-content-center
+            align-items-center flex-column mb-3">
+            <img src="{{item.img_brend.url}}" alt="Image" class="img-fluid mb-4"
+              style="width: 50%;"/>
+            <h3 class="h5 text-primary mb-4">{{item.name}}</h3>
           </div>
+        </div>
         {% endfor %}
       </div>
     </div>
