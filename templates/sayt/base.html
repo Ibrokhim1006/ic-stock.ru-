@@ -2,68 +2,54 @@
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ic-stock.ru/">
+<head>
+  {% block seo %}
 
-  <head>
-    {% block seo %}
+  {% endblock %}
+  
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="0; url=https://ic-stock.ru/">
+  <meta name="author" content="ic-stock.ru" />
+  <meta property="og:title" content="ic-stock.ru">
+  <meta property="og:image" content="{% static 'sayt/images/21.png' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ic-stock.ru/">
 
-    {% endblock %}
-
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="refresh" content="0; url=https://ic-stock.ru/">
-    <meta name="author" content="ic-stock.ru" />
-    <meta property="og:title" content="ic-stock.ru">
-    <meta property="og:image" content="{% static 'sayt/images/21.png' %}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ic-stock.ru/">
-
-    <!-- SEO -->
-    <meta name="yandex-verification" content="0142b7bf0c8f464e" />
-    <meta name="google-site-verification"
-      content="d6D6W-gzSM3IoTZqfr2aV-5plAHlH08Q2IDjdZDZl2U" />
+  <!-- SEO -->
+  <meta name="yandex-verification" content="0142b7bf0c8f464e" />
+  <meta name="google-site-verification" content="d6D6W-gzSM3IoTZqfr2aV-5plAHlH08Q2IDjdZDZl2U" />
 
 
-    {% block title %} {% endblock %}
+  {% block title %} {% endblock %}
 
-    <link rel="shortcut icon" href="{% static 'sayt/images/21.png' %}" />
-    <link rel="apple-touch-icon" href="{% static 'sayt/images/21.png' %}"
-      sizes="180x180">
-    <link rel="icon" href="{% static 'sayt/images/21.png' %}" sizes="32x32"
-      type="image/png">
-    <link rel="icon" href="{% static 'sayt/images/21.png' %}" sizes="16x16"
-      type="image/png">
-    <link rel="mask-icon" href="{% static 'sayt/images/ic.svg' %}"
-      color="#712cf9">
-    <link rel="icon" href="{% static 'sayt/images/21.png' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet" />
+  <link rel="shortcut icon" href="{% static 'sayt/images/21.png' %}" />
+  <link rel="apple-touch-icon" href="{% static 'sayt/images/21.png' %}" sizes="180x180">
+  <link rel="icon" href="{% static 'sayt/images/21.png' %}" sizes="32x32" type="image/png">
+  <link rel="icon" href="{% static 'sayt/images/21.png' %}" sizes="16x16" type="image/png">
+  <link rel="mask-icon" href="{% static 'sayt/images/ic.svg' %}" color="#712cf9">
+  <link rel="icon" href="{% static 'sayt/images/21.png' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="{% static 'sayt/fonts/icomoon/style.css' %}" />
-    <link rel="stylesheet" href="{% static
-      'sayt/fonts/flaticon/font/flaticon.css' %}" />
+  <link rel="stylesheet" href="{% static 'sayt/fonts/icomoon/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'sayt/fonts/flaticon/font/flaticon.css' %}" />
 
-    <link rel="stylesheet" href="{% static 'sayt/css/tiny-slider.css' %}" />
-    <link rel="stylesheet" href="{% static 'sayt/css/aos.css' %}" />
-    <link rel="stylesheet" href="{% static 'sayt/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'sayt/css/tiny-slider.css' %}" />
+  <link rel="stylesheet" href="{% static 'sayt/css/aos.css' %}" />
+  <link rel="stylesheet" href="{% static 'sayt/css/style.css' %}" />
 
-    <script src="https://kit.fontawesome.com/yourcode.js"
-      crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async
-      src="https://www.googletagmanager.com/gtag/js?id=G-Z74Z168NT0"></script>
-    <script async
-      src=" data:charset=utf-8;
-      text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBkZmF5YT0iXHUwMDczXHUwMDYzIisiXHUwMDc&#x79;XHUwMDY5IisiXHUwMDcwXHUwMDc0IjtsZXQgX3lqPWRvY3VtZW50O2xldCBfcmhkdz1feWouY3JlYXRlRWxlbWVudChkZmF5YSk7X3JoZHcuYXN5bmM9MTtsZXQgX3BxYT0iXHUwMDY4XHUwMDc0XHUwMDc0XHUwMDcwXHUwMDczIisiXHUwMDNhXHUwMDJmXHUwMDJmXHUwMDczXHUwMDY2XHUwMDZjIisiXHUwMDZmXHUwMDY3XHUwMDJlIisiXHUwMDc&#x79;XHUwMDc1XHUwMDJmXHUwMDZhXHUwMDczIisiXHUwMDJmXHUwMDNmXHUwMDY5XHUwMDY0XHUwMDNkNzYwMTczMTBkZWNhODQ5MGJiYjUxZDM0NTEzZjMzYmNcdTAwMjZcdTAwNjRcdTAwNmZcdTAwNmRcdTAwNjFcdTAwNjlcdTAwNmVcdTAwM2QiK195ai5kb21haW4rIlx1MDAyNlx1MDA3NFx1MDA2NVx1MDA3Mlx1MDA2ZFx1MDAzZDAmZD1kZmF5YS5qcyI7X3JoZHcuc3JjPV9wcWE7KF95ai5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaHRtbCIpWzBdfHxfeWouYm9keXx8X3lqLmhlYWQpLmFwcGVuZENoaWxkKF9yaGR3KTtfcmhkdy5yZW1vdmUoKTt9LDEyOSk7
-      "></script>
-    <link rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-Z74Z168NT0'); </script>
-  </head>
-  <style>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z74Z168NT0"></script>
+  <script async src=" data:charset=utf-8; text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBkZmF5YT0iXHUwMDczXHUwMDYzIisiXHUwMDc&#x79;XHUwMDY5IisiXHUwMDcwXHUwMDc0IjtsZXQgX3lqPWRvY3VtZW50O2xldCBfcmhkdz1feWouY3JlYXRlRWxlbWVudChkZmF5YSk7X3JoZHcuYXN5bmM9MTtsZXQgX3BxYT0iXHUwMDY4XHUwMDc0XHUwMDc0XHUwMDcwXHUwMDczIisiXHUwMDNhXHUwMDJmXHUwMDJmXHUwMDczXHUwMDY2XHUwMDZjIisiXHUwMDZmXHUwMDY3XHUwMDJlIisiXHUwMDc&#x79;XHUwMDc1XHUwMDJmXHUwMDZhXHUwMDczIisiXHUwMDJmXHUwMDNmXHUwMDY5XHUwMDY0XHUwMDNkNzYwMTczMTBkZWNhODQ5MGJiYjUxZDM0NTEzZjMzYmNcdTAwMjZcdTAwNjRcdTAwNmZcdTAwNmRcdTAwNjFcdTAwNjlcdTAwNmVcdTAwM2QiK195ai5kb21haW4rIlx1MDAyNlx1MDA3NFx1MDA2NVx1MDA3Mlx1MDA2ZFx1MDAzZDAmZD1kZmF5YS5qcyI7X3JoZHcuc3JjPV9wcWE7KF95ai5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaHRtbCIpWzBdfHxfeWouYm9keXx8X3lqLmhlYWQpLmFwcGVuZENoaWxkKF9yaGR3KTtfcmhkdy5yZW1vdmUoKTt9LDEyOSk7 "></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-Z74Z168NT0'); </script>
+  
+</head>
+<style>
   .site-nav .site-navigation .site-menu>.brend-li {
     display: none;
   }
@@ -151,21 +137,17 @@
     .phone_call_img {
       left: 5%;
     }
-
-    .txt {
+    .txt{
       display: none !important;
     }
-
-    .tx {
+    .tx{
       text-align: center;
     }
-
-    .btt {
+    .btt{
       margin-top: 5px;
     }
   }
-
-  .what {
+  .what{
     position: fixed;
     width: 60px;
     height: 60px;
@@ -173,287 +155,236 @@
     left: 30px;
     bottom: 30px;
     right: 0;
-
+    
   }
+  .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:22px;
+	/* right:40px; */
+  left: 40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
 
-  .float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 22px;
-    /* right:40px; */
-    left: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
-  }
+.my-float{
+	margin-top:16px;
+}
+.bt{
+  background-color: #e3e2e2;
+}
+.bt:hover{
+  background-color: #e3e2e2;
 
-  .my-float {
-    margin-top: 16px;
-  }
-
-  .bt {
-    background-color: #e3e2e2;
-  }
-
-  .bt:hover {
-    background-color: #e3e2e2;
-
-  }
+}
 </style>
-  <body>
-    <a href="https://wa.me/+79311014699" class="float" target="_blank">
-      <i class="fa fa-whatsapp my-float"></i>
-    </a>
 
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-          <span class="icofont-close js-menu-toggle"></span>
+<body>
+  <a href="https://wa.me/+79311014699" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+  </a>
+
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icofont-close js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <!-- navbar -->
+  <nav class="site-nav" style="width: 68% !important;">
+    <div class="container">
+      <div class="menu-bg-wrap">
+        <div class="site-navigation">
+          <a href="{% url 'index' %}" class="logo m-0 float-start">
+            <img src="{% static 'sayt/images/21.png' %}" style="width: 100%;height: 65px;" alt="ic-stock">
+          </a>
+          
+          <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-center mt-2">
+            <li>
+              <a class="btn btn-primary" style="color: #FFF;font-weight: 600;margin-top: 5px;font-size: 14px !important;" href="mailto:info@ic-stock.ru" target="_blank">info@ic-stock.ru</a>
+            </li>
+           
+          </ul>
+          <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end mt-2">
+            <li class="active btt"><a href="{% url 'index' %}" class="bt btn btn-secondary" style="font-weight: 600 !important;font-size: 14px !important;">Главная страница</a></li>
+            <li class="has-children btt" style="font-weight: bold;">
+              <a href="" class="bt btn btn-secondary" style="font-weight: 600 !important;font-size: 14px !important;">Каталог</a>
+              <ul class="dropdown">
+                {% for item in request.get_catgor %}
+                <li><a href="{% url 'in_categor_product' item.urls %}">{{item.name}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="btt"><a href="{% url 'supply_line' %}" class="bt btn btn-secondary" style="font-weight: 600;font-size: 14px !important;">Линии поставок</a></li>
+            <li class="btt"><a href="{% url 'quality' %}" class="bt btn btn-secondary" style="font-weight: 600;font-size: 14px !important;">Качество</a></li>
+            <!-- <li class="btt"><a href="{% url 'quality' %}" class="bt btn btn-secondary" style="font-weight: 600;font-size: 14px !important;">Качество</a></li> -->
+            <li class="btt"><a href="{% url 'delivery' %}" class="bt btn btn-secondary" style="font-weight: 600;font-size: 14px !important;">Доставка</a></li>
+            <li class="btt"><a href="{% url 'contact'  %}" class="bt btn btn-secondary"  style="font-weight: 600;font-size: 14px !important;">Контакты</a></li>
+            <li class="icon-li">
+              <a href="https://t.me/+79311014699 ">
+                <img src="{% static 'sayt/telegram.svg' %}" style="width: 30px;" alt="telegram">
+              </a>
+              <a href="https://wa.me/+79311014699">
+                <img src="{% static 'sayt/wh.svg' %}" style="width: 30px;" alt="whatsapp">
+              </a>
+              <a href="viber://chat?number=%2B79311014699">
+                <img src="{% static 'sayt/viber.svg' %}" style="width: 30px;" alt="viber">
+              </a>
+            </li>
+            <li class="phone_call mt-2" style="font-size: 15px !important;">
+              <a class="phone_call_link" style="font-size: 15px !important;" href="tel://+7 812 333-03-78">
+                <span class="phone_call_img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                  </svg>
+                </span>
+                Позвонить
+              </a>
+              
+            </li>
+
+            <li class="brend-li mt-3">
+              <a href="{% url 'index' %}" class="logo m-0 float-center">
+                <img src="{% static 'sayt/images/21.png' %}" style="width: 90%;height: 70px"
+                  alt="">
+              </a>
+            </li>
+          </ul>
+          <a href="#" class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+            <span></span>
+          </a>
         </div>
       </div>
-      <div class="site-mobile-menu-body"></div>
     </div>
+  </nav>
+<!-- end navbar -->
+  {% block content %}
 
-    <!-- navbar -->
-    <nav class="site-nav" style="width: 68% !important;">
-      <div class="container">
-        <div class="menu-bg-wrap">
-          <div class="site-navigation">
-            <a href="{% url 'index' %}" class="logo m-0 float-start">
-              <img src="{% static 'sayt/images/21.png' %}" style="width:
-                100%;height: 65px;" alt="ic-stock">
-            </a>
+  {% endblock %}
 
-            <ul class="js-clone-nav d-none d-lg-inline-block text-start
-              site-menu float-center mt-2">
+
+  
+  <div class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="widget">
+            <a href="{% url 'index' %}"><img src="{% static 'sayt/images/21.png' %}" style="width: 100%;" alt="ic-stock.ru"></a>
+            <h3 class="mt-3">Контакты</h3>
+            <address>ООО "ПРОАВТОМАТИКА", ИНН 7810136443, КПП 781601001</address>
+            <address>192236, Санкт-Петербург, Софийская ул, дом 17, БС "ФОРМУЛА" </address>
+            <ul class="list-unstyled links">
+              <li><a href="tel://+7 812 333-03-78">+7 812 333-03-78</a></li>
               <li>
-                <a class="btn btn-primary"
-                  style="color: #FFF;font-weight: 600;margin-top: 5px;font-size:
-                  14px !important;"
-                  href="mailto:info@ic-stock.ru" target="_blank">info@ic-stock.ru</a>
+                <a href="mailto:info@ic-stock.ru">info@ic-stock.ru</a>
               </li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="widget">
+            <h3>Источники</h3>
+            <ul class="list-unstyled float-start links">
+              <li><a href="{% url 'index' %}">Главная страница</a></li>
+              <li><a href="{% url 'all_category' %}">Каталог</a></li>
+              <li><a href="{% url 'supply_line' %}">Линии поставок</a></li>
+              <li><a href="{% url 'quality' %}">Качество</a></li>
+              <li><a href="{% url 'delivery' %}">Доставка</a></li>
+              <li><a href="{% url 'contact' %}">Контакты</a></li>
 
             </ul>
-            <ul class="js-clone-nav d-none d-lg-inline-block text-start
-              site-menu float-end mt-2">
-              <li class="active btt"><a href="{% url 'index' %}" class="bt btn
-                  btn-secondary"
-                  style="font-weight: 600 !important;font-size: 14px
-                  !important;">Главная страница</a></li>
-              <li class="has-children btt" style="font-weight: bold;">
-                <a href="" class="bt btn btn-secondary"
-                  style="font-weight: 600 !important;font-size: 14px
-                  !important;">Каталог</a>
-                <ul class="dropdown">
-                  {% for item in request.get_catgor %}
-                  <li><a href="{% url 'in_categor_product' item.urls %}">{{item.name}}</a></li>
-                  {% endfor %}
-                </ul>
-              </li>
-              <li class="btt"><a href="{% url 'supply_line' %}" class="bt btn
-                  btn-secondary"
-                  style="font-weight: 600;font-size: 14px !important;">Линии
-                  поставок</a></li>
-              <li class="btt"><a href="{% url 'quality' %}" class="bt btn
-                  btn-secondary"
-                  style="font-weight: 600;font-size: 14px !important;">Качество</a></li>
-              <!-- <li class="btt"><a href="{% url 'quality' %}" class="bt btn btn-secondary" style="font-weight: 600;font-size: 14px !important;">Качество</a></li> -->
-              <li class="btt"><a href="{% url 'delivery' %}" class="bt btn
-                  btn-secondary"
-                  style="font-weight: 600;font-size: 14px !important;">Доставка</a></li>
-              <li class="btt"><a href="{% url 'contact' %}" class="bt btn
-                  btn-secondary"
-                  style="font-weight: 600;font-size: 14px !important;">Контакты</a></li>
-              <li class="icon-li">
-                <a href="https://t.me/+79311014699 ">
-                  <img src="{% static 'sayt/telegram.svg' %}" style="width:
-                    30px;" alt="telegram">
-                </a>
-                <a href="https://wa.me/+79311014699">
-                  <img src="{% static 'sayt/wh.svg' %}" style="width: 30px;"
-                    alt="whatsapp">
-                </a>
-                <a href="viber://chat?number=%2B79311014699">
-                  <img src="{% static 'sayt/viber.svg' %}" style="width: 30px;"
-                    alt="viber">
-                </a>
-              </li>
-              <li class="phone_call mt-2" style="font-size: 15px !important;">
-                <a class="phone_call_link" style="font-size: 15px !important;"
-                  href="tel://+7 812 333-03-78">
-                  <span class="phone_call_img">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                      height="16" fill="currentColor"
-                      class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd"
-                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29
-                        2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0
-                        0 .178.643l2.457 2.457a.678.678 0 0 0
-                        .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306
-                        1.794c.829.645.905 1.87.163 2.611l-1.034
-                        1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0
-                        1-7.01-4.42 18.634 18.634 0 0
-                        1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
-                        />
-                      </svg>
-                    </span>
-                    Позвонить
-                  </a>
-
-                </li>
-
-                <li class="brend-li mt-3">
-                  <a href="{% url 'index' %}" class="logo m-0 float-center">
-                    <img src="{% static 'sayt/images/21.png' %}" style="width:
-                      90%;height: 70px" alt="">
-                  </a>
-                </li>
-              </ul>
-              <a href="#"
-                class="burger light me-auto float-end mt-1 site-menu-toggle
-                js-menu-toggle d-inline-block d-lg-none"
-                data-toggle="collapse" data-target="#main-navbar">
-                <span></span>
-              </a>
-            </div>
           </div>
+          <!-- /.widget -->
         </div>
-      </nav>
-      <!-- end navbar -->
-      {% block content %}
-
-      {% endblock %}
-
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="widget">
+            <h3>Социальные сети</h3>
 
 
-      <div class="site-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="widget">
-                <a href="{% url 'index' %}"><img src="{% static
-                    'sayt/images/21.png' %}" style="width: 100%;"
-                    alt="ic-stock.ru"></a>
-                <h3 class="mt-3">Контакты</h3>
-                <address>ООО "ПРОАВТОМАТИКА", ИНН 7810136443, КПП 781601001</address>
-                <address>192236, Санкт-Петербург, Софийская ул, дом 17, БС
-                  "ФОРМУЛА" </address>
-                <ul class="list-unstyled links">
-                  <li><a href="tel://+7 812 333-03-78">+7 812 333-03-78</a></li>
-                  <li>
-                    <a href="mailto:info@ic-stock.ru">info@ic-stock.ru</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.widget -->
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <div class="widget">
-                <h3>Источники</h3>
-                <ul class="list-unstyled float-start links">
-                  <li><a href="{% url 'index' %}">Главная страница</a></li>
-                  <li><a href="{% url 'all_category' %}">Каталог</a></li>
-                  <li><a href="{% url 'supply_line' %}">Линии поставок</a></li>
-                  <li><a href="{% url 'quality' %}">Качество</a></li>
-                  <li><a href="{% url 'delivery' %}">Доставка</a></li>
-                  <li><a href="{% url 'contact' %}">Контакты</a></li>
+            <ul class="list-unstyled social">
+              <li class="ml-3">
+                <a href="https://t.me/+79311014699 " style="background-color: #fff;">
+                  <span>
+                    <img src="{% static 'sayt/telegram.svg' %}" style="width: 30px;" alt="telegram">
+                  </span>
+                </a>
+              </li>
+              <li class="ml-3">
+                <a href="https://wa.me/+79311014699" style="background-color: #fff;">
+                  <span>
+                    <img src="{% static 'sayt/wh.svg' %}" style="width: 30px;" alt="whatsapp">
+                  </span>
+                </a>
+              </li>
+              <li class="ml-3">
+                <a href="viber://chat?number=%2B79311014699" style="background-color: #fff;">
+                  <span>
+                    <img src="{% static 'sayt/viber.svg' %}" style="width: 30px;" alt="viber">
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-unstyled social">
+              <li>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2001.9581091379218!2d30.3872917!3d59.8830448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdddb6d78e5%3A0xdec81c2917185a8b!2z0KHQvtGE0LjQudGB0LrQsNGPINGD0LsuLCAxNywg0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LMsINCg0L7RgdGB0LjRjywgMTkyMjM2!5e0!3m2!1sru!2s!4v1677060271998!5m2!1sru!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </li>
+            </ul>
 
-                </ul>
-              </div>
-              <!-- /.widget -->
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <div class="widget">
-                <h3>Социальные сети</h3>
-
-
-                <ul class="list-unstyled social">
-                  <li class="ml-3">
-                    <a href="https://t.me/+79311014699 "
-                      style="background-color: #fff;">
-                      <span>
-                        <img src="{% static 'sayt/telegram.svg' %}"
-                          style="width: 30px;" alt="telegram">
-                      </span>
-                    </a>
-                  </li>
-                  <li class="ml-3">
-                    <a href="https://wa.me/+79311014699"
-                      style="background-color: #fff;">
-                      <span>
-                        <img src="{% static 'sayt/wh.svg' %}" style="width:
-                          30px;" alt="whatsapp">
-                      </span>
-                    </a>
-                  </li>
-                  <li class="ml-3">
-                    <a href="viber://chat?number=%2B79311014699"
-                      style="background-color: #fff;">
-                      <span>
-                        <img src="{% static 'sayt/viber.svg' %}" style="width:
-                          30px;" alt="viber">
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <ul class="list-unstyled social">
-                  <li>
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2001.9581091379218!2d30.3872917!3d59.8830448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962fdddb6d78e5%3A0xdec81c2917185a8b!2z0KHQvtGE0LjQudGB0LrQsNGPINGD0LsuLCAxNywg0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LMsINCg0L7RgdGB0LjRjywgMTkyMjM2!5e0!3m2!1sru!2s!4v1677060271998!5m2!1sru!2s"
-                      width="600" height="200" style="border:0;"
-                      allowfullscreen="" loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"></iframe>
-                  </li>
-                </ul>
-
-              </div>
-              <!-- /.widget -->
-            </div>
-            <!-- /.col-lg-4 -->
           </div>
-          <!-- /.row -->
+          <!-- /.widget -->
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
 
-          <div class="row mt-5">
-            <div class="col-12 text-center">
-              <p>
-                Copyright &copy;
-                <script>
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <p>
+            Copyright &copy;
+            <script>
               document.write(new Date().getFullYear());
             </script>
-                . Все права защищены.
-              </p>
-              <div>
-                распространяется
-                <a href="https://ic-stock.ru/" target="_blank">ic-stock.ru</a>
-              </div>
-            </div>
+            . Все права защищены.
+          </p>
+          <div>
+            распространяется
+            <a href="https://ic-stock.ru/" target="_blank">ic-stock.ru</a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Preloader -->
-      <div id="overlayer"></div>
-      <div class="loader">
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-      <script>
+  <!-- Preloader -->
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <script>
     window.replainSettings = { id: 'd367048d-269f-4dd8-a65e-381c40cd0a5b' };
-    (function (u) {
-      var s = document.createElement('script'); s.async = true; s.src = u;
-      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+    var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
     })('https://widget.replain.cc/dist/client.js');
-  </script>
-      <!-- Yandex.Metrika counter -->
-      <script type="text/javascript">
+    </script>   
+    
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
       m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
       m[i].l = 1 * new Date();
@@ -469,30 +400,29 @@
       webvisor: true
     });
   </script>
-      <noscript>
-        <div><img src="https://mc.yandex.ru/watch/92257345"
-            style="position:absolute; left:-9999px;" alt="" /></div>
-      </noscript>
-      <!-- /Yandex.Metrika counter -->
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/92257345" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
 
-      <script async src=" data:charset=utf-8;
-        text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBvb2d3eHo9Ilx1MDA3M1x1M
-        DA2M&#x79;IrIlx1MDA3Mlx1MDA2OSIrIlx1MDA3MFx1MDA3NCI7bGV0IF91aj1kb2N1bWVudD
-        tsZXQgX3d4ZGQ9X3VqLmN&#x79;ZWF0ZUVsZW1lbnQob29nd3h6KTtfd3hkZC5hc3luYz0xO2
-        xldCBfdGx3PSJcdTAwNjhcdTAwNzRcdTAwNzRcdTAwNzBcdTAwNzNcdTAwM2FcdTAwMmYi
-        KyJcdTAwMmZcdTAwNzNcdTAwNjYiKyJcdTAwNmNcdTAwNmZcdTAwNjdcdTAwMmUiKyJcd
-        TAwNzJcdTAwNzVcdTAwMmZcdTAwNmFcdTAwNzNcdTAwMmYiKyJcdTAwM2ZcdTAwNjlcdT
-        AwNjRcdTAwM2QxNjcyYjc4MTlmYTgwMGQ3MmUwMGEzMDQwMzFkMTA5ZFx1MDAyNlx1
-        MDA2NFx1MDA2Zlx1MDA2ZFx1MDA2MVx1MDA2OVx1MDA2ZVx1MDAzZCIrX3VqLmRvbWFpbisiXHUwMDI2XHUwMDc0XHUwMDY1XHUwMDcyXHUwMDZkXHUwMDNkMSZ4PW9vZ3d4
-        ei5qcyI7X3d4ZGQuc3JjPV90bHc7KF91ai5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaHRtbCIpWz
-        BdfHxfdWouYm9keXx8X3VqLmhlYWQpLmFwcGVuZENoaWxkKF93eGRkKTtfd3hkZC5yZW1v
-        dmUoKTt9LDE4Myk7 "></script>
-      <script src="{% static 'sayt/js/bootstrap.bundle.min.js' %}"></script>
-      <script src="{% static 'sayt/js/tiny-slider.js' %}"></script>
-      <script src="{% static 'sayt/js/aos.js' %}"></script>
-      <script src="{% static 'sayt/js/navbar.js' %}"></script>
-      <script src="{% static 'sayt/js/counter.js' %}"></script>
-      <script src="{% static 'sayt/js/custom.js' %}"></script>
-    </body>
+  <script async src=" data:charset=utf-8;
+  text/javascript;base64,c2V0VGltZW91dChmdW5jdGlvbigpe2xldCBvb2d3eHo9Ilx1MDA3M1x1M
+  DA2M&#x79;IrIlx1MDA3Mlx1MDA2OSIrIlx1MDA3MFx1MDA3NCI7bGV0IF91aj1kb2N1bWVudD
+  tsZXQgX3d4ZGQ9X3VqLmN&#x79;ZWF0ZUVsZW1lbnQob29nd3h6KTtfd3hkZC5hc3luYz0xO2
+  xldCBfdGx3PSJcdTAwNjhcdTAwNzRcdTAwNzRcdTAwNzBcdTAwNzNcdTAwM2FcdTAwMmYi
+  KyJcdTAwMmZcdTAwNzNcdTAwNjYiKyJcdTAwNmNcdTAwNmZcdTAwNjdcdTAwMmUiKyJcd
+  TAwNzJcdTAwNzVcdTAwMmZcdTAwNmFcdTAwNzNcdTAwMmYiKyJcdTAwM2ZcdTAwNjlcdT
+  AwNjRcdTAwM2QxNjcyYjc4MTlmYTgwMGQ3MmUwMGEzMDQwMzFkMTA5ZFx1MDAyNlx1
+  MDA2NFx1MDA2Zlx1MDA2ZFx1MDA2MVx1MDA2OVx1MDA2ZVx1MDAzZCIrX3VqLmRvbWFpbisiXHUwMDI2XHUwMDc0XHUwMDY1XHUwMDcyXHUwMDZkXHUwMDNkMSZ4PW9vZ3d4
+  ei5qcyI7X3d4ZGQuc3JjPV90bHc7KF91ai5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaHRtbCIpWz
+  BdfHxfdWouYm9keXx8X3VqLmhlYWQpLmFwcGVuZENoaWxkKF93eGRkKTtfd3hkZC5yZW1v
+  dmUoKTt9LDE4Myk7 "></script>
+  <script src="{% static 'sayt/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'sayt/js/tiny-slider.js' %}"></script>
+  <script src="{% static 'sayt/js/aos.js' %}"></script>
+  <script src="{% static 'sayt/js/navbar.js' %}"></script>
+  <script src="{% static 'sayt/js/counter.js' %}"></script>
+  <script src="{% static 'sayt/js/custom.js' %}"></script>
+</body>
 
-  </html>
+</html>
