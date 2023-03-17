@@ -17,6 +17,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin_panel/',include('A_admin_panel.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+    path('robots.txt', include('robots.urls')),
     path('post/<int:id>/',post,name='post'),
     path('',include('B_sayt.urls')),
 
