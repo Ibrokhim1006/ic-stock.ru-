@@ -19,7 +19,7 @@ def post(request,post_id=id):
 
 def index(request):
     context = {}
-    context['objects_advend'] = Advantages.objects.all()
+    context['objects_advend'] = Advantages.objects.all().order_by('id')
     context['objects_brend'] = Brand.objects.all()[:7]
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
     context['objects_category'] = Categoriya.objects.all().order_by('id')[:6]
