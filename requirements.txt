@@ -13,6 +13,7 @@ django-excel==0.0.10
 django-filter==22.1
 django-import-export==3.0.2
 django-js-asset==2.0.0
+django-robots==5.0
 django-seo==0.3.5
 django-sitemaps==2.0.1
 django-staticfiles==1.2.1
