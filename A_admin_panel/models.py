@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.urls import reverse
 import random
 
 # random_string = str(random.randint(100000000, 999999999))
@@ -45,7 +46,8 @@ class Product(models.Model):
     amunt = models.CharField(max_length=250,null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
 
-
+    def get_absolute_url(self):
+        return reverse('post', args=[str(self.id)])
 
 class ClientPost(models.Model):
     full_name = models.CharField(max_length=250)
