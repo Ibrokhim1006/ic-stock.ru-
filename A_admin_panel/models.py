@@ -111,3 +111,12 @@ class SeoContent(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Zayafka(models.Model):
+    fullName = models.CharField(max_length=250,null=True,blank=True)
+    e_mail = models.CharField(max_length=250,null=True,blank=True)
+    e_phone = models.CharField(max_length=250,null=True,blank=True)
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.fullName
