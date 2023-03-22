@@ -84,6 +84,51 @@
     }
   }
 </style>
+
+<div class="modal_container">
+  <div class="modal_content">
+    <div class="modal_content_item">
+      <div class="modal_exit_btn" onclick="exitModal()">
+        <svg
+          class="ays_pb_material_close_icon"
+          xmlns="https://www.w3.org/2000/svg"
+          height="36px"
+          viewBox="0 0 24 24"
+          width="36px"
+          fill="#000000"
+          alt="Pop-up Close"
+        >
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          ></path>
+        </svg>
+      </div>
+      <h1 style="font-weight:bold;color: #fff;">ХОТИТЕ, МЫ ВАМ ПЕРЕЗВОНИМ?</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-12">
+            <label for="firstName" class="form-label" style="font-weight:bold;color: #fff;">ВАШЕ ИМЯ</label>
+            <input type="text" id="firstName" class="form-control" name="fullName" />
+          </div>
+          <div class="col-lg-12 mt-2">
+            <label for="email" class="form-label" style="font-weight:bold;color: #fff;">ВАШ E-MAIL</label>
+            <input type="email" id="email" class="form-control" name="e_mail" />
+          </div>
+          <div class="col-lg-12 mt-2">
+            <label for="phoneNumber" class="form-label" style="font-weight:bold;color: #fff;">ВАШ ТЕЛ</label>
+            <input type="text" id="phoneNumber" class="form-control" name="e_phone" />
+          </div>
+        </div>
+        
+        
+        
+        <input type="submit" value="ЖДУ ЗВОНКА" />
+      </form>
+    </div>
+  </div>
+</div>
 <div class="hero">
   <div class="hero-slide">
     <div class="img overlay" style="background-image:

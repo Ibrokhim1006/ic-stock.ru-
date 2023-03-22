@@ -234,3 +234,11 @@ class UpdateSEOAdmin(UpdateView):
     form_class = SeoForms
     template_name = 'admin_panel/seo/update.html'
     success_url = reverse_lazy('all_seo_admin')
+
+
+
+@login_required
+def zayafka_klinet(request):
+    context = {}
+    context['objects_list'] = Zayafka.objects.all().order_by('-id')
+    return render(request,'admin_panel/zayafka.html',context)

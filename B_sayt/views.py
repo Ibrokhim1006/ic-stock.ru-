@@ -24,6 +24,13 @@ def index(request):
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
     context['objects_category'] = Categoriya.objects.all().order_by('id')[:6]
     if request.method=='POST':
+        fullName = request.POST.get('fullName')
+        e_mail = request.POST.get('e_mail')
+        e_phone = request.POST.get('e_phone')
+        supply_lines = Zayafka(fullName=fullName,e_mail=e_mail,e_phone=e_phone)
+        supply_lines.save()
+        return redirect('index') 
+    if request.method=='POST':
         full_name = request.POST.get('full_name')
         company = request.POST.get('company')
         email = request.POST.get('email')

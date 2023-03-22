@@ -49,6 +49,9 @@
   
 </head>
 <style>
+  body{
+    position: relative;
+  }
   .site-nav .site-navigation .site-menu>.brend-li {
     display: none;
   }
@@ -182,9 +185,158 @@
   background-color: #e3e2e2;
 
 }
+
+.container2 {
+  position: relative;
+
+}
+.modal_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.632);
+  opacity: 0;
+  transition: all 0.4s;
+  z-index: 999;
+  visibility: hidden;
+}
+.modal_active {
+  opacity: 1;
+  transition: all 0.4s;
+  visibility: visible;
+}
+
+.modal_content {
+  background-color: #fff;
+  width: 700px;
+  height: 700px;
+  padding: 45px;
+  text-align: center;
+  transform: scale(0);
+  transition: all 0.4s;
+  background-image: url('../../static/sayt/photo/8.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 4px;
+  font-family: Унаследовать;
+  color: rgb(0, 0, 0) !important;
+  inset: 0px;
+  display: block;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal_content_active {
+  transform: scale(1);
+  transition: all 0.4s;
+}
+.modal_content_item > .modal_exit_btn {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+  font-weight: 900;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+}
+.modal_content_item > .modal_exit_btn > svg {
+  transform: scale(1);
+  transition: all 0.4s;
+}
+.modal_content_item > .modal_exit_btn > svg:hover {
+  transform: scale(1.1);
+  transition: all 0.4s;
+}
+.modal_content_item > h1 {
+  font-size: 30px;
+  color: #3e3e3e;
+  font-weight: 600;
+  line-height: 1.2em;
+  margin: 0;
+  margin-bottom: 1.75em;
+}
+.modal_content_item > form {
+  word-break: break-word;
+  width: 100%;
+}
+.modal_content_item > form > label {
+  text-transform: uppercase;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #000000;
+  font-family: Унаследовать;
+}
+.modal_content_item > form > input {
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 0.75em;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 2px;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+  color: #666;
+  height: auto;
+  border-color: #ddd;
+  border-radius: 2px;
+  background: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-weight: inherit;
+  font-size: 1rem;
+  line-height: 1.6em;
+  margin-bottom: 1.2em;
+}
+.modal_content_item > form > input[type="submit"] {
+  margin-top: 30px;
+  border-radius: 2px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1em;
+  border-style: solid;
+  border-width: 0;
+  color: #ffffff;
+  border-color: #0170b9;
+  background-color: #0170b9;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.modal_content_item > form > input[type="submit"]:focus,
+.modal_content_item > form > input[type="submit"]:hover {
+  color: #ffffff;
+  background-color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+@media screen and (max-width: 768px) {
+  .modal_content {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 700px !important;
+    box-sizing: border-box;
+  }
+}
+
 </style>
 
-<body>
+<body onload="ModalActive()">
+  
   <a href="https://wa.me/+79311014699" class="float" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
   </a>
@@ -423,6 +575,7 @@
   <script src="{% static 'sayt/js/navbar.js' %}"></script>
   <script src="{% static 'sayt/js/counter.js' %}"></script>
   <script src="{% static 'sayt/js/custom.js' %}"></script>
+  <script src="{% static 'sayt/modal.js' %}"></script>
 </body>
 
 </html>
