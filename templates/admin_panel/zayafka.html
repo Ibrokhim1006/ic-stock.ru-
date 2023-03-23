@@ -1,6 +1,6 @@
 {% extends  'admin_panel/base.html' %}
 {% load static %}
-{% block title %} <title>Заявка клиент</title> {% endblock %}
+{% block title %} <title>Оставьте заявку</title> {% endblock %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Заявка клиент</h4>
+                <h4 class="card-title">Оставьте заявку</h4>
             </div>
             <div class="card-body">
                 <table id="datatable" class="table table-bordered  dt-responsive nowrap w-100">
@@ -16,17 +16,23 @@
                     <tr class="text-center">
                         <th style="width: 5%;">№</th>
                         <th style="width: 20%;">Ф.И.О</th>
-                        <th style="width: 20%;">E-mail</th>
+                        <th style="width: 20%;">Компания</th>
+                        <th style="width: 10%;">E-mail </th>
                         <th style="width: 20%;">Телефон </th>
+                        <th style="width: 25%;">Сообщение </th>
+
 
                     </tr>
                     </thead>
                     {% for item in objects_list %}
                     <tr>
                         <td class="text-center">{{forloop.counter}}</td>
-                        <td class="text-center">{{item.fullName}}</td>
-                        <td class="text-center">{{item.e_mail}}</td>
-                        <td class="text-center">{{item.e_phone}}</td>
+                        <td class="text-center">{{item.full_name}}</td>
+                        <td class="text-center">{{item.company}}</td>
+                        <td class="text-center">{{item.email}}</td>
+                        <td class="text-center">{{item.phone}}</td>
+                        <td class="text-center">{{item.content}}</td>
+
                     </tr>
                     {% endfor %}
                 </table>

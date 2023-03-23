@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('supply_line/',supply_line,name='supply_line'),
     path('quality/',quality,name='quality'),
+    path('izgotovlenie-pechatniy-plat/',izgotovlenie_pechatniy_plat,name='izgotovlenie_pechatniy_plat' ),
     # path('DeleteProductView/',DeleteProductView.as_view())
 
     # path('create_product_view/<str:atrikul>/',CreateProductView.as_view,name='create_product_view')

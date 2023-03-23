@@ -238,7 +238,7 @@ class UpdateSEOAdmin(UpdateView):
 
 
 @login_required
-def zayafka_klinet(request):
+def ostavite_zayafku(request):
     context = {}
-    context['objects_list'] = Zayafka.objects.all().order_by('-id')
+    context['objects_list'] = SupplyLine.objects.all().order_by('-id')
     return render(request,'admin_panel/zayafka.html',context)
