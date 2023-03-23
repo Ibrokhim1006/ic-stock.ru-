@@ -24,13 +24,6 @@ def index(request):
     context['objects_product'] = Product.objects.all().order_by('-id')[:6]
     context['objects_category'] = Categoriya.objects.all().order_by('id')[:6]
     if request.method=='POST':
-        fullName = request.POST.get('fullName')
-        e_mail = request.POST.get('e_mail')
-        e_phone = request.POST.get('e_phone')
-        supply_lines = Zayafka(fullName=fullName,e_mail=e_mail,e_phone=e_phone)
-        supply_lines.save()
-        return redirect('index') 
-    if request.method=='POST':
         full_name = request.POST.get('full_name')
         company = request.POST.get('company')
         email = request.POST.get('email')
@@ -194,3 +187,19 @@ def create_product_view(request,atrikul):
     objects.description=description
     objects.save()
     return JsonResponse({'data':'succsess'})
+
+def izgotovlenie_pechatniy_plat(request):
+    context = {}
+    if request.method=='POST':
+        full_name = request.POST.get('full_name')
+        company = request.POST.get('company')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        content = request.POST.get('content')
+        if full_name=='' or company=='' or email=='' or phone=='' or content=='':
+            context['error'] = "Заполните информацию !"
+            return render(request,'sayt/izgat.html',context)
+        supply_lines = SupplyLine(full_name=full_name,company=company,email=email,phone=phone,content=content)
+        supply_lines.save()
+        return redirect('izgotovlenie_pechatniy_plat') 
+    return render(request,'sayt/izgat.html',) 

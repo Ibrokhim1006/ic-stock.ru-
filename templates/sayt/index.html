@@ -83,52 +83,10 @@
       width: 100%;
     }
   }
+
 </style>
 
-<div class="modal_container">
-  <div class="modal_content">
-    <div class="modal_content_item">
-      <div class="modal_exit_btn" onclick="exitModal()">
-        <svg
-          class="ays_pb_material_close_icon"
-          xmlns="https://www.w3.org/2000/svg"
-          height="36px"
-          viewBox="0 0 24 24"
-          width="36px"
-          fill="#ffffff"
-          alt="Pop-up Close"
-        >
-          <path d="M0 0h24v24H0z" fill="none"></path>
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-          ></path>
-        </svg>
-      </div>
-      <h1 style="font-weight:bold;color: #fff;">ХОТИТЕ, МЫ ВАМ ПЕРЕЗВОНИМ?</h1>
-      <form action="" method="post">
-        {% csrf_token %}
-        <div class="row">
-          <div class="col-lg-12">
-            <label for="firstName" class="form-label" style="font-weight:bold;color: #fff;">ВАШЕ ИМЯ</label>
-            <input type="text" id="firstName" class="form-control" name="fullName" />
-          </div>
-          <div class="col-lg-12 mt-2">
-            <label for="email" class="form-label" style="font-weight:bold;color: #fff;">ВАШ E-MAIL</label>
-            <input type="email" id="email" class="form-control" name="e_mail" />
-          </div>
-          <div class="col-lg-12 mt-2">
-            <label for="phoneNumber" class="form-label" style="font-weight:bold;color: #fff;">ВАШ ТЕЛ</label>
-            <input type="text" id="phoneNumber" class="form-control" name="e_phone" />
-          </div>
-        </div>
-        
-        
-        
-        <input type="submit" value="ЖДУ ЗВОНКА" />
-      </form>
-    </div>
-  </div>
-</div>
+
 <div class="hero">
   <div class="hero-slide">
     <div class="img overlay" style="background-image:
@@ -141,15 +99,7 @@
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-9 text-center">
-
-        <div class="narrow-w form-search d-flex align-items-stretch mb-3"
-          method="POST" data-aos="fade-up" data-aos-delay="200">
-          {% csrf_token %}
-          <input type="search" class="form-control px-4" placeholder="Поиск"
-            name="search" id="search"/>
-          <div class="listContainer"></div>
-          <div class="list"></div>
-        </div>
+        {% include   'sayt/search.html' %}
       </div>
     </div>
   </div>
@@ -382,77 +332,4 @@
 </div>
 <!-- end section 5 -->
 
-<script>
-
-  // search
-  document.querySelector('#search').addEventListener('input', (e) => {
-    document.querySelector('.list_container')?.remove();
-    let list = document.querySelector('.listContainer');
-    document.querySelector('#search').style.borderRadius = "0"
-    if (e.target.value !== "") {
-      fetch(`https://ic-stock.ru/all_product_search_view/?search=${e.target.value}`, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json"
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          // let albums = data.data;
-          // console.log(albums);
-          let ul = document.createElement('ul');
-          ul.classList.add("list_container");
-          ul.style.display = "flex";
-
-          data.map(item => {
-            // create element
-            let li = document.createElement('li');
-            let a = document.createElement('a');
-            let divLeft = document.createElement('div');
-            let divRight = document.createElement('div');
-            let img = document.createElement('img');
-            let div = document.createElement('div');
-            let p1 = document.createElement('p');
-            let p2 = document.createElement('p');
-            let span = document.createElement('span');
-            let input = document.createElement('input');
-            var id = item.id
-            // add class
-            li.classList.add('list_item');
-            a.href=`product/${item.brend_id.ur}-${item.atrikul}`;
-            divLeft.classList.add('list_item_left');
-            // divRight.classList.add('list_item_right');
-            img.classList.add("list_item_img");
-            div.classList.add("list_item_title");
-            p1.classList.add("list_item_title_top");
-            p2.classList.add("list_item_title_bottom");
-            span.classList.add("list_item_price");
-            // input.classList.add("list_item_quantity");
-
-            img.src = item.categorsiya_id.img_categoriya;
-            p1.textContent = item.name;
-            p2.textContent = item.atrikul;
-            div.appendChild(p1);
-            div.appendChild(p2);
-            divLeft.appendChild(img);
-            divLeft.appendChild(div);
-            span.textContent = item.price;
-            input.setAttribute('type', "number");
-            input.value = item.id;
-            divRight.appendChild(span);
-            // divRight.appendChild(input);
-
-            a.appendChild(li)
-            li.appendChild(divLeft);
-            li.appendChild(divRight);
-            ul.appendChild(a);
-          })
-          list.appendChild(ul);
-        })
-    } else {
-      document.querySelector('.list_container').remove();
-      document.querySelector('#search').style.borderRadius = "30px";
-    }
-  })
-</script>
 {% endblock %}

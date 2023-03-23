@@ -4912,10 +4912,10 @@ textarea.form-control-lg {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1050;
   width: 100vw;
   height: 100vh;
-  background-color: #000; }
+  background-color: #000;
+ }
   .modal-backdrop.fade {
     opacity: 0; }
   .modal-backdrop.show {
@@ -9189,14 +9189,16 @@ textarea.form-control-lg {
   padding-bottom: 20px;
   position: absolute;
   top: 0;
-  z-index: 9;
+  z-index: 9 ;
   width: 100%; }
   .site-nav h1, .site-nav .h1 {
     margin: 0;
     padding: 0;
     font-size: 24px; }
   .site-nav .site-navigation .site-menu {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    padding: 8px 5px;
+  }
     .site-nav .site-navigation .site-menu > li {
       display: inline-block; }
       .site-nav .site-navigation .site-menu > li > a {
@@ -9647,7 +9649,7 @@ textarea {
 
 .menu-bg-wrap {
   background-color: #fff;
-  padding: 20px 30px;
+  padding: 10px 3px;
   position: relative;
   float: left;
   width: 148% !important;
