@@ -9513,8 +9513,8 @@ textarea.form-control-lg {
 
 /* Burger */
 .burger {
-  width: 32px;
-  height: 32px;
+  width: 40px !important;
+  height: 66px !important;
   cursor: pointer;
   position: relative;
   margin-top: 12px !important;
@@ -9541,7 +9541,9 @@ textarea.form-control-lg {
   content: ""; }
 
 .burger:before {
-  top: 4px; }
+  top: 4px;
+  right: 20px;
+}
 
 .burger span {
   top: 15px; }
