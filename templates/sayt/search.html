@@ -97,28 +97,20 @@
       </div>
       <div class="modal-body">
         <p style="font-weight: bold;">Подскажите пожалуйста цены и сроки поставки на позицию: </p>
-        <form action="" method="post">
+        <p class="text-center" id="error"></p>
+        <form action="" method="post" role="form" id="formdata">
           {% csrf_token %}
           <div class="row">
-            <div class="col-lg-6 mb-3">
-              <label for="recipient-name" class="col-form-label">Продукт:</label>
-              <input type="text" class="form-control" id="recipient-name" name="product">
+            <div class="col-lg-12 mb-3">
+              <label for="name" class="col-form-label">Название:</label>
+              <input type="text" class="form-control" id="name" name="name">
             </div>
-            <div class="col-lg-6 mb-3">
-              <label for="recipient-name" class="col-form-label">Цены :</label>
-              <input type="text" class="form-control" id="recipient-name" name="price">
-            </div>
-            <div class="col-lg-6 mb-3">
-              <label for="recipient-name" class="col-form-label">Cроки поставки:</label>
-              <input type="text" class="form-control" id="recipient-name" name="and_date">
-            </div>
-            <div class="col-lg-6 mb-3">
-              <label for="recipient-name" class="col-form-label">Позицию:</label>
-              <input type="text" class="form-control" id="recipient-name" name="locat">
+            <div class="col-lg-12 mb-3">
+              <label for="num" class="col-form-label">количество штук:</label>
+              <input type="number" class="form-control" id="num" name="num">
             </div>
           </div> 
-          
-          <button class="btn btn-primary">Отправка</button>
+          <input type="submit" class="btn btn-primary" id="conctactsub" value="Отправка">
         </form>
       </div>
     </div>
@@ -203,6 +195,35 @@
       document.querySelector('#search').style.borderRadius = "30px";
     }
   })
+
+
+
+  document.getElementById("formdata").addEventListener("submit", function(e){
+    e.preventDefault();
+  
+    name = document.getElementById("name").value;
+    num = document.getElementById("num").value
+    
+  const formData = new FormData();
+  //console.log(name);
+  formData.append('name', name);
+  formData.append('num', num);
+  formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+  console.log(formData);
+  fetch('https://ic-stock.ru/search_client/', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    error = document.getElementById('error').innerHTML = "Информация отправлена"
+    document.getElementById('formdata').reset()
+  })
+  .catch(error => {
+    error = document.getElementById('error').innerHTML = "Ошибка"
+    document.getElementById('formdata').reset()
+  });
+  });
 </script>
 
 

@@ -47,4 +47,5 @@ urlpatterns = [
     path('update_seo_admin/<int:pk>/',UpdateSEOAdmin.as_view(),name='update_seo_admin'),
 
     path('ostavite_zayafku/',ostavite_zayafku,name='ostavite_zayafku'),
+    path('search_clien/',search_clien,name='search_clien')
 ]

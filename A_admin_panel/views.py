@@ -242,3 +242,9 @@ def ostavite_zayafku(request):
     context = {}
     context['objects_list'] = SupplyLine.objects.all().order_by('-id')
     return render(request,'admin_panel/zayafka.html',context)
+
+@login_required
+def search_clien(request):
+    context = {}
+    context['objects_list'] = Search_Request.objects.all().order_by('-id')
+    return render(request,'admin_panel/search.html',context)

@@ -1,0 +1,39 @@
+{% extends  'admin_panel/base.html' %}
+{% load static %}
+{% block title %} <title>Поисковый заявку</title> {% endblock %}
+
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Поисковый заявку</h4>
+            </div>
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered  dt-responsive nowrap w-100">
+                    <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 5%;">№</th>
+                        <th style="width: 20%;">Название</th>
+                        <th style="width: 20%;">количество штук</th>
+
+
+                    </tr>
+                    </thead>
+                    {% for item in objects_list %}
+                    <tr>
+                        <td class="text-center">{{forloop.counter}}</td>
+                        <td class="text-center">{{item.name}}</td>
+                        <td class="text-center">{{item.num}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <!-- end cardaa -->
+    </div> <!-- end col -->
+</div>
+
+
+{% endblock %}

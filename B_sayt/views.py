@@ -202,4 +202,22 @@ def izgotovlenie_pechatniy_plat(request):
         supply_lines = SupplyLine(full_name=full_name,company=company,email=email,phone=phone,content=content)
         supply_lines.save()
         return redirect('izgotovlenie_pechatniy_plat') 
-    return render(request,'sayt/izgat.html',) 
+    return render(request,'sayt/izgat.html',context)
+
+def search_client(request):
+    context = {}
+    if request.method=='POST':
+        name = request.POST.get('name')
+        num = request.POST.get('num')
+    objects_create = Search_Request(name=name,num=num)
+    objects_create.save()
+    return JsonResponse({'data':'s'}) 
+
+class SerachClient(APIView):
+    def post(self,request):
+        name = request.data['name']
+        num = request.data['num']
+        objects_create = Search_Request(name=name,num=num)
+        objects_create.save()
+
+        return Response({'data':'succsess'})

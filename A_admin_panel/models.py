@@ -60,11 +60,11 @@ class ClientPost(models.Model):
         return self.full_name
 
 class SupplyLine(models.Model):
-    full_name = models.CharField(max_length=250)
-    company = models.CharField(max_length=250)
-    email = models.CharField(max_length=250)
-    phone = models.CharField(max_length=250)
-    content = models.TextField()
+    full_name = models.CharField(max_length=250,null=True,blank=True)
+    company = models.CharField(max_length=250,null=True,blank=True)
+    email = models.CharField(max_length=250,null=True,blank=True)
+    phone = models.CharField(max_length=250,null=True,blank=True)
+    content = models.TextField(null=True,blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -120,3 +120,12 @@ class Zayafka(models.Model):
 
     def __str__(self):
         return self.fullName
+    
+
+class Search_Request(models.Model):
+    name = models.CharField(max_length=250)
+    num = models.SmallIntegerField(null=True,blank=True)
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
